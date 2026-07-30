@@ -5,27 +5,94 @@ import { Camera, MapPin, ArrowRight, Star, BadgeCheck, ImageOff } from 'lucide-r
 
 const BASE = 'https://umyhcsrxwdogvbxgipnx.supabase.co/storage/v1/object/public/site-images/';
 
-const featured = {
-  client: 'Jose Carmona',
-  title: 'ADU Framing – Detached Unit',
-  location: 'Modesto, CA',
-  category: 'ADU Construction',
-  badge: 'ADU',
-  review: '"From start to finish it was a great experience. We looked at the plans and got the work done very efficiently — passed city inspections with no problem on the first try, which allowed the rest of the project to move forward. Great price too."',
-  priceBadge: 'Good Price · ⭐ Licensed & Insured',
-  images: [
-    BASE + 'josecarmona/Captura%20de%20pantalla%202026-07-30%20a%20la%28s%29%201.15.17%20p.m..png',
-    BASE + 'josecarmona/Captura%20de%20pantalla%202026-07-30%20a%20la%28s%29%201.15.37%20p.m..png',
-  ],
-};
+const realProjects = [
+  {
+    client: 'Jose Carmona',
+    title: 'ADU Framing – Detached Unit',
+    location: 'Modesto, CA',
+    category: 'ADU Construction',
+    badge: 'ADU',
+    review: '"From start to finish it was a great experience. We looked at the plans and got the work done very efficiently — passed city inspections with no problem on the first try, which allowed the rest of the project to move forward. Great price too."',
+    priceBadge: 'Good Price · Licensed & Insured',
+    images: [
+      BASE + 'josecarmona/Captura%20de%20pantalla%202026-07-30%20a%20la%28s%29%201.15.17%20p.m..png',
+      BASE + 'josecarmona/Captura%20de%20pantalla%202026-07-30%20a%20la%28s%29%201.15.37%20p.m..png',
+    ],
+  },
+  {
+    client: 'Ruben Escareno',
+    title: 'Custom Home Framing',
+    location: 'Central Valley, CA',
+    category: 'Structural Framing',
+    badge: 'Framing',
+    review: '"Very fast and clean work he did at my custom home. I recommend him for all the framing projects that you may have!!"',
+    priceBadge: '5 Stars · Fast & Clean Work',
+    images: [
+      BASE + 'Ruben%20Esreno/Captura%20de%20pantalla%202026-07-30%20a%20la%28s%29%201.28.02%20p.m..png',
+      BASE + 'Ruben%20Esreno/Captura%20de%20pantalla%202026-07-30%20a%20la%28s%29%201.31.02%20p.m..png',
+    ],
+  },
+];
 
 const placeholders = [
-  { id: 2, title: 'Custom Home Framing',      location: 'Ceres, CA',   category: 'Structural Framing', badge: 'Framing',   color: 'rgba(59,130,246,0.1)',  border: 'rgba(59,130,246,0.2)' },
   { id: 3, title: 'Room Addition',            location: 'Turlock, CA', category: 'Room Addition',      badge: 'Addition',  color: 'rgba(34,197,94,0.1)',   border: 'rgba(34,197,94,0.2)' },
-  { id: 4, title: 'ADU – Detached Unit',      location: 'Ceres, CA',   category: 'ADU Construction',   badge: 'ADU',       color: 'rgba(255,183,3,0.12)',  border: 'rgba(255,183,3,0.25)' },
+  { id: 4, title: 'Roof Shingle Installation',location: 'Salida, CA',  category: 'Roofing',            badge: 'Roofing',   color: 'rgba(239,68,68,0.1)',   border: 'rgba(239,68,68,0.2)' },
   { id: 5, title: 'Kitchen Remodel',          location: 'Modesto, CA', category: 'Remodeling',         badge: 'Remodel',   color: 'rgba(168,85,247,0.1)',  border: 'rgba(168,85,247,0.2)' },
-  { id: 6, title: 'Roof Shingle Installation',location: 'Salida, CA',  category: 'Roofing',            badge: 'Roofing',   color: 'rgba(239,68,68,0.1)',   border: 'rgba(239,68,68,0.2)' },
+  { id: 6, title: 'Drywall & Paint',          location: 'Ceres, CA',   category: 'Drywall',            badge: 'Drywall',   color: 'rgba(99,102,241,0.1)',  border: 'rgba(99,102,241,0.2)' },
 ];
+
+type Project = typeof realProjects[0];
+
+function ProjectDetails({ p }: { p: Project }) {
+  return (
+    <div style={{ padding: '32px 32px 28px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+      <div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '18px' }}>
+          <span style={{ padding: '4px 13px', borderRadius: '999px', background: 'rgba(255,183,3,0.15)', border: '1px solid rgba(255,183,3,0.3)', fontSize: '11px', fontWeight: '800', color: '#ffb703', letterSpacing: '0.08em' }}>
+            {p.badge}
+          </span>
+          <div style={{ display: 'flex', gap: '2px' }}>
+            {[...Array(5)].map((_, i) => <Star key={i} size={11} fill="#ffb703" style={{ color: '#ffb703' }} />)}
+          </div>
+        </div>
+
+        <h3 style={{ fontFamily: 'Poppins, sans-serif', fontSize: 'clamp(1.1rem, 1.8vw, 1.45rem)', fontWeight: '900', color: '#fff', marginBottom: '8px', lineHeight: 1.2 }}>
+          {p.title}
+        </h3>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '20px' }}>
+          <MapPin size={12} style={{ color: '#ffb703', flexShrink: 0 }} />
+          <span style={{ fontSize: '12.5px', color: 'rgba(255,255,255,0.5)' }}>{p.location}</span>
+          <span style={{ color: 'rgba(255,255,255,0.2)' }}>·</span>
+          <span style={{ fontSize: '12.5px', color: 'rgba(255,255,255,0.5)' }}>{p.category}</span>
+        </div>
+
+        <blockquote style={{ margin: 0, padding: '16px 18px', borderRadius: '14px', background: 'rgba(255,183,3,0.06)', border: '1px solid rgba(255,183,3,0.15)', borderLeft: '3px solid #ffb703', marginBottom: '16px' }}>
+          <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.75)', lineHeight: 1.7, margin: 0, fontStyle: 'italic' }}>
+            {p.review}
+          </p>
+          <footer style={{ marginTop: '12px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <div style={{ width: '30px', height: '30px', borderRadius: '50%', background: 'rgba(255,183,3,0.2)', border: '1px solid rgba(255,183,3,0.35)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px', fontWeight: '800', color: '#ffb703', flexShrink: 0 }}>
+              {p.client[0]}
+            </div>
+            <div>
+              <div style={{ fontSize: '12.5px', fontWeight: '800', color: '#fff' }}>{p.client}</div>
+              <div style={{ fontSize: '10.5px', color: 'rgba(255,255,255,0.4)' }}>Verified Google Review</div>
+            </div>
+            <BadgeCheck size={15} style={{ color: '#4ade80', marginLeft: 'auto', flexShrink: 0 }} />
+          </footer>
+        </blockquote>
+
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '4px 12px', borderRadius: '999px', background: 'rgba(74,222,128,0.08)', border: '1px solid rgba(74,222,128,0.2)', fontSize: '11px', fontWeight: '700', color: '#4ade80' }}>
+          {p.priceBadge}
+        </div>
+      </div>
+
+      <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginTop: '20px', padding: '11px 20px', borderRadius: '12px', background: 'rgba(255,183,3,0.1)', border: '1px solid rgba(255,183,3,0.25)', fontSize: '13px', fontWeight: '800', color: '#ffb703', textDecoration: 'none', transition: 'all 0.2s', alignSelf: 'flex-start' }} className="feat-cta">
+        Request a similar project <ArrowRight size={13} />
+      </Link>
+    </div>
+  );
+}
 
 export default function PortfolioPreview() {
   return (
@@ -48,100 +115,47 @@ export default function PortfolioPreview() {
           </Link>
         </div>
 
-        {/* ── Featured: Jose Carmona ── */}
-        <div style={{
-          borderRadius: '24px', overflow: 'hidden',
-          background: 'rgba(15,26,46,0.7)',
-          border: '1px solid rgba(255,183,3,0.2)',
-          display: 'grid', gridTemplateColumns: '1fr 1fr',
-          marginBottom: '24px',
-          boxShadow: '0 24px 60px rgba(0,0,0,0.4)',
-        }} className="featured-card">
+        {/* ── Real projects ── */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginBottom: '24px' }}>
+          {realProjects.map((p, pi) => (
+            <div key={p.client} style={{
+              borderRadius: '24px', overflow: 'hidden',
+              background: 'rgba(15,26,46,0.7)',
+              border: '1px solid rgba(255,183,3,0.2)',
+              display: 'grid', gridTemplateColumns: '1fr 1fr',
+              boxShadow: '0 24px 60px rgba(0,0,0,0.4)',
+            }} className="featured-card">
 
-          {/* Images */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3px', minHeight: '340px' }}>
-            {featured.images.map((src, i) => (
-              <div key={i} style={{ position: 'relative', overflow: 'hidden' }}>
-                <Image
-                  src={src}
-                  alt={`${featured.title} – photo ${i + 1}`}
-                  fill
-                  sizes="(max-width: 768px) 50vw, 25vw"
-                  style={{ objectFit: 'cover', transition: 'transform 0.4s ease' }}
-                  className="feat-img"
-                />
-              </div>
-            ))}
-          </div>
-
-          {/* Details */}
-          <div style={{ padding: '36px 36px 32px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-            <div>
-              {/* Badge */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px' }}>
-                <span style={{ padding: '5px 14px', borderRadius: '999px', background: 'rgba(255,183,3,0.15)', border: '1px solid rgba(255,183,3,0.3)', fontSize: '11px', fontWeight: '800', color: '#ffb703', letterSpacing: '0.08em' }}>
-                  {featured.badge}
-                </span>
-                <div style={{ display: 'flex', gap: '2px' }}>
-                  {[...Array(5)].map((_, i) => <Star key={i} size={12} fill="#ffb703" style={{ color: '#ffb703' }} />)}
-                </div>
-              </div>
-
-              {/* Title & location */}
-              <h3 style={{ fontFamily: 'Poppins, sans-serif', fontSize: 'clamp(1.2rem, 2vw, 1.55rem)', fontWeight: '900', color: '#fff', marginBottom: '10px', lineHeight: 1.2 }}>
-                {featured.title}
-              </h3>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '24px' }}>
-                <MapPin size={13} style={{ color: '#ffb703', flexShrink: 0 }} />
-                <span style={{ fontSize: '13px', color: 'rgba(255,255,255,0.5)' }}>{featured.location}</span>
-                <span style={{ fontSize: '13px', color: 'rgba(255,255,255,0.25)' }}>·</span>
-                <span style={{ fontSize: '13px', color: 'rgba(255,255,255,0.5)' }}>{featured.category}</span>
-              </div>
-
-              {/* Review quote */}
-              <blockquote style={{
-                margin: 0, padding: '18px 20px',
-                borderRadius: '14px',
-                background: 'rgba(255,183,3,0.06)',
-                border: '1px solid rgba(255,183,3,0.15)',
-                borderLeft: '3px solid #ffb703',
-                marginBottom: '20px',
-              }}>
-                <p style={{ fontSize: '13.5px', color: 'rgba(255,255,255,0.75)', lineHeight: 1.7, margin: 0, fontStyle: 'italic' }}>
-                  {featured.review}
-                </p>
-                <footer style={{ marginTop: '14px', display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: 'rgba(255,183,3,0.2)', border: '1px solid rgba(255,183,3,0.35)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '13px', fontWeight: '800', color: '#ffb703', flexShrink: 0 }}>
-                    {featured.client[0]}
+              {/* Images — alternate side on second card */}
+              {pi % 2 === 0 ? (
+                <>
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3px', minHeight: '320px' }}>
+                    {p.images.map((src, i) => (
+                      <div key={i} style={{ position: 'relative', overflow: 'hidden' }}>
+                        <Image src={src} alt={`${p.title} photo ${i + 1}`} fill sizes="25vw" style={{ objectFit: 'cover', transition: 'transform 0.4s ease' }} className="feat-img" />
+                      </div>
+                    ))}
                   </div>
-                  <div>
-                    <div style={{ fontSize: '13px', fontWeight: '800', color: '#fff' }}>{featured.client}</div>
-                    <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.4)' }}>Verified Google Review</div>
+                  <ProjectDetails p={p} />
+                </>
+              ) : (
+                <>
+                  <ProjectDetails p={p} />
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3px', minHeight: '320px' }}>
+                    {p.images.map((src, i) => (
+                      <div key={i} style={{ position: 'relative', overflow: 'hidden' }}>
+                        <Image src={src} alt={`${p.title} photo ${i + 1}`} fill sizes="25vw" style={{ objectFit: 'cover', transition: 'transform 0.4s ease' }} className="feat-img" />
+                      </div>
+                    ))}
                   </div>
-                  <BadgeCheck size={16} style={{ color: '#4ade80', marginLeft: 'auto', flexShrink: 0 }} />
-                </footer>
-              </blockquote>
-
-              {/* Price badge */}
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '5px 13px', borderRadius: '999px', background: 'rgba(74,222,128,0.08)', border: '1px solid rgba(74,222,128,0.2)', fontSize: '11.5px', fontWeight: '700', color: '#4ade80' }}>
-                {featured.priceBadge}
-              </div>
+                </>
+              )}
             </div>
-
-            <Link href="/contact" style={{
-              display: 'inline-flex', alignItems: 'center', gap: '8px',
-              marginTop: '24px', padding: '12px 22px', borderRadius: '12px',
-              background: 'rgba(255,183,3,0.1)', border: '1px solid rgba(255,183,3,0.25)',
-              fontSize: '13px', fontWeight: '800', color: '#ffb703', textDecoration: 'none',
-              transition: 'all 0.2s', alignSelf: 'flex-start',
-            }} className="feat-cta">
-              Request a similar project <ArrowRight size={14} />
-            </Link>
-          </div>
+          ))}
         </div>
 
         {/* ── Placeholder grid ── */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }} className="portfolio-grid">
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px' }} className="portfolio-grid">
           {placeholders.map(({ id, title, location, category, badge, color, border }) => (
             <div key={id} style={{
               borderRadius: '18px', background: 'rgba(15,26,46,0.6)',
@@ -176,12 +190,12 @@ export default function PortfolioPreview() {
       <style>{`
         .feat-img:hover { transform: scale(1.04); }
         .feat-cta:hover { background: rgba(255,183,3,0.18) !important; }
-        @media (max-width: 860px) {
+        @media (max-width: 900px) {
           .featured-card { grid-template-columns: 1fr !important; }
           .portfolio-grid { grid-template-columns: 1fr 1fr !important; }
         }
         @media (max-width: 540px) {
-          .portfolio-grid { grid-template-columns: 1fr !important; }
+          .portfolio-grid { grid-template-columns: 1fr 1fr !important; }
         }
       `}</style>
     </section>
