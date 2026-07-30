@@ -16,7 +16,7 @@ export default function PortfolioPage() {
     <>
       <PageHero
         chip="Our Work"
-        Icon={Camera}
+        iconName="camera"
         title="Real Projects,"
         phrases={['Real Results', 'Framing · ADUs · Roofing', 'Ceres · Modesto · Central Valley', 'Licensed Contractor CA']}
         description="Browse our work — framing, ADUs, roofing, remodeling and more across Ceres, Modesto and the Central Valley."

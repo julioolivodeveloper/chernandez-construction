@@ -44,7 +44,7 @@ export default function DrywallPage() {
     <>
       <PageHero
         chip="Drywall & Paint"
-        Icon={PaintBucket}
+        iconName="paintbucket"
         title="Drywall & Painting in Ceres & Modesto"
         phrases={['Install · Texture · Paint', 'Clean Professional Finish', 'Residential Specialists', 'Free Estimates']}
         description="Drywall installation, texturing, and interior painting for new construction, additions, and remodels across the Central Valley."

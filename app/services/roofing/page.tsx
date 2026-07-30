@@ -44,7 +44,7 @@ export default function RoofingPage() {
     <>
       <PageHero
         chip="Roofing"
-        Icon={Grid3X3}
+        iconName="grid3x3"
         title="Roof Shingles in Ceres & Modesto"
         phrases={['Installation & Replacement', 'All Shingle Types', 'Licensed & Insured', 'Free Estimates']}
         description="Professional roof shingle installation and replacement for residential properties across the Central Valley."

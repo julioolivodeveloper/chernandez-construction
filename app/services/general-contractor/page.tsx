@@ -44,7 +44,7 @@ export default function GeneralContractorPage() {
     <>
       <PageHero
         chip="Licensed GC"
-        Icon={Shield}
+        iconName="shield"
         title="General Contractor in Ceres & Modesto"
         phrases={['Lic. #1106454 · Fully Insured', 'Full Project Management', 'All Trades Coordinated', 'Free Estimates']}
         description="Licensed General Contractor serving Ceres, Modesto and the Central Valley. We manage your project from permits to final inspection."

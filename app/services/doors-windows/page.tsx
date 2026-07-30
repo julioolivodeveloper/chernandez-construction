@@ -44,7 +44,7 @@ export default function DoorsWindowsPage() {
     <>
       <PageHero
         chip="Doors & Windows"
-        Icon={DoorOpen}
+        iconName="dooropen"
         title="Doors & Windows in Ceres & Modesto"
         phrases={['Interior & Exterior', 'Energy Efficient Options', 'Licensed Installation', 'Free Estimates']}
         description="Professional door and window installation for residential properties. New construction, replacements, and upgrades."

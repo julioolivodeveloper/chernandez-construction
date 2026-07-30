@@ -45,7 +45,7 @@ export default function AdditionsPage() {
     <>
       <PageHero
         chip="Room Additions"
-        Icon={Building2}
+        iconName="building2"
         title="Room Additions in Ceres & Modesto"
         phrases={['Expand Your Living Space', 'Permitted & Inspected', 'Licensed Contractor CA', 'Free Estimate Available']}
         description="Expand your home with a professionally framed room addition. We handle permits, framing, and coordination with all trades."

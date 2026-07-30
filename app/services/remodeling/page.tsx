@@ -44,7 +44,7 @@ export default function RemodelingPage() {
     <>
       <PageHero
         chip="Remodeling"
-        Icon={Wrench}
+        iconName="wrench"
         title="Remodeling in Ceres & Modesto"
         phrases={['Kitchens · Baths · More', 'Transform Your Home', 'Licensed & Insured', 'Free Estimates']}
         description="Full home remodeling services — kitchens, bathrooms, flooring, and more. Licensed crew, clean work, and quality finishes."

@@ -45,7 +45,7 @@ export default function NewConstructionPage() {
     <>
       <PageHero
         chip="New Construction"
-        Icon={Warehouse}
+        iconName="warehouse"
         title="New Home Construction in Ceres & Modesto"
         phrases={['Custom Homes · Ground Up', 'From Foundation to Finish', 'Licensed GC #1106454', 'Free Consultation']}
         description="Custom residential construction from the ground up. Licensed General Contractor managing all phases of your new home build."

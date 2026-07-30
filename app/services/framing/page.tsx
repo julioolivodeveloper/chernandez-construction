@@ -45,7 +45,7 @@ export default function FramingPage() {
     <>
       <PageHero
         chip="Core Specialty"
-        Icon={Layers}
+        iconName="layers"
         title="Structural Framing in Ceres & Modesto"
         phrases={['Walls · Roof · Additions', 'Built to California Code', 'Free Estimates Available', 'Licensed Crew #1106454']}
         description="Residential framing for new homes, ADUs and room additions — built to California code, permitted, and inspection-ready."

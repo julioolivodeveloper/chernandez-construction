@@ -13,7 +13,7 @@ export default function AboutPage() {
     <>
       <PageHero
         chip="About Us"
-        Icon={Shield}
+        iconName="shield"
         title="Building the Central Valley —"
         phrases={['One Frame at a Time', 'Licensed Since Day One', 'Trusted in Ceres & Modesto', 'Lic. #1106454']}
         description="C Hernandez Construction is a licensed general contractor specializing in residential framing, ADUs and additions in Ceres, Modesto and surrounding areas of the Central Valley."

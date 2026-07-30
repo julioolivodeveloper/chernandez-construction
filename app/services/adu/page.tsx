@@ -43,7 +43,7 @@ export default function AduPage() {
     <>
       <PageHero
         chip="ADU Specialist"
-        Icon={Home}
+        iconName="home"
         title="ADU Construction in Ceres & Modesto"
         phrases={['Detached · Attached · Garage', 'California ADU Law Compliant', 'Rental Income Potential', 'Free Consultation']}
         description="Accessory dwelling units built to California code. Detached, attached, garage conversions — we frame it right, coordinate permits, and build a rental-ready unit."

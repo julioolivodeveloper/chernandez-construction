@@ -44,7 +44,7 @@ export default function CarpentryPage() {
     <>
       <PageHero
         chip="Carpentry & Trim"
-        Icon={Hammer}
+        iconName="hammer"
         title="Carpentry & Trim in Ceres & Modesto"
         phrases={['Baseboards · Crown Molding', 'Custom Woodwork', 'Clean Finish Every Time', 'Free Estimates']}
         description="Professional carpentry and trim work for new construction, additions, and remodels. Baseboards, crown molding, doors, and custom woodwork."

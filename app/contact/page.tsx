@@ -13,7 +13,7 @@ export default function ContactPage() {
     <>
       <PageHero
         chip="Contact"
-        Icon={Phone}
+        iconName="phone"
         title="Get a Free"
         phrases={['Estimate Today', 'Same-Day Response', 'No Obligation Quote', 'Licensed & Insured Crew']}
         description="Tell us about your project and we'll get back to you within 24 hours with a free, no-pressure estimate."

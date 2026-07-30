@@ -2,7 +2,18 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Phone, Shield, CheckCircle2, type LucideIcon } from 'lucide-react';
+import {
+  Phone, Shield,
+  Layers, Home, Building2, Wrench, Grid3X3,
+  PaintBucket, DoorOpen, Warehouse, Hammer, Camera,
+} from 'lucide-react';
+
+const ICONS: Record<string, React.ElementType> = {
+  layers: Layers, home: Home, building2: Building2, shield: Shield,
+  wrench: Wrench, grid3x3: Grid3X3, paintbucket: PaintBucket,
+  dooropen: DoorOpen, warehouse: Warehouse, hammer: Hammer,
+  camera: Camera, phone: Phone,
+};
 
 const LOGO_URL = 'https://umyhcsrxwdogvbxgipnx.supabase.co/storage/v1/object/public/site-images/logo.png';
 const BASE = 'https://umyhcsrxwdogvbxgipnx.supabase.co/storage/v1/object/public/site-images/';
@@ -19,7 +30,7 @@ const bgImages = [
 
 interface Props {
   chip?: string;
-  Icon?: LucideIcon;
+  iconName?: string;
   title: string;
   phrases: string[];
   description: string;
@@ -30,7 +41,7 @@ interface Props {
 
 export default function PageHero({
   chip,
-  Icon,
+  iconName,
   title,
   phrases,
   description,
@@ -38,6 +49,7 @@ export default function PageHero({
   ctaHref = '/contact',
   badge,
 }: Props) {
+  const Icon = iconName ? ICONS[iconName.toLowerCase()] : undefined;
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [bgIndex, setBgIndex] = useState(0);
   const [nextBgIndex, setNextBgIndex] = useState(1);
