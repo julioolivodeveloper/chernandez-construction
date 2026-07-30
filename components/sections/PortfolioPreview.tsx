@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Camera, MapPin, ArrowRight, Star, BadgeCheck, ImageOff } from 'lucide-react';
+import { Camera, MapPin, ArrowRight, Star, BadgeCheck } from 'lucide-react';
 
 const BASE = 'https://umyhcsrxwdogvbxgipnx.supabase.co/storage/v1/object/public/site-images/';
 
@@ -172,37 +172,6 @@ export default function PortfolioPreview() {
                   </div>
                 </>
               )}
-            </div>
-          ))}
-        </div>
-
-        {/* ── Placeholder grid ── */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px' }} className="portfolio-grid">
-          {placeholders.map(({ id, title, location, category, badge, color, border }) => (
-            <div key={id} style={{
-              borderRadius: '18px', background: 'rgba(15,26,46,0.6)',
-              border: '1px solid rgba(255,255,255,0.07)', overflow: 'hidden', transition: 'all 0.3s ease',
-            }}
-              onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.border = `1px solid ${border}`; el.style.transform = 'translateY(-5px)'; el.style.boxShadow = '0 16px 40px rgba(0,0,0,0.35)'; }}
-              onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.border = '1px solid rgba(255,255,255,0.07)'; el.style.transform = 'translateY(0)'; el.style.boxShadow = 'none'; }}
-            >
-              <div style={{ height: '160px', background: `linear-gradient(135deg, ${color}, rgba(0,0,0,0.3))`, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '8px', position: 'relative', borderBottom: `1px solid ${border}` }}>
-                <ImageOff size={28} style={{ color: 'rgba(255,255,255,0.18)' }} />
-                <span style={{ fontSize: '11px', color: 'rgba(255,255,255,0.25)', fontWeight: '600' }}>Photos coming soon</span>
-                <span style={{ position: 'absolute', top: '12px', left: '12px', padding: '4px 10px', borderRadius: '999px', background: 'rgba(0,0,0,0.5)', border: `1px solid ${border}`, fontSize: '10px', fontWeight: '800', color: '#fff', letterSpacing: '0.05em' }}>{badge}</span>
-              </div>
-              <div style={{ padding: '16px 18px' }}>
-                <h3 style={{ fontSize: '14px', fontWeight: '800', color: '#fff', marginBottom: '4px', fontFamily: 'Poppins, sans-serif' }}>{title}</h3>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '5px', marginBottom: '12px' }}>
-                  <MapPin size={11} style={{ color: '#ffb703', flexShrink: 0 }} />
-                  <span style={{ fontSize: '11.5px', color: 'rgba(255,255,255,0.4)' }}>{location}</span>
-                  <span style={{ fontSize: '11.5px', color: 'rgba(255,255,255,0.2)', margin: '0 2px' }}>·</span>
-                  <span style={{ fontSize: '11.5px', color: 'rgba(255,255,255,0.4)' }}>{category}</span>
-                </div>
-                <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', fontSize: '12px', fontWeight: '700', color: '#ffb703', textDecoration: 'none' }}>
-                  Request similar <ArrowRight size={12} />
-                </Link>
-              </div>
             </div>
           ))}
         </div>

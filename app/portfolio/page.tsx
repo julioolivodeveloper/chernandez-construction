@@ -5,6 +5,7 @@ import WorkGallery from '@/components/WorkGallery';
 import ReviewsSection from '@/components/sections/ReviewsSection';
 import PageHero from '@/components/PageHero';
 import VideoCarousel from '@/components/VideoCarousel';
+import PortfolioPreview from '@/components/sections/PortfolioPreview';
 
 export const metadata: Metadata = {
   title: 'Portfolio | C Hernandez Construction – Framing, ADUs & Additions',
@@ -90,6 +91,9 @@ export default function PortfolioPage() {
 
       {/* Videos */}
       <VideoCarousel />
+
+      {/* Recent Projects */}
+      <PortfolioPreview />
 
       {/* Gallery */}
       <section className="section-pad" style={{ background: '#080e1d' }}>
