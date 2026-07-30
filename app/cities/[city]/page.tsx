@@ -66,7 +66,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
 
       {/* Intro + Services */}
       <section style={{ background: '#080e1d', padding: '72px 0' }}>
-        <div className="container" style={{ maxWidth: '1080px', display: 'grid', gridTemplateColumns: '1fr 380px', gap: '56px', alignItems: 'start' }} className="city-main-grid">
+        <div className="container city-main-grid" style={{ maxWidth: '1080px', display: 'grid', gridTemplateColumns: '1fr 380px', gap: '56px', alignItems: 'start' }}>
 
           {/* Left: intro + neighborhoods + permit */}
           <div>
