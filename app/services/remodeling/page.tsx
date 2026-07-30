@@ -5,6 +5,7 @@ import ServiceTimeline from '@/components/services/ServiceTimeline';
 import ServiceInlineForm from '@/components/services/ServiceInlineForm';
 import LicensedComparison from '@/components/services/LicensedComparison';
 import CitiesSection from '@/components/services/CitiesSection';
+import PageHero from '@/components/PageHero';
 
 export const metadata: Metadata = {
   title: 'Home Remodeling Contractor | C Hernandez Construction – Ceres & Modesto CA',
@@ -41,30 +42,14 @@ const faqs = [
 export default function RemodelingPage() {
   return (
     <>
-      <section style={{ paddingTop: '140px', paddingBottom: '80px', background: 'linear-gradient(145deg, #040a16, #0a1428)' }}>
-        <div className="container">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '24px' }}>
-            <div style={{ width: '56px', height: '56px', borderRadius: '15px', background: 'rgba(255,183,3,0.12)', border: '1px solid rgba(255,183,3,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ffb703' }}>
-              <Wrench size={26} />
-            </div>
-            <div className="section-chip" style={{ margin: 0 }}>Remodeling</div>
-          </div>
-          <h1 style={{ fontFamily: 'Poppins, sans-serif', fontSize: 'clamp(2.2rem, 4.5vw, 3.5rem)', fontWeight: '900', color: '#fff', letterSpacing: '-0.04em', marginBottom: '20px', maxWidth: '720px' }}>
-            Home Remodeling in <span className="text-gradient">Ceres & Modesto</span>
-          </h1>
-          <p style={{ fontSize: '17px', color: 'rgba(255,255,255,0.6)', lineHeight: 1.75, maxWidth: '600px', marginBottom: '32px' }}>
-            Licensed remodeling contractor for kitchen remodels, bathroom renovations, open concept conversions, and structural interior changes — permitted and built to last.
-          </p>
-          <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
-            <Link href="/contact" className="btn-primary">Request a Remodeling Estimate →</Link>
-            <a href="tel:+12092413765" className="btn-secondary"><Phone size={16} />(209) 241-3765</a>
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '24px' }}>
-            <CheckCircle2 size={15} style={{ color: '#ffb703' }} />
-            <span style={{ fontSize: '13px', color: 'rgba(255,255,255,0.55)' }}>CA License #1106454 · Permits Handled · Free Estimates</span>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        chip="Remodeling"
+        Icon={Wrench}
+        title="Remodeling in Ceres & Modesto"
+        phrases={['Kitchens · Baths · More', 'Transform Your Home', 'Licensed & Insured', 'Free Estimates']}
+        description="Full home remodeling services — kitchens, bathrooms, flooring, and more. Licensed crew, clean work, and quality finishes."
+        ctaLabel="Get a Remodeling Quote →"
+      />
 
       <section className="section-pad" style={{ background: '#080e1d' }}>
         <div className="container">

@@ -6,6 +6,7 @@ import ServiceInlineForm from '@/components/services/ServiceInlineForm';
 import LicensedComparison from '@/components/services/LicensedComparison';
 import CitiesSection from '@/components/services/CitiesSection';
 import CostEstimator from '@/components/services/CostEstimator';
+import PageHero from '@/components/PageHero';
 
 export const metadata: Metadata = {
   title: 'Room Addition Contractor | C Hernandez Construction – Ceres & Modesto CA',
@@ -42,30 +43,14 @@ const faqs = [
 export default function AdditionsPage() {
   return (
     <>
-      <section style={{ paddingTop: '140px', paddingBottom: '80px', background: 'linear-gradient(145deg, #040a16, #0a1428)' }}>
-        <div className="container">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '24px' }}>
-            <div style={{ width: '56px', height: '56px', borderRadius: '15px', background: 'rgba(255,183,3,0.12)', border: '1px solid rgba(255,183,3,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ffb703' }}>
-              <Building2 size={26} />
-            </div>
-            <div className="section-chip" style={{ margin: 0 }}>Popular Service</div>
-          </div>
-          <h1 style={{ fontFamily: 'Poppins, sans-serif', fontSize: 'clamp(2.2rem, 4.5vw, 3.5rem)', fontWeight: '900', color: '#fff', letterSpacing: '-0.04em', marginBottom: '20px', maxWidth: '700px' }}>
-            Room Additions in <span className="text-gradient">Ceres & Modesto</span>
-          </h1>
-          <p style={{ fontSize: '17px', color: 'rgba(255,255,255,0.6)', lineHeight: 1.75, maxWidth: '600px', marginBottom: '32px' }}>
-            Expand your home with a properly permitted, well-framed room addition. Bedroom suites, family rooms, second stories — built to California code and integrated seamlessly with your existing structure.
-          </p>
-          <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
-            <Link href="/contact" className="btn-primary">Request an Addition Estimate →</Link>
-            <a href="tel:+12092413765" className="btn-secondary"><Phone size={16} />(209) 241-3765</a>
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '24px' }}>
-            <CheckCircle2 size={15} style={{ color: '#ffb703' }} />
-            <span style={{ fontSize: '13px', color: 'rgba(255,255,255,0.55)' }}>CA License #1106454 · Room Addition Specialist · Free Estimates</span>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        chip="Room Additions"
+        Icon={Building2}
+        title="Room Additions in Ceres & Modesto"
+        phrases={['Expand Your Living Space', 'Permitted & Inspected', 'Licensed Contractor CA', 'Free Estimate Available']}
+        description="Expand your home with a professionally framed room addition. We handle permits, framing, and coordination with all trades."
+        ctaLabel="Get an Additions Estimate →"
+      />
 
       <section className="section-pad" style={{ background: '#080e1d' }}>
         <div className="container">

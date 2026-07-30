@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Shield, MapPin, Phone, Clock, Star, ExternalLink } from 'lucide-react';
+import PageHero from '@/components/PageHero';
 
 export const metadata: Metadata = {
   title: 'About Us | C Hernandez Construction – Licensed Contractor Ceres CA',
@@ -10,18 +11,14 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      {/* Hero */}
-      <section style={{ paddingTop: '140px', paddingBottom: '80px', background: 'linear-gradient(180deg, #040a16, #080e1d)' }}>
-        <div className="container">
-          <div className="section-chip">About Us</div>
-          <h1 style={{ fontFamily: 'Poppins, sans-serif', fontSize: 'clamp(2.2rem, 4.5vw, 3.5rem)', fontWeight: '900', color: '#fff', letterSpacing: '-0.04em', marginBottom: '20px', maxWidth: '700px' }}>
-            Building the Central Valley — <span className="text-gradient">One Frame at a Time</span>
-          </h1>
-          <p style={{ fontSize: '17px', color: 'rgba(255,255,255,0.6)', lineHeight: 1.75, maxWidth: '620px' }}>
-            C Hernandez Construction is a licensed general contractor specializing in residential framing, ADUs and additions in Ceres, Modesto and surrounding areas of the Central Valley.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        chip="About Us"
+        Icon={Shield}
+        title="Building the Central Valley —"
+        phrases={['One Frame at a Time', 'Licensed Since Day One', 'Trusted in Ceres & Modesto', 'Lic. #1106454']}
+        description="C Hernandez Construction is a licensed general contractor specializing in residential framing, ADUs and additions in Ceres, Modesto and surrounding areas of the Central Valley."
+        ctaLabel="Start Your Project →"
+      />
 
       {/* Business info */}
       <section className="section-pad" style={{ background: '#080e1d' }}>

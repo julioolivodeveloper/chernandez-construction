@@ -6,6 +6,7 @@ import ServiceInlineForm from '@/components/services/ServiceInlineForm';
 import LicensedComparison from '@/components/services/LicensedComparison';
 import CitiesSection from '@/components/services/CitiesSection';
 import CostEstimator from '@/components/services/CostEstimator';
+import PageHero from '@/components/PageHero';
 
 export const metadata: Metadata = {
   title: 'Structural Framing Contractor | C Hernandez Construction – Ceres & Modesto CA',
@@ -42,30 +43,14 @@ const faqs = [
 export default function FramingPage() {
   return (
     <>
-      <section style={{ paddingTop: '140px', paddingBottom: '80px', background: 'linear-gradient(145deg, #040a16, #0a1428)' }}>
-        <div className="container">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '24px' }}>
-            <div style={{ width: '56px', height: '56px', borderRadius: '15px', background: 'rgba(255,183,3,0.12)', border: '1px solid rgba(255,183,3,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ffb703' }}>
-              <Layers size={26} />
-            </div>
-            <div className="section-chip" style={{ margin: 0 }}>Core Specialty</div>
-          </div>
-          <h1 style={{ fontFamily: 'Poppins, sans-serif', fontSize: 'clamp(2.2rem, 4.5vw, 3.5rem)', fontWeight: '900', color: '#fff', letterSpacing: '-0.04em', marginBottom: '20px', maxWidth: '700px' }}>
-            Structural Framing in <span className="text-gradient">Ceres & Modesto</span>
-          </h1>
-          <p style={{ fontSize: '17px', color: 'rgba(255,255,255,0.6)', lineHeight: 1.75, maxWidth: '600px', marginBottom: '32px' }}>
-            Residential framing for new homes, ADUs, and room additions — built to California code, permitted, and inspection-ready.
-          </p>
-          <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
-            <Link href="/contact" className="btn-primary">Request a Framing Estimate →</Link>
-            <a href="tel:+12092413765" className="btn-secondary"><Phone size={16} />(209) 241-3765</a>
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '24px' }}>
-            <CheckCircle2 size={15} style={{ color: '#ffb703' }} />
-            <span style={{ fontSize: '13px', color: 'rgba(255,255,255,0.55)' }}>CA License #1106454 · Framing Specialist · Free Estimates</span>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        chip="Core Specialty"
+        Icon={Layers}
+        title="Structural Framing in Ceres & Modesto"
+        phrases={['Walls · Roof · Additions', 'Built to California Code', 'Free Estimates Available', 'Licensed Crew #1106454']}
+        description="Residential framing for new homes, ADUs and room additions — built to California code, permitted, and inspection-ready."
+        ctaLabel="Request a Framing Estimate →"
+      />
 
       <section className="section-pad" style={{ background: '#080e1d' }}>
         <div className="container">

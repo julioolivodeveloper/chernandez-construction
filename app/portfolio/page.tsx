@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Camera, Phone } from 'lucide-react';
 import WorkGallery from '@/components/WorkGallery';
 import ReviewsSection from '@/components/sections/ReviewsSection';
+import PageHero from '@/components/PageHero';
 
 export const metadata: Metadata = {
   title: 'Portfolio | C Hernandez Construction – Framing, ADUs & Additions',
@@ -12,27 +13,14 @@ export const metadata: Metadata = {
 export default function PortfolioPage() {
   return (
     <>
-      {/* Hero */}
-      <section style={{ paddingTop: '140px', paddingBottom: '64px', background: 'linear-gradient(145deg, #040a16, #0a1428)' }}>
-        <div className="container" style={{ textAlign: 'center' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px', justifyContent: 'center' }}>
-            <div style={{ width: '52px', height: '52px', borderRadius: '14px', background: 'rgba(255,183,3,0.12)', border: '1px solid rgba(255,183,3,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ffb703' }}>
-              <Camera size={24} />
-            </div>
-            <div className="section-chip" style={{ margin: 0 }}>Our Work</div>
-          </div>
-          <h1 style={{ fontFamily: 'Poppins, sans-serif', fontSize: 'clamp(2.2rem, 4.5vw, 3.5rem)', fontWeight: '900', color: '#fff', letterSpacing: '-0.04em', marginBottom: '16px' }}>
-            Real Projects, <span className="text-gradient">Real Results</span>
-          </h1>
-          <p style={{ fontSize: '17px', color: 'rgba(255,255,255,0.55)', maxWidth: '560px', margin: '0 auto 32px', lineHeight: 1.75 }}>
-            Browse our work — framing, ADUs, roofing, remodeling and more across Ceres, Modesto and the Central Valley.
-          </p>
-          <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/contact" className="btn-primary">Get a Free Estimate →</Link>
-            <a href="tel:+12092413765" className="btn-secondary"><Phone size={16} />(209) 241-3765</a>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        chip="Our Work"
+        Icon={Camera}
+        title="Real Projects,"
+        phrases={['Real Results', 'Framing · ADUs · Roofing', 'Ceres · Modesto · Central Valley', 'Licensed Contractor CA']}
+        description="Browse our work — framing, ADUs, roofing, remodeling and more across Ceres, Modesto and the Central Valley."
+        ctaLabel="Get a Free Estimate →"
+      />
 
       {/* Reviews */}
       <ReviewsSection />
