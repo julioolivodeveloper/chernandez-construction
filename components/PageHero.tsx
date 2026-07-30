@@ -147,7 +147,7 @@ export default function PageHero({
       ))}
 
       {/* Overlays */}
-      <div style={{ position: 'absolute', inset: 0, zIndex: 1, background: 'linear-gradient(145deg, rgba(4,10,22,0.72) 0%, rgba(8,14,29,0.62) 50%, rgba(4,10,22,0.55) 100%)' }} />
+      <div style={{ position: 'absolute', inset: 0, zIndex: 1, background: 'linear-gradient(145deg, rgba(4,10,22,0.55) 0%, rgba(8,14,29,0.45) 50%, rgba(4,10,22,0.38) 100%)' }} />
       <div style={{ position: 'absolute', inset: 0, zIndex: 2, pointerEvents: 'none', backgroundImage: `linear-gradient(rgba(255,183,3,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,183,3,0.03) 1px, transparent 1px)`, backgroundSize: '60px 60px' }} />
       <canvas ref={canvasRef} style={{ position: 'absolute', inset: 0, zIndex: 3, pointerEvents: 'none' }} />
 
