@@ -3,6 +3,10 @@ import Link from 'next/link';
 import { Shield, MapPin, Phone, Clock, Star, ExternalLink } from 'lucide-react';
 import PageHero from '@/components/PageHero';
 import ReviewsSection from '@/components/sections/ReviewsSection';
+import PortfolioPreview from '@/components/sections/PortfolioPreview';
+import VideoCarousel from '@/components/VideoCarousel';
+import BuildZoomSection from '@/components/sections/BuildZoomSection';
+import WorkGallery from '@/components/WorkGallery';
 
 export const metadata: Metadata = {
   title: 'About Us | C Hernandez Construction – Licensed Contractor Ceres CA',
@@ -104,6 +108,30 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* Recent Projects */}
+      <PortfolioPreview />
+
+      {/* Video Carousel */}
+      <VideoCarousel />
+
+      {/* Photo Gallery */}
+      <section className="section-pad" style={{ background: '#080e1d' }}>
+        <div className="container">
+          <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '5px 16px', borderRadius: '999px', background: 'rgba(255,183,3,0.08)', border: '1px solid rgba(255,183,3,0.25)', fontSize: '11px', fontWeight: '800', color: '#ffb703', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '14px' }}>
+              Photo Gallery
+            </div>
+            <h2 style={{ fontFamily: 'Poppins, sans-serif', fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', fontWeight: '900', color: '#fff', letterSpacing: '-0.03em' }}>
+              Our <span style={{ color: '#ffb703' }}>Work</span>
+            </h2>
+          </div>
+          <WorkGallery />
+        </div>
+      </section>
+
+      {/* BuildZoom */}
+      <BuildZoomSection />
 
       <style>{`
         @media (max-width: 768px) {
