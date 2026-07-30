@@ -28,7 +28,7 @@ export default function ReviewsSection() {
 
           {/* Google rating badge */}
           <a
-            href="https://g.page/r/Cd9A2YrEOL6VEAE/review"
+            href="https://maps.app.goo.gl/j9AH5qksBDwbx7v29"
             target="_blank"
             rel="noopener"
             style={{
