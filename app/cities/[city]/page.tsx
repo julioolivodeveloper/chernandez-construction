@@ -116,9 +116,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
               </div>
               <div style={{ padding: '16px' }}>
                 {city.services.map(s => (
-                  <Link key={s.href} href={s.href} style={{ display: 'block', padding: '14px 12px', borderRadius: '12px', textDecoration: 'none', marginBottom: '4px', transition: 'background 0.15s' }}
-                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(255,183,3,0.07)'; }}
-                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = 'transparent'; }}>
+                  <Link key={s.href} href={s.href} className="city-service-link" style={{ display: 'block', padding: '14px 12px', borderRadius: '12px', textDecoration: 'none', marginBottom: '4px', transition: 'background 0.15s' }}>
                     <div style={{ fontSize: '13px', fontWeight: '700', color: '#fff', marginBottom: '3px' }}>{s.name}</div>
                     <div style={{ fontSize: '12px', color: 'rgba(255,255,255,0.4)', lineHeight: 1.5 }}>{s.desc}</div>
                   </Link>
@@ -169,6 +167,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
         .city-main-grid { display: grid; grid-template-columns: 1fr 380px; gap: 56px; }
         @media (max-width: 900px) { .city-main-grid { grid-template-columns: 1fr !important; } }
         details summary::-webkit-details-marker { display: none; }
+        .city-service-link:hover { background: rgba(255,183,3,0.07) !important; }
       `}</style>
     </>
   );

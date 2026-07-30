@@ -45,9 +45,7 @@ export default function CitiesPage() {
           {/* Other cities grid */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '16px' }}>
             {cities.map(city => (
-              <Link key={city.slug} href={`/cities/${city.slug}`} style={{ padding: '24px 28px', borderRadius: '18px', background: '#0d1829', border: '1px solid rgba(255,255,255,0.07)', textDecoration: 'none', display: 'flex', flexDirection: 'column', gap: '12px', transition: 'border-color 0.2s, transform 0.2s' }}
-                onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(255,183,3,0.3)'; el.style.transform = 'translateY(-2px)'; }}
-                onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(255,255,255,0.07)'; el.style.transform = 'none'; }}>
+              <Link key={city.slug} href={`/cities/${city.slug}`} className="city-card" style={{ padding: '24px 28px', borderRadius: '18px', background: '#0d1829', border: '1px solid rgba(255,255,255,0.07)', textDecoration: 'none', display: 'flex', flexDirection: 'column', gap: '12px', transition: 'border-color 0.2s, transform 0.2s' }}>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <MapPin size={15} style={{ color: '#ffb703', flexShrink: 0 }} />
@@ -69,6 +67,9 @@ export default function CitiesPage() {
           </div>
         </div>
       </section>
+      <style>{`
+        .city-card:hover { border-color: rgba(255,183,3,0.3) !important; transform: translateY(-2px); }
+      `}</style>
     </>
   );
 }
