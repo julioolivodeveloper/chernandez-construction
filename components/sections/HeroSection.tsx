@@ -263,23 +263,13 @@ export default function HeroSection() {
             animation: 'fadeUp 0.8s 0.3s ease both', opacity: 0,
           }}>
             <div style={{ position: 'relative' }}>
-              <div style={{
-                position: 'absolute', inset: '-36px', borderRadius: '50%',
-                background: 'radial-gradient(circle, rgba(255,183,3,0.22) 0%, transparent 70%)',
-                animation: 'pulse-glow 3s ease-in-out infinite',
-              }} />
-              <div style={{
-                position: 'absolute', inset: '-2px', borderRadius: '50%',
-                border: '1px solid rgba(255,183,3,0.2)',
-                animation: 'spin-slow 20s linear infinite',
-              }} />
               <Image
                 src={LOGO_URL}
                 alt="C Hernandez Construction"
-                width={300}
-                height={300}
+                width={420}
+                height={420}
                 priority
-                style={{ objectFit: 'contain', filter: 'drop-shadow(0 0 40px rgba(255,183,3,0.45)) drop-shadow(0 0 80px rgba(255,183,3,0.2))' }}
+                style={{ objectFit: 'contain', filter: 'drop-shadow(0 0 40px rgba(255,183,3,0.4)) drop-shadow(0 0 80px rgba(255,183,3,0.15))' }}
               />
             </div>
           </div>
