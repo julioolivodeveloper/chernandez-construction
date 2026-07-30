@@ -1,6 +1,8 @@
 import HeroSection from '@/components/sections/HeroSection';
 import StatsBar from '@/components/sections/StatsBar';
+import StatsCounter from '@/components/sections/StatsCounter';
 import ServicesSection from '@/components/sections/ServicesSection';
+import HowWeWork from '@/components/sections/HowWeWork';
 import ReviewsSection from '@/components/sections/ReviewsSection';
 import PortfolioPreview from '@/components/sections/PortfolioPreview';
 import QuoteForm from '@/components/sections/QuoteForm';
@@ -13,8 +15,9 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      <StatsBar />
+      <StatsCounter />
       <ServicesSection />
+      <HowWeWork />
       <WhyUsSection />
       <PortfolioPreview />
       <VideoCarousel />

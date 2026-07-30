@@ -184,6 +184,12 @@ export default function Navbar() {
               onMouseLeave={e => { (e.target as HTMLElement).style.color = 'rgba(255,255,255,0.8)'; (e.target as HTMLElement).style.background = 'transparent'; }}>
               About
             </Link>
+
+            <Link href="/blog" style={{ padding: '8px 14px', borderRadius: '8px', color: 'rgba(255,255,255,0.8)', fontSize: '14px', fontWeight: '600', textDecoration: 'none', transition: 'all 0.2s' }}
+              onMouseEnter={e => { (e.target as HTMLElement).style.color = '#ffb703'; (e.target as HTMLElement).style.background = 'rgba(255,183,3,0.08)'; }}
+              onMouseLeave={e => { (e.target as HTMLElement).style.color = 'rgba(255,255,255,0.8)'; (e.target as HTMLElement).style.background = 'transparent'; }}>
+              Blog
+            </Link>
           </nav>
 
           {/* Desktop CTAs */}
@@ -235,6 +241,7 @@ export default function Navbar() {
               { href: '/', label: 'Home' },
               { href: '/portfolio', label: 'Portfolio' },
               { href: '/about', label: 'About Us' },
+              { href: '/blog', label: 'Blog' },
               { href: '/contact', label: 'Contact' },
             ].map(({ href, label }) => (
               <Link key={href} href={href} onClick={() => setMobileOpen(false)} style={{
