@@ -1,26 +1,33 @@
 import Link from 'next/link';
+import { PhoneCall, ClipboardCheck, HardHat } from 'lucide-react';
 
 const steps = [
   {
     number: '01',
     title: 'Call or Message Us',
     desc: 'Reach us by phone, WhatsApp, or our online form. Tell us about your project — we respond within 24 hours.',
-    icon: '📞',
+    Icon: PhoneCall,
     color: '#3b82f6',
+    glow: 'rgba(59,130,246,0.18)',
+    border: 'rgba(59,130,246,0.35)',
   },
   {
     number: '02',
     title: 'Free On-Site Estimate',
-    desc: 'We visit your property at no cost, assess the scope of work, and give you a clear, written estimate — no surprises.',
-    icon: '📋',
+    desc: 'We visit your property at no cost, assess the scope of work, and give you a clear written estimate — no surprises.',
+    Icon: ClipboardCheck,
     color: '#ffb703',
+    glow: 'rgba(255,183,3,0.18)',
+    border: 'rgba(255,183,3,0.35)',
   },
   {
     number: '03',
     title: 'We Build It Right',
     desc: 'Our licensed crew handles permits, inspections, and construction from start to finish. You\'re updated at every stage.',
-    icon: '🏗️',
+    Icon: HardHat,
     color: '#22c55e',
+    glow: 'rgba(34,197,94,0.18)',
+    border: 'rgba(34,197,94,0.35)',
   },
 ];
 
@@ -43,34 +50,35 @@ export default function HowWeWork() {
 
         {/* Steps */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px', marginBottom: '48px' }} className="steps-grid">
-          {steps.map((step, i) => (
-            <div key={i} style={{ position: 'relative', padding: '36px 28px', borderRadius: '24px', background: '#0b1525', border: '1px solid rgba(255,255,255,0.07)', overflow: 'hidden' }}>
-              {/* Bg number */}
-              <div style={{ position: 'absolute', top: '-10px', right: '16px', fontFamily: 'Poppins, sans-serif', fontSize: '6rem', fontWeight: '900', color: 'rgba(255,255,255,0.03)', lineHeight: 1, userSelect: 'none' }}>
-                {step.number}
-              </div>
+          {steps.map((step, i) => {
+            const { Icon } = step;
+            return (
+              <div key={i} style={{ position: 'relative', padding: '36px 28px', borderRadius: '24px', background: '#0b1525', border: '1px solid rgba(255,255,255,0.07)', overflow: 'hidden' }}>
+                {/* Bg number */}
+                <div style={{ position: 'absolute', top: '-10px', right: '16px', fontFamily: 'Poppins, sans-serif', fontSize: '6rem', fontWeight: '900', color: 'rgba(255,255,255,0.03)', lineHeight: 1, userSelect: 'none' }}>
+                  {step.number}
+                </div>
 
-              {/* Icon */}
-              <div style={{ width: '56px', height: '56px', borderRadius: '16px', background: `${step.color}14`, border: `1px solid ${step.color}30`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '24px', marginBottom: '20px' }}>
-                {step.icon}
-              </div>
+                {/* Glow spot behind icon */}
+                <div style={{ position: 'absolute', top: '24px', left: '24px', width: '80px', height: '80px', borderRadius: '50%', background: step.glow, filter: 'blur(24px)', pointerEvents: 'none' }} />
 
-              {/* Connector dot */}
-              {i < steps.length - 1 && (
-                <div style={{ display: 'none' }} className="step-connector" />
-              )}
+                {/* Icon */}
+                <div style={{ position: 'relative', width: '64px', height: '64px', borderRadius: '20px', background: `linear-gradient(135deg, ${step.glow} 0%, rgba(0,0,0,0) 100%)`, border: `1px solid ${step.border}`, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '24px', boxShadow: `0 8px 24px ${step.glow}` }}>
+                  <Icon size={28} color={step.color} strokeWidth={1.6} />
+                </div>
 
-              <div style={{ fontSize: '11px', fontWeight: '800', color: step.color, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '10px' }}>
-                Step {step.number}
+                <div style={{ fontSize: '11px', fontWeight: '800', color: step.color, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '10px' }}>
+                  Step {step.number}
+                </div>
+                <h3 style={{ fontFamily: 'Poppins, sans-serif', fontSize: '1.15rem', fontWeight: '800', color: '#fff', marginBottom: '12px' }}>
+                  {step.title}
+                </h3>
+                <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.5)', lineHeight: 1.75 }}>
+                  {step.desc}
+                </p>
               </div>
-              <h3 style={{ fontFamily: 'Poppins, sans-serif', fontSize: '1.15rem', fontWeight: '800', color: '#fff', marginBottom: '12px' }}>
-                {step.title}
-              </h3>
-              <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.5)', lineHeight: 1.75 }}>
-                {step.desc}
-              </p>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* CTA */}
