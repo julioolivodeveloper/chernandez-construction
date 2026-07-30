@@ -1,37 +1,18 @@
 'use client';
-import { useState } from 'react';
-import { Star, ExternalLink, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
-
-// Real Google reviews only — do NOT add fake reviews
-const reviews = [
-  {
-    name: 'Google Reviewer',
-    rating: 5,
-    date: 'Recent',
-    text: 'Great work from C Hernandez Construction. Professional, on time and the framing came out exactly as planned. Highly recommend.',
-    initials: 'GR',
-  },
-  {
-    name: 'Google Reviewer',
-    rating: 5,
-    date: 'Recent',
-    text: 'Very happy with the ADU they built for us. The team was respectful, cleaned up after themselves, and finished on schedule.',
-    initials: 'GR',
-  },
-  {
-    name: 'Google Reviewer',
-    rating: 5,
-    date: 'Recent',
-    text: 'C Hernandez did an amazing job with our room addition. Licenced, insured, and they pulled all the permits correctly.',
-    initials: 'GR',
-  },
-];
+import { useEffect } from 'react';
+import { Star, ExternalLink } from 'lucide-react';
 
 export default function ReviewsSection() {
-  const [current, setCurrent] = useState(0);
-  const prev = () => setCurrent(i => (i - 1 + reviews.length) % reviews.length);
-  const next = () => setCurrent(i => (i + 1) % reviews.length);
-  const r = reviews[current];
+  useEffect(() => {
+    const container = document.getElementById('ti-widget-container');
+    if (!container || container.querySelector('script')) return;
+
+    const script = document.createElement('script');
+    script.src = 'https://cdn.trustindex.io/loader.js?f9d89c478cd71374789673baabe';
+    script.async = true;
+    script.defer = true;
+    container.appendChild(script);
+  }, []);
 
   return (
     <section className="section-pad" style={{ background: '#0b1220' }}>
@@ -54,8 +35,7 @@ export default function ReviewsSection() {
               display: 'inline-flex', alignItems: 'center', gap: '12px',
               padding: '14px 24px', borderRadius: '16px',
               background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.1)',
-              textDecoration: 'none', transition: 'all 0.2s',
-              marginBottom: '12px',
+              textDecoration: 'none', marginBottom: '12px',
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
@@ -88,77 +68,8 @@ export default function ReviewsSection() {
           </div>
         </div>
 
-        {/* Carousel */}
-        <div style={{ maxWidth: '700px', margin: '0 auto', position: 'relative' }}>
-          <div style={{
-            padding: '40px', borderRadius: '24px',
-            background: 'linear-gradient(135deg, rgba(15,26,46,0.9), rgba(10,20,40,0.95))',
-            border: '1px solid rgba(255,183,3,0.15)',
-            position: 'relative', overflow: 'hidden',
-          }}>
-            {/* Quote icon */}
-            <Quote size={60} style={{
-              position: 'absolute', top: '20px', right: '24px',
-              color: 'rgba(255,183,3,0.07)', transform: 'rotate(180deg)',
-            }} />
-
-            <div style={{ display: 'flex', gap: '4px', marginBottom: '20px' }}>
-              {[...Array(r.rating)].map((_, i) => (
-                <Star key={i} size={18} fill="#ffb703" style={{ color: '#ffb703' }} />
-              ))}
-            </div>
-
-            <p style={{ fontSize: '17px', color: 'rgba(255,255,255,0.85)', lineHeight: 1.75, marginBottom: '28px', fontStyle: 'italic' }}>
-              &ldquo;{r.text}&rdquo;
-            </p>
-
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-              <div style={{
-                width: '44px', height: '44px', borderRadius: '50%',
-                background: 'linear-gradient(135deg, #ffb703, #ff8c00)',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontSize: '15px', fontWeight: '800', color: '#080e1d',
-              }}>{r.initials}</div>
-              <div>
-                <div style={{ fontSize: '14px', fontWeight: '700', color: '#fff' }}>{r.name}</div>
-                <div style={{ fontSize: '12px', color: 'rgba(255,255,255,0.4)' }}>{r.date} · Google Review</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Navigation */}
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px', marginTop: '24px' }}>
-            <button onClick={prev} style={{
-              width: '40px', height: '40px', borderRadius: '50%',
-              background: 'rgba(255,183,3,0.1)', border: '1px solid rgba(255,183,3,0.25)',
-              color: '#ffb703', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
-              transition: 'all 0.2s',
-            }}><ChevronLeft size={18} /></button>
-
-            <div style={{ display: 'flex', gap: '8px' }}>
-              {reviews.map((_, i) => (
-                <button key={i} onClick={() => setCurrent(i)} style={{
-                  width: i === current ? '24px' : '8px',
-                  height: '8px', borderRadius: '4px',
-                  background: i === current ? '#ffb703' : 'rgba(255,255,255,0.2)',
-                  border: 'none', cursor: 'pointer',
-                  transition: 'all 0.3s ease',
-                }} />
-              ))}
-            </div>
-
-            <button onClick={next} style={{
-              width: '40px', height: '40px', borderRadius: '50%',
-              background: 'rgba(255,183,3,0.1)', border: '1px solid rgba(255,183,3,0.25)',
-              color: '#ffb703', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
-              transition: 'all 0.2s',
-            }}><ChevronRight size={18} /></button>
-          </div>
-
-          <p style={{ textAlign: 'center', marginTop: '16px', fontSize: '11.5px', color: 'rgba(255,255,255,0.25)', lineHeight: 1.5 }}>
-            * Reviews are representative. For all current reviews, <a href="https://g.page/r/Cd9A2YrEOL6VEAE/review" target="_blank" rel="noopener" style={{ color: 'rgba(255,183,3,0.6)', textDecoration: 'none' }}>visit our Google profile</a>.
-          </p>
-        </div>
+        {/* Trustindex widget — auto-updates from Google */}
+        <div id="ti-widget-container" style={{ maxWidth: '1100px', margin: '0 auto' }} />
       </div>
     </section>
   );
