@@ -51,7 +51,7 @@ const projects = [
   { src: 'pintura1.jpg',          category: 'Remodeling', label: 'Painting & Finish' },
   // ADU
   { src: 'adu.png',               category: 'ADU',        label: 'ADU Construction' },
-  { src: '4e4984.jpg',            category: 'ADU',        label: 'ADU Project' },
+  { src: '4e4984.jpg',            category: 'Remodeling', label: 'Interior Finish' },
 ];
 
 const categories = ['All', 'Framing', 'Roofing', 'Remodeling', 'ADU'];
