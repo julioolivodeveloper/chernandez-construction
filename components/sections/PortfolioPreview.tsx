@@ -32,6 +32,19 @@ const realProjects = [
       BASE + 'Ruben%20Esreno/Captura%20de%20pantalla%202026-07-30%20a%20la%28s%29%201.31.02%20p.m..png',
     ],
   },
+  {
+    client: 'Daniel Sanchez',
+    title: 'ADU Framing – Bay Area',
+    location: 'Milpitas, CA',
+    category: 'ADU Construction',
+    badge: 'ADU',
+    review: '"Great experience framing that ADU in Milpitas. ADU construction in the Bay Area is something we really enjoy — every project is unique and we love the challenge. Always a pleasure working with professional contractors like Daniel. Looking forward to the next framing project together."',
+    priceBadge: 'B2B Project · Professional Contractor',
+    images: [
+      BASE + 'daniel%20sanchez/Captura%20de%20pantalla%202026-07-30%20a%20la%28s%29%201.39.07%20p.m..png',
+      BASE + 'daniel%20sanchez/Captura%20de%20pantalla%202026-07-30%20a%20la%28s%29%201.39.25%20p.m..png',
+    ],
+  },
 ];
 
 const placeholders = [

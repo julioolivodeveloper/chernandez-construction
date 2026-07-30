@@ -191,6 +191,68 @@ export default function AduPage() {
         </div>
       </section>
 
+      {/* Real Project: Daniel Sanchez */}
+      <section className="section-pad" style={{ background: '#0b1220' }}>
+        <div className="container">
+          <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+            <div className="section-chip" style={{ margin: '0 auto 14px' }}>Real Project · Milpitas, CA</div>
+            <h2 style={{ fontFamily: 'Poppins, sans-serif', fontSize: 'clamp(1.7rem, 3vw, 2.4rem)', fontWeight: '800', color: '#fff' }}>
+              ADU Framing in the <span className="text-gradient">Bay Area</span>
+            </h2>
+          </div>
+
+          <div style={{ borderRadius: '24px', overflow: 'hidden', background: 'rgba(15,26,46,0.7)', border: '1px solid rgba(255,183,3,0.2)', display: 'grid', gridTemplateColumns: '1fr 1fr', boxShadow: '0 24px 60px rgba(0,0,0,0.4)' }} className="two-col">
+            {/* Details left */}
+            <div style={{ padding: '32px', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '16px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <span style={{ padding: '4px 13px', borderRadius: '999px', background: 'rgba(255,183,3,0.15)', border: '1px solid rgba(255,183,3,0.3)', fontSize: '11px', fontWeight: '800', color: '#ffb703' }}>ADU Framing</span>
+                <div style={{ display: 'flex', gap: '2px' }}>
+                  {[...Array(5)].map((_, i) => <Star key={i} size={11} fill="#ffb703" style={{ color: '#ffb703' }} />)}
+                </div>
+              </div>
+
+              <div>
+                <h3 style={{ fontFamily: 'Poppins, sans-serif', fontSize: '1.35rem', fontWeight: '900', color: '#fff', marginBottom: '6px' }}>Detached ADU – Milpitas</h3>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <MapPin size={12} style={{ color: '#ffb703' }} />
+                  <span style={{ fontSize: '12.5px', color: 'rgba(255,255,255,0.5)' }}>Milpitas, CA · Bay Area ADU</span>
+                </div>
+              </div>
+
+              <blockquote style={{ margin: 0, padding: '16px 18px', borderRadius: '14px', background: 'rgba(255,183,3,0.06)', border: '1px solid rgba(255,183,3,0.15)', borderLeft: '3px solid #ffb703' }}>
+                <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.75)', lineHeight: 1.7, margin: 0, fontStyle: 'italic' }}>
+                  "Great experience framing that ADU in Milpitas. ADU construction in the Bay Area is something we really enjoy — every project is unique and we love the challenge. Always a pleasure working with professional contractors like Daniel."
+                </p>
+                <footer style={{ marginTop: '12px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <div style={{ width: '30px', height: '30px', borderRadius: '50%', background: 'rgba(255,183,3,0.2)', border: '1px solid rgba(255,183,3,0.35)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px', fontWeight: '800', color: '#ffb703', flexShrink: 0 }}>D</div>
+                  <div>
+                    <div style={{ fontSize: '12.5px', fontWeight: '800', color: '#fff' }}>Daniel Sanchez</div>
+                    <div style={{ fontSize: '10.5px', color: 'rgba(255,255,255,0.4)' }}>General Contractor · Verified Client</div>
+                  </div>
+                  <BadgeCheck size={15} style={{ color: '#4ade80', marginLeft: 'auto' }} />
+                </footer>
+              </blockquote>
+
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '4px 12px', borderRadius: '999px', background: 'rgba(74,222,128,0.08)', border: '1px solid rgba(74,222,128,0.2)', fontSize: '11px', fontWeight: '700', color: '#4ade80', alignSelf: 'flex-start' }}>
+                B2B Project · Professional Contractor
+              </div>
+            </div>
+
+            {/* Images right */}
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3px', minHeight: '320px' }}>
+              {[
+                'https://umyhcsrxwdogvbxgipnx.supabase.co/storage/v1/object/public/site-images/daniel%20sanchez/Captura%20de%20pantalla%202026-07-30%20a%20la%28s%29%201.39.07%20p.m..png',
+                'https://umyhcsrxwdogvbxgipnx.supabase.co/storage/v1/object/public/site-images/daniel%20sanchez/Captura%20de%20pantalla%202026-07-30%20a%20la%28s%29%201.39.25%20p.m..png',
+              ].map((src, i) => (
+                <div key={i} style={{ position: 'relative', overflow: 'hidden' }}>
+                  <Image src={src} alt={`ADU Framing Milpitas ${i + 1}`} fill sizes="25vw" style={{ objectFit: 'cover' }} />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ */}
       <section className="section-pad" style={{ background: '#080e1d' }}>
         <div className="container" style={{ maxWidth: '760px' }}>
