@@ -22,8 +22,31 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
   const city = getCity(slug);
   if (!city) notFound();
 
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: city.faq.map(item => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: { '@type': 'Answer', text: item.a },
+    })),
+  };
+
+  const localBusinessSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'GeneralContractor',
+    name: 'C Hernandez Construction',
+    telephone: '+12092413765',
+    url: `https://www.chernandezconstructionchg.com/cities/${city.slug}`,
+    areaServed: { '@type': 'City', name: city.name, containedInPlace: { '@type': 'State', name: 'California' } },
+    description: city.heroDesc,
+    hasCredential: { '@type': 'EducationalOccupationalCredential', identifier: '1106454', name: 'California Contractor License' },
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
       {/* Hero */}
       <section style={{ background: 'linear-gradient(135deg, #04081a 0%, #0b1525 100%)', paddingTop: '120px', paddingBottom: '72px', borderBottom: '1px solid rgba(255,183,3,0.1)' }}>
         <div className="container" style={{ maxWidth: '900px' }}>

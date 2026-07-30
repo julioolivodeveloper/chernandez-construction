@@ -78,8 +78,27 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
   const others = posts.filter(p => p.slug !== slug).slice(0, 3);
 
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    description: post.excerpt,
+    image: post.image,
+    datePublished: post.date,
+    dateModified: post.date,
+    url: `https://www.chernandezconstructionchg.com/blog/${post.slug}`,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': `https://www.chernandezconstructionchg.com/blog/${post.slug}` },
+    author: { '@type': 'Organization', name: 'C Hernandez Construction', url: 'https://www.chernandezconstructionchg.com' },
+    publisher: {
+      '@type': 'Organization',
+      name: 'C Hernandez Construction',
+      logo: { '@type': 'ImageObject', url: 'https://www.chernandezconstructionchg.com/logo.png' },
+    },
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       {/* Hero */}
       <section style={{ position: 'relative', paddingTop: '100px', minHeight: '420px', display: 'flex', alignItems: 'flex-end', overflow: 'hidden' }}>
         <Image src={post.image} alt={post.title} fill sizes="100vw" style={{ objectFit: 'cover' }} priority />
