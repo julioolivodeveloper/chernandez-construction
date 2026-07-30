@@ -1,33 +1,41 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Wrench, Phone, MapPin, CheckCircle2 } from 'lucide-react';
+import { Wrench, CheckCircle2, Phone, Shield } from 'lucide-react';
+import ServiceTimeline from '@/components/services/ServiceTimeline';
+import ServiceInlineForm from '@/components/services/ServiceInlineForm';
+import LicensedComparison from '@/components/services/LicensedComparison';
+import CitiesSection from '@/components/services/CitiesSection';
 
 export const metadata: Metadata = {
   title: 'Home Remodeling Contractor | C Hernandez Construction – Ceres & Modesto CA',
-  description: 'Licensed remodeling contractor (Lic. #1106454) in Ceres and Modesto, CA. Kitchen remodels, bathroom renovations, interior upgrades. Call (209) 241-3765.',
+  description: 'Licensed remodeling contractor (Lic. #1106454) in Ceres and Modesto, CA. Kitchen remodels, bathroom renovations, open concept conversions. Call (209) 241-3765.',
 };
 
-const types = [
-  { title: 'Kitchen Remodels', desc: 'Full gut and rebuild or partial updates — cabinets, countertops, framing changes, drywall and tile.' },
-  { title: 'Bathroom Renovations', desc: 'Tile, vanities, showers, tub surrounds, drywall and plumbing rough-in coordination.' },
-  { title: 'Interior Remodels', desc: 'Open concept conversions, load-bearing wall removal with engineered beams, flooring and finishes.' },
-  { title: 'Basement & Garage Conversions', desc: 'Convert underutilized spaces into livable areas — all permitted and to code.' },
+const remodelingTypes = [
+  { title: 'Kitchen Remodels', desc: 'Full gut and rebuild or targeted updates — cabinet framing changes, drywall, tile backsplash and finish work to transform your kitchen.' },
+  { title: 'Bathroom Renovations', desc: 'Shower surrounds, tub replacements, tile, vanity framing, drywall and plumbing rough-in coordination for a complete bathroom overhaul.' },
+  { title: 'Open Concept Conversions', desc: 'Remove load-bearing walls with proper engineering, install beams and posts, and open your floor plan to feel bigger and brighter.' },
+  { title: 'Basement & Garage Conversions', desc: 'Convert underutilized spaces into permitted living areas — home offices, gyms, or guest rooms — properly framed and finished.' },
+  { title: 'Interior Wall Reconfigurations', desc: 'Move walls, add closets, create new doorways or remove old ones. We handle structural and non-structural wall changes.' },
+  { title: 'Full Interior Remodels', desc: 'Whole-home interior renovations combining framing, drywall, trim, and finish work across multiple rooms in one coordinated project.' },
 ];
 
-const process = [
-  { step: '01', title: 'Free Estimate & Walkthrough', desc: 'We visit, assess the space and provide a written estimate before any work begins.' },
-  { step: '02', title: 'Permit Coordination', desc: 'Structural changes and some kitchen/bath work require permits — we help coordinate those.' },
-  { step: '03', title: 'Demo & Prep', desc: 'Careful demolition protecting adjacent walls, floors and utilities.' },
-  { step: '04', title: 'Framing & Rough Work', desc: 'New walls, headers, blocking and any structural modifications.' },
-  { step: '05', title: 'Drywall, Tile & Finish', desc: 'Drywall hang and texture, tile installation, trim and paint to complete the space.' },
+const timelineSteps = [
+  { icon: '📋', title: 'Free Walkthrough & Estimate', desc: 'We tour your space, discuss your goals, and provide a detailed written estimate before any work starts — no cost.' },
+  { icon: '📐', title: 'Design & Permit Review', desc: 'We identify which changes require permits (structural work always does) and help coordinate submissions with your city.' },
+  { icon: '🔨', title: 'Demo & Protection', desc: 'Careful demolition protecting adjacent walls, flooring and utilities. We protect your home while we work in it.' },
+  { icon: '🏗️', title: 'Framing & Structural Work', desc: 'New walls, headers, beams, blocking — all framed to California code and ready for rough inspection.' },
+  { icon: '🪚', title: 'Drywall, Tile & Finish', desc: 'Drywall hang and texture, tile installation, interior trim and paint to complete the space correctly.' },
+  { icon: '✅', title: 'Final Inspection & Walkthrough', desc: 'We complete the punch list, pass the final city inspection, and walk through the finished space with you.' },
 ];
 
 const faqs = [
-  { q: 'Do you handle permits for remodeling?', a: 'Yes. Structural changes and some kitchen/bath work require permits. We coordinate with your local building department.' },
-  { q: 'Can you remove a load-bearing wall?', a: 'Yes, with proper engineering. We work with structural engineers when needed and install the correct beam and posts.' },
-  { q: 'Do you do kitchen and bathroom remodels?', a: 'Yes — both. We handle framing, drywall, tile, and coordinate with plumbers and electricians as needed.' },
-  { q: 'What areas do you serve for remodeling?', a: 'Ceres, Modesto, Turlock, Salida, Riverbank, Patterson and surrounding Central Valley areas.' },
-  { q: 'Are you licensed and insured?', a: 'Yes. CA General Contractor License #1106454. We are insured on all projects.' },
+  { q: 'Do you handle permits for remodeling projects?', a: 'Yes. Structural changes — including removing walls, adding new openings, or modifying load-bearing elements — require permits. We coordinate with your local building department throughout.' },
+  { q: 'Can you remove a load-bearing wall?', a: 'Yes. We work with structural engineers when required, specify the correct beam and post sizes, and frame the opening safely. We\'ve done this many times across the Central Valley.' },
+  { q: 'Do you do kitchen and bathroom remodels?', a: 'Yes — both. We handle framing, drywall, tile and coordinate plumbers and electricians as needed for complete kitchen and bathroom renovations.' },
+  { q: 'How long does a typical remodel take?', a: 'A bathroom remodel typically takes 1–3 weeks. A kitchen remodel runs 3–6 weeks. Whole-home or structural remodels vary by scope — we provide a specific timeline in your estimate.' },
+  { q: 'Can you match existing wall texture and trim?', a: 'Yes. We texture-match carefully when patching into existing walls and source matching trim profiles when possible in remodels.' },
+  { q: 'What areas do you serve for remodeling?', a: 'Ceres, Modesto, Turlock, Salida, Riverbank, Patterson and surrounding Central Valley communities.' },
 ];
 
 export default function RemodelingPage() {
@@ -45,19 +53,15 @@ export default function RemodelingPage() {
             Home Remodeling in <span className="text-gradient">Ceres & Modesto</span>
           </h1>
           <p style={{ fontSize: '17px', color: 'rgba(255,255,255,0.6)', lineHeight: 1.75, maxWidth: '600px', marginBottom: '32px' }}>
-            Licensed remodeling contractor handling kitchen remodels, bathroom renovations, open concept conversions and interior upgrades across the Central Valley.
+            Licensed remodeling contractor for kitchen remodels, bathroom renovations, open concept conversions, and structural interior changes — permitted and built to last.
           </p>
-          <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', marginBottom: '24px' }}>
+          <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
             <Link href="/contact" className="btn-primary">Request a Remodeling Estimate →</Link>
             <a href="tel:+12092413765" className="btn-secondary"><Phone size={16} />(209) 241-3765</a>
           </div>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
-            {['CA License #1106454', 'Permits Handled', 'Kitchen & Bath', 'Central Valley'].map(item => (
-              <div key={item} style={{ display: 'flex', alignItems: 'center', gap: '7px' }}>
-                <CheckCircle2 size={14} style={{ color: '#ffb703' }} />
-                <span style={{ fontSize: '13px', color: 'rgba(255,255,255,0.65)', fontWeight: '600' }}>{item}</span>
-              </div>
-            ))}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '24px' }}>
+            <CheckCircle2 size={15} style={{ color: '#ffb703' }} />
+            <span style={{ fontSize: '13px', color: 'rgba(255,255,255,0.55)' }}>CA License #1106454 · Permits Handled · Free Estimates</span>
           </div>
         </div>
       </section>
@@ -67,11 +71,11 @@ export default function RemodelingPage() {
           <h2 style={{ fontFamily: 'Poppins, sans-serif', fontSize: 'clamp(1.7rem, 3vw, 2.4rem)', fontWeight: '800', color: '#fff', marginBottom: '40px' }}>
             Remodeling Services We <span className="text-gradient">Provide</span>
           </h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '16px' }} className="two-col">
-            {types.map(({ title, desc }) => (
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }} className="three-col">
+            {remodelingTypes.map(({ title, desc }) => (
               <div key={title} style={{ padding: '26px', borderRadius: '18px', background: 'rgba(255,183,3,0.05)', border: '1px solid rgba(255,183,3,0.15)' }}>
-                <h3 style={{ fontSize: '16px', fontWeight: '800', color: '#fff', marginBottom: '10px', fontFamily: 'Poppins, sans-serif' }}>{title}</h3>
-                <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.55)', lineHeight: 1.7 }}>{desc}</p>
+                <h3 style={{ fontSize: '15px', fontWeight: '800', color: '#fff', marginBottom: '10px', fontFamily: 'Poppins, sans-serif' }}>{title}</h3>
+                <p style={{ fontSize: '13.5px', color: 'rgba(255,255,255,0.55)', lineHeight: 1.7 }}>{desc}</p>
               </div>
             ))}
           </div>
@@ -80,27 +84,51 @@ export default function RemodelingPage() {
 
       <section className="section-pad" style={{ background: '#0b1220' }}>
         <div className="container">
-          <h2 style={{ fontFamily: 'Poppins, sans-serif', fontSize: 'clamp(1.7rem, 3vw, 2.4rem)', fontWeight: '800', color: '#fff', marginBottom: '40px' }}>
-            Our <span className="text-gradient">Process</span>
-          </h2>
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            {process.map(({ step, title, desc }, i) => (
-              <div key={step} style={{ display: 'flex', gap: '24px' }}>
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                  <div style={{ width: '48px', height: '48px', borderRadius: '50%', background: 'rgba(255,183,3,0.12)', border: '2px solid rgba(255,183,3,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Poppins, sans-serif', fontWeight: '800', fontSize: '14px', color: '#ffb703', flexShrink: 0 }}>{step}</div>
-                  {i < process.length - 1 && <div style={{ width: '2px', height: '40px', background: 'rgba(255,183,3,0.15)' }} />}
-                </div>
-                <div style={{ paddingBottom: '32px', paddingTop: '10px' }}>
-                  <h3 style={{ fontSize: '16px', fontWeight: '700', color: '#fff', marginBottom: '6px' }}>{title}</h3>
-                  <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.5)', lineHeight: 1.7 }}>{desc}</p>
-                </div>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'start' }} className="two-col">
+            <div>
+              <h2 style={{ fontFamily: 'Poppins, sans-serif', fontSize: 'clamp(1.7rem, 3vw, 2.4rem)', fontWeight: '800', color: '#fff', marginBottom: '12px' }}>
+                Our <span className="text-gradient">Remodeling Process</span>
+              </h2>
+              <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.5)', marginBottom: '32px', lineHeight: 1.7 }}>
+                From the first walkthrough to the final inspection — a clear, predictable process so your remodel stays on track.
+              </p>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '14px 18px', borderRadius: '12px', background: 'rgba(255,183,3,0.07)', border: '1px solid rgba(255,183,3,0.2)' }}>
+                <Shield size={16} style={{ color: '#ffb703', flexShrink: 0 }} />
+                <span style={{ fontSize: '13px', color: 'rgba(255,255,255,0.65)', fontWeight: '600' }}>Licensed General Contractor · Lic. #1106454 · Fully Insured</span>
               </div>
-            ))}
+            </div>
+            <ServiceTimeline steps={timelineSteps} />
           </div>
         </div>
       </section>
 
       <section className="section-pad" style={{ background: '#080e1d' }}>
+        <div className="container">
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'start' }} className="two-col">
+            <div>
+              <h2 style={{ fontFamily: 'Poppins, sans-serif', fontSize: 'clamp(1.7rem, 3vw, 2.4rem)', fontWeight: '800', color: '#fff', marginBottom: '16px' }}>
+                Get Your Free <span className="text-gradient">Remodeling Estimate</span>
+              </h2>
+              <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.5)', marginBottom: '24px', lineHeight: 1.7 }}>
+                Tell us about your project. We'll respond the same day.
+              </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+                {['Written estimate within 24 hours', 'Licensed & insured crew', 'Structural changes permitted', 'No commitment required'].map(t => (
+                  <div key={t} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <CheckCircle2 size={16} style={{ color: '#ffb703', flexShrink: 0 }} />
+                    <span style={{ fontSize: '14px', color: 'rgba(255,255,255,0.65)' }}>{t}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div style={{ padding: '32px', borderRadius: '20px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
+              <ServiceInlineForm service="home remodeling" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-pad" style={{ background: '#0b1220' }}>
         <div className="container" style={{ maxWidth: '760px' }}>
           <h2 style={{ fontFamily: 'Poppins, sans-serif', fontSize: 'clamp(1.7rem, 3vw, 2.4rem)', fontWeight: '800', color: '#fff', marginBottom: '40px' }}>
             Remodeling <span className="text-gradient">FAQ</span>
@@ -116,24 +144,37 @@ export default function RemodelingPage() {
         </div>
       </section>
 
-      <section style={{ background: '#0b1220', padding: '64px 0', borderTop: '1px solid rgba(255,183,3,0.1)' }}>
+      <section className="section-pad" style={{ background: '#080e1d' }}>
+        <div className="container">
+          <h2 style={{ fontFamily: 'Poppins, sans-serif', fontSize: 'clamp(1.7rem, 3vw, 2.4rem)', fontWeight: '800', color: '#fff', marginBottom: '12px', textAlign: 'center' }}>
+            Licensed vs <span className="text-gradient">Unlicensed Remodeling</span>
+          </h2>
+          <p style={{ textAlign: 'center', fontSize: '15px', color: 'rgba(255,255,255,0.5)', maxWidth: '560px', margin: '0 auto 40px' }}>
+            Structural remodeling done without a licensed contractor can fail inspection and create liability when you sell your home.
+          </p>
+          <LicensedComparison />
+        </div>
+      </section>
+
+      <CitiesSection service="Home Remodeling" />
+
+      <section style={{ background: '#080e1d', padding: '64px 0', borderTop: '1px solid rgba(255,183,3,0.1)' }}>
         <div className="container" style={{ textAlign: 'center' }}>
           <h2 style={{ fontFamily: 'Poppins, sans-serif', fontSize: 'clamp(1.7rem, 3vw, 2.4rem)', fontWeight: '800', color: '#fff', marginBottom: '14px' }}>
             Ready to <span className="text-gradient">Remodel?</span>
           </h2>
-          <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.5)', marginBottom: '28px' }}>CA Lic. #1106454 · Free estimates · Ceres, Modesto & Central Valley</p>
+          <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.5)', marginBottom: '28px' }}>Mon–Sat 7am–6pm · Free estimates · Licensed & insured</p>
           <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link href="/contact" className="btn-primary">Request a Remodeling Estimate →</Link>
             <a href="tel:+12092413765" className="btn-secondary"><Phone size={16} />(209) 241-3765</a>
           </div>
-          <div style={{ marginTop: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}>
-            <MapPin size={13} style={{ color: '#ffb703' }} />
-            <span style={{ fontSize: '13px', color: 'rgba(255,255,255,0.4)' }}>Serving Ceres · Modesto · Turlock · Salida · Riverbank · Patterson</span>
-          </div>
         </div>
       </section>
 
-      <style>{'.two-col { } @media (max-width: 640px) { .two-col { grid-template-columns: 1fr !important; } }'}</style>
+      <style>{`
+        @media (max-width: 860px) { .three-col { grid-template-columns: 1fr 1fr !important; } }
+        @media (max-width: 640px) { .two-col, .three-col { grid-template-columns: 1fr !important; } }
+      `}</style>
     </>
   );
 }
