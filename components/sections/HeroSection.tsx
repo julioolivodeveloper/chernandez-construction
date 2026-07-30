@@ -1,7 +1,10 @@
 'use client';
 import { useEffect, useRef } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { Phone, ChevronDown, Shield, CheckCircle2, Star } from 'lucide-react';
+
+const LOGO_URL = 'https://umyhcsrxwdogvbxgipnx.supabase.co/storage/v1/object/public/site-images/logo.png';
 
 export default function HeroSection() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -120,7 +123,8 @@ export default function HeroSection() {
       </div>
 
       <div className="container" style={{ position: 'relative', zIndex: 2, paddingTop: '100px', paddingBottom: '80px' }}>
-        <div style={{ maxWidth: '780px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr auto', alignItems: 'center', gap: '60px' }} className="hero-grid">
+        <div>
 
           {/* License badge */}
           <div style={{
@@ -209,7 +213,7 @@ export default function HeroSection() {
 
             {/* Google reviews */}
             <a
-              href="https://g.page/r/Cd9A2YrEOL6VEAE/review"
+              href="https://maps.app.goo.gl/j9AH5qksBDwbx7v29"
               target="_blank"
               rel="noopener"
               style={{
@@ -226,6 +230,33 @@ export default function HeroSection() {
               <span style={{ fontSize: '12px', color: 'rgba(255,255,255,0.45)' }}>· 9 Google reviews</span>
             </a>
           </div>
+        </div>
+
+        {/* Logo — right column */}
+        <div className="hero-logo" style={{
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          animation: 'fadeUp 0.8s 0.3s ease both', opacity: 0,
+        }}>
+          <div style={{ position: 'relative' }}>
+            {/* Glow ring */}
+            <div style={{
+              position: 'absolute', inset: '-24px',
+              borderRadius: '50%',
+              background: 'radial-gradient(circle, rgba(255,183,3,0.18) 0%, transparent 70%)',
+              animation: 'pulse-glow 3s ease-in-out infinite',
+            }} />
+            {/* Logo */}
+            <Image
+              src={LOGO_URL}
+              alt="C Hernandez Construction"
+              width={220}
+              height={220}
+              priority
+              style={{ objectFit: 'contain', filter: 'drop-shadow(0 0 32px rgba(255,183,3,0.35))' }}
+            />
+          </div>
+        </div>
+
         </div>
       </div>
 
@@ -253,6 +284,14 @@ export default function HeroSection() {
         @keyframes float {
           0%, 100% { transform: translateX(-50%) translateY(0); }
           50% { transform: translateX(-50%) translateY(-8px); }
+        }
+        @keyframes pulse-glow {
+          0%, 100% { opacity: 0.6; transform: scale(1); }
+          50% { opacity: 1; transform: scale(1.08); }
+        }
+        @media (max-width: 768px) {
+          .hero-grid { grid-template-columns: 1fr !important; }
+          .hero-logo { display: none !important; }
         }
       `}</style>
     </section>
