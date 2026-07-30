@@ -47,11 +47,47 @@ const realProjects = [
   },
 ];
 
-const placeholders = [
-  { id: 3, title: 'Room Addition',            location: 'Turlock, CA', category: 'Room Addition',      badge: 'Addition',  color: 'rgba(34,197,94,0.1)',   border: 'rgba(34,197,94,0.2)' },
-  { id: 4, title: 'Roof Shingle Installation',location: 'Salida, CA',  category: 'Roofing',            badge: 'Roofing',   color: 'rgba(239,68,68,0.1)',   border: 'rgba(239,68,68,0.2)' },
-  { id: 5, title: 'Kitchen Remodel',          location: 'Modesto, CA', category: 'Remodeling',         badge: 'Remodel',   color: 'rgba(168,85,247,0.1)',  border: 'rgba(168,85,247,0.2)' },
-  { id: 6, title: 'Drywall & Paint',          location: 'Ceres, CA',   category: 'Drywall',            badge: 'Drywall',   color: 'rgba(99,102,241,0.1)',  border: 'rgba(99,102,241,0.2)' },
+const serviceCards = [
+  {
+    id: 3,
+    title: 'Room Addition',
+    location: 'Turlock, CA',
+    category: 'Room Addition',
+    badge: 'Addition',
+    border: 'rgba(34,197,94,0.2)',
+    img: BASE + 'framing384099.jpg',
+    desc: 'Expand your living space with a properly framed room addition — tied into your existing structure and built to pass inspection.',
+  },
+  {
+    id: 4,
+    title: 'Roof Shingle Installation',
+    location: 'Salida, CA',
+    category: 'Roofing',
+    badge: 'Roofing',
+    border: 'rgba(239,68,68,0.2)',
+    img: BASE + 'roofing4744e4.jpg',
+    desc: 'Complete shingle tear-off and re-roof on residential properties. Clean, fast, and built to last the Central Valley weather.',
+  },
+  {
+    id: 5,
+    title: 'Kitchen Remodel',
+    location: 'Modesto, CA',
+    category: 'Remodeling',
+    badge: 'Remodel',
+    border: 'rgba(168,85,247,0.2)',
+    img: BASE + 'cocina.jpg',
+    desc: 'Full kitchen renovation — framing, drywall, cabinetry and tile. We transform outdated kitchens into modern, functional spaces.',
+  },
+  {
+    id: 6,
+    title: 'Drywall & Paint',
+    location: 'Ceres, CA',
+    category: 'Drywall',
+    badge: 'Drywall',
+    border: 'rgba(99,102,241,0.2)',
+    img: BASE + 'pintura.jpg',
+    desc: 'Professional drywall installation, texture and interior painting. Clean finish every time — for new builds, additions and remodels.',
+  },
 ];
 
 type Project = typeof realProjects[0];
@@ -176,11 +212,42 @@ export default function PortfolioPreview() {
           ))}
         </div>
 
+        {/* ── Service cards with real images ── */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px' }} className="portfolio-grid">
+          {serviceCards.map(({ id, title, location, category, badge, border, img, desc }) => (
+            <div key={id} style={{ borderRadius: '18px', background: 'rgba(15,26,46,0.6)', border: '1px solid rgba(255,255,255,0.07)', overflow: 'hidden', transition: 'all 0.3s ease' }}
+              onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.border = `1px solid ${border}`; el.style.transform = 'translateY(-5px)'; el.style.boxShadow = '0 16px 40px rgba(0,0,0,0.35)'; }}
+              onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.border = '1px solid rgba(255,255,255,0.07)'; el.style.transform = 'translateY(0)'; el.style.boxShadow = 'none'; }}
+            >
+              {/* Real image */}
+              <div style={{ position: 'relative', height: '180px', overflow: 'hidden' }}>
+                <Image src={img} alt={title} fill sizes="(max-width:900px) 50vw, 25vw" style={{ objectFit: 'cover', transition: 'transform 0.4s ease' }} className="feat-img" />
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 50%, rgba(8,14,29,0.7) 100%)' }} />
+                <span style={{ position: 'absolute', top: '12px', left: '12px', padding: '4px 10px', borderRadius: '999px', background: 'rgba(0,0,0,0.6)', border: `1px solid ${border}`, fontSize: '10px', fontWeight: '800', color: '#fff', letterSpacing: '0.05em' }}>{badge}</span>
+              </div>
+              <div style={{ padding: '16px 18px' }}>
+                <h3 style={{ fontSize: '14px', fontWeight: '800', color: '#fff', marginBottom: '4px', fontFamily: 'Poppins, sans-serif' }}>{title}</h3>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '5px', marginBottom: '10px' }}>
+                  <MapPin size={11} style={{ color: '#ffb703', flexShrink: 0 }} />
+                  <span style={{ fontSize: '11px', color: 'rgba(255,255,255,0.4)' }}>{location}</span>
+                  <span style={{ fontSize: '11px', color: 'rgba(255,255,255,0.2)' }}>·</span>
+                  <span style={{ fontSize: '11px', color: 'rgba(255,255,255,0.4)' }}>{category}</span>
+                </div>
+                <p style={{ fontSize: '12px', color: 'rgba(255,255,255,0.45)', lineHeight: 1.65, marginBottom: '14px' }}>{desc}</p>
+                <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', fontSize: '12px', fontWeight: '700', color: '#ffb703', textDecoration: 'none' }}>
+                  Request similar <ArrowRight size={12} />
+                </Link>
+              </div>
+            </div>
+          ))}
+        </div>
+
       </div>
 
       <style>{`
         .feat-img:hover { transform: scale(1.04); }
         .feat-cta:hover { background: rgba(255,183,3,0.18) !important; }
+        .google-btn:hover { background: rgba(66,133,244,0.18) !important; }
         @media (max-width: 900px) {
           .featured-card { grid-template-columns: 1fr !important; }
           .portfolio-grid { grid-template-columns: 1fr 1fr !important; }
