@@ -1,6 +1,9 @@
 'use client';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Phone, MapPin, Clock, ExternalLink, Shield, Star } from 'lucide-react';
+
+const LOGO_URL = 'https://umyhcsrxwdogvbxgipnx.supabase.co/storage/v1/object/public/site-images/logo.png';
 
 export default function Footer() {
   return (
@@ -59,12 +62,13 @@ export default function Footer() {
         {/* Col 1: Brand */}
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
-            <div style={{
-              width: '44px', height: '44px', borderRadius: '11px',
-              background: 'linear-gradient(135deg, #ffb703, #ff8c00)',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              fontFamily: 'Poppins, sans-serif', fontWeight: '900', fontSize: '18px', color: '#080e1d',
-            }}>CH</div>
+            <Image
+              src={LOGO_URL}
+              alt="C Hernandez Construction logo"
+              width={52}
+              height={52}
+              style={{ objectFit: 'contain', flexShrink: 0 }}
+            />
             <div>
               <div style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '800', fontSize: '17px', color: '#fff' }}>C Hernandez Construction</div>
               <div style={{ fontSize: '12px', color: 'rgba(255,255,255,0.45)' }}>Licensed General Contractor</div>

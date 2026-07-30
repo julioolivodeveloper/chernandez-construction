@@ -1,6 +1,9 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+
+const LOGO_URL = 'https://umyhcsrxwdogvbxgipnx.supabase.co/storage/v1/object/public/site-images/logo.png';
 import { Phone, Menu, X, ChevronDown, Home, Hammer, Layers, Grid3X3, Wrench, PaintBucket, Warehouse, DoorOpen, Building2, Shield } from 'lucide-react';
 
 const services = [
@@ -52,14 +55,14 @@ export default function Navbar() {
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '72px' }}>
           {/* Brand */}
           <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
-            <div style={{
-              width: '40px', height: '40px', borderRadius: '10px',
-              background: 'linear-gradient(135deg, #ffb703, #ff8c00)',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              fontFamily: 'Poppins, sans-serif', fontWeight: '900', fontSize: '18px', color: '#080e1d',
-              boxShadow: '0 4px 15px rgba(255,183,3,0.3)',
-              flexShrink: 0,
-            }}>CH</div>
+            <Image
+              src={LOGO_URL}
+              alt="C Hernandez Construction logo"
+              width={48}
+              height={48}
+              style={{ objectFit: 'contain', flexShrink: 0 }}
+              priority
+            />
             <div>
               <div style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '800', fontSize: '15px', color: '#fff', lineHeight: 1.2 }}>
                 C Hernandez <span style={{ color: '#ffb703' }}>Construction</span>
