@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const post = getPost(slug);
   if (!post) return {};
   return {
-    title: `${post.title} | C Hernandez Construction`,
+    title: `${post.title} | C Hernandez Construction — Licensed Contractor CA`,
     description: post.excerpt,
   };
 }

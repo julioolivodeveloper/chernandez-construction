@@ -13,6 +13,8 @@ const CATEGORY_COLORS: Record<string, string> = {
   Framing: '#f97316',
   Tips: '#22c55e',
   Planning: '#a855f7',
+  Roofing: '#ef4444',
+  Remodeling: '#06b6d4',
 };
 
 export default function BlogPage() {
