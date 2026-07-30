@@ -1,14 +1,17 @@
+import Link from 'next/link';
 import { MapPin } from 'lucide-react';
 
 const cities = [
-  { name: 'Ceres', primary: true },
-  { name: 'Modesto', primary: true },
-  { name: 'Turlock' },
-  { name: 'Salida' },
-  { name: 'Riverbank' },
-  { name: 'Patterson' },
-  { name: 'Oakdale' },
-  { name: 'Manteca' },
+  { name: 'Ceres', primary: true, href: null },
+  { name: 'Modesto', primary: true, href: '/cities/modesto' },
+  { name: 'Turlock', primary: false, href: '/cities/turlock' },
+  { name: 'Stockton', primary: false, href: '/cities/stockton' },
+  { name: 'Tracy', primary: false, href: '/cities/tracy' },
+  { name: 'Manteca', primary: false, href: '/cities/manteca' },
+  { name: 'Salida', primary: false, href: null },
+  { name: 'Riverbank', primary: false, href: null },
+  { name: 'Patterson', primary: false, href: null },
+  { name: 'Oakdale', primary: false, href: null },
 ];
 
 export default function ServiceAreaSection() {
@@ -29,19 +32,24 @@ export default function ServiceAreaSection() {
             </p>
 
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: '28px' }}>
-              {cities.map(({ name, primary }) => (
-                <span key={name} style={{
-                  display: 'inline-flex', alignItems: 'center', gap: '6px',
+              {cities.map(({ name, primary, href }) => {
+                const style = {
+                  display: 'inline-flex' as const, alignItems: 'center' as const, gap: '6px',
                   padding: '8px 14px', borderRadius: '999px',
                   background: primary ? 'rgba(255,183,3,0.1)' : 'rgba(255,255,255,0.04)',
                   border: `1px solid ${primary ? 'rgba(255,183,3,0.3)' : 'rgba(255,255,255,0.08)'}`,
                   fontSize: '13px', fontWeight: primary ? '700' : '500',
                   color: primary ? '#ffb703' : 'rgba(255,255,255,0.6)',
-                }}>
-                  <MapPin size={11} />
-                  {name}
-                </span>
-              ))}
+                  textDecoration: 'none',
+                  transition: 'border-color 0.2s',
+                };
+                const content = <><MapPin size={11} />{name}</>;
+                return href ? (
+                  <Link key={name} href={href} style={style}>{content}</Link>
+                ) : (
+                  <span key={name} style={style}>{content}</span>
+                );
+              })}
             </div>
 
             <a
