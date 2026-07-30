@@ -7,6 +7,7 @@ import LicensedComparison from '@/components/services/LicensedComparison';
 import CitiesSection from '@/components/services/CitiesSection';
 import CostEstimator from '@/components/services/CostEstimator';
 import PageHero from '@/components/PageHero';
+import ReviewsSection from '@/components/sections/ReviewsSection';
 
 export const metadata: Metadata = {
   title: 'Room Addition Contractor | C Hernandez Construction – Ceres & Modesto CA',
@@ -51,6 +52,7 @@ export default function AdditionsPage() {
         description="Expand your home with a professionally framed room addition. We handle permits, framing, and coordination with all trades."
         ctaLabel="Get an Additions Estimate →"
       />
+      <ReviewsSection />
 
       <section className="section-pad" style={{ background: '#080e1d' }}>
         <div className="container">

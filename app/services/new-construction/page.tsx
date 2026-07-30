@@ -7,6 +7,7 @@ import LicensedComparison from '@/components/services/LicensedComparison';
 import CitiesSection from '@/components/services/CitiesSection';
 import CostEstimator from '@/components/services/CostEstimator';
 import PageHero from '@/components/PageHero';
+import ReviewsSection from '@/components/sections/ReviewsSection';
 
 export const metadata: Metadata = {
   title: 'New Home Construction | C Hernandez Construction – Ceres & Modesto CA',
@@ -51,6 +52,7 @@ export default function NewConstructionPage() {
         description="Custom residential construction from the ground up. Licensed General Contractor managing all phases of your new home build."
         ctaLabel="Start Your New Build →"
       />
+      <ReviewsSection />
 
       <section className="section-pad" style={{ background: '#080e1d' }}>
         <div className="container">

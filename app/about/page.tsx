@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Shield, MapPin, Phone, Clock, Star, ExternalLink } from 'lucide-react';
 import PageHero from '@/components/PageHero';
+import ReviewsSection from '@/components/sections/ReviewsSection';
 
 export const metadata: Metadata = {
   title: 'About Us | C Hernandez Construction – Licensed Contractor Ceres CA',
@@ -19,6 +20,7 @@ export default function AboutPage() {
         description="C Hernandez Construction is a licensed general contractor specializing in residential framing, ADUs and additions in Ceres, Modesto and surrounding areas of the Central Valley."
         ctaLabel="Start Your Project →"
       />
+      <ReviewsSection />
 
       {/* Business info */}
       <section className="section-pad" style={{ background: '#080e1d' }}>

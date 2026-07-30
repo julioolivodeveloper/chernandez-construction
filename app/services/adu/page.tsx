@@ -8,6 +8,7 @@ import LicensedComparison from '@/components/services/LicensedComparison';
 import CitiesSection from '@/components/services/CitiesSection';
 import AduCalculator from '@/components/services/AduCalculator';
 import PageHero from '@/components/PageHero';
+import ReviewsSection from '@/components/sections/ReviewsSection';
 
 export const metadata: Metadata = {
   title: 'ADU Construction | C Hernandez Construction – Ceres & Modesto CA',
@@ -50,6 +51,7 @@ export default function AduPage() {
         description="Accessory dwelling units built to California code. Detached, attached, garage conversions — we frame it right, coordinate permits, and build a rental-ready unit."
         ctaLabel="Get an ADU Consultation →"
       />
+      <ReviewsSection />
 
       {/* ADU Types */}
       <section className="section-pad" style={{ background: '#080e1d' }}>

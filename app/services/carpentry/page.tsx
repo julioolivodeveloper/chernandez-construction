@@ -6,6 +6,7 @@ import ServiceInlineForm from '@/components/services/ServiceInlineForm';
 import LicensedComparison from '@/components/services/LicensedComparison';
 import CitiesSection from '@/components/services/CitiesSection';
 import PageHero from '@/components/PageHero';
+import ReviewsSection from '@/components/sections/ReviewsSection';
 
 export const metadata: Metadata = {
   title: 'Carpentry & Trim Work | C Hernandez Construction – Ceres & Modesto CA',
@@ -50,6 +51,7 @@ export default function CarpentryPage() {
         description="Professional carpentry and trim work for new construction, additions, and remodels. Baseboards, crown molding, doors, and custom woodwork."
         ctaLabel="Get a Carpentry Quote →"
       />
+      <ReviewsSection />
 
       <section className="section-pad" style={{ background: '#080e1d' }}>
         <div className="container">

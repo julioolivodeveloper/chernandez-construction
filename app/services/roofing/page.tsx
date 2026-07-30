@@ -6,6 +6,7 @@ import ServiceInlineForm from '@/components/services/ServiceInlineForm';
 import LicensedComparison from '@/components/services/LicensedComparison';
 import CitiesSection from '@/components/services/CitiesSection';
 import PageHero from '@/components/PageHero';
+import ReviewsSection from '@/components/sections/ReviewsSection';
 
 export const metadata: Metadata = {
   title: 'Roof Shingles Installation & Repair | C Hernandez Construction – Ceres & Modesto CA',
@@ -50,6 +51,7 @@ export default function RoofingPage() {
         description="Professional roof shingle installation and replacement for residential properties across the Central Valley."
         ctaLabel="Get a Roofing Estimate →"
       />
+      <ReviewsSection />
 
       <section className="section-pad" style={{ background: '#080e1d' }}>
         <div className="container">

@@ -6,6 +6,7 @@ import ServiceInlineForm from '@/components/services/ServiceInlineForm';
 import LicensedComparison from '@/components/services/LicensedComparison';
 import CitiesSection from '@/components/services/CitiesSection';
 import PageHero from '@/components/PageHero';
+import ReviewsSection from '@/components/sections/ReviewsSection';
 
 export const metadata: Metadata = {
   title: 'Licensed General Contractor | C Hernandez Construction – Ceres & Modesto CA',
@@ -50,6 +51,7 @@ export default function GeneralContractorPage() {
         description="Licensed General Contractor serving Ceres, Modesto and the Central Valley. We manage your project from permits to final inspection."
         ctaLabel="Request a GC Estimate →"
       />
+      <ReviewsSection />
 
       <section className="section-pad" style={{ background: '#080e1d' }}>
         <div className="container">

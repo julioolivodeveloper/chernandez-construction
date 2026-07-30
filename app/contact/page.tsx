@@ -2,6 +2,7 @@ import QuoteForm from '@/components/sections/QuoteForm';
 import type { Metadata } from 'next';
 import { Phone } from 'lucide-react';
 import PageHero from '@/components/PageHero';
+import ReviewsSection from '@/components/sections/ReviewsSection';
 
 export const metadata: Metadata = {
   title: 'Free Estimate | C Hernandez Construction – Ceres & Modesto CA',
@@ -20,6 +21,7 @@ export default function ContactPage() {
         ctaLabel="Call (209) 241-3765"
         ctaHref="tel:+12092413765"
       />
+      <ReviewsSection />
       <QuoteForm />
     </>
   );

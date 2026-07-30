@@ -6,6 +6,7 @@ import ServiceInlineForm from '@/components/services/ServiceInlineForm';
 import LicensedComparison from '@/components/services/LicensedComparison';
 import CitiesSection from '@/components/services/CitiesSection';
 import PageHero from '@/components/PageHero';
+import ReviewsSection from '@/components/sections/ReviewsSection';
 
 export const metadata: Metadata = {
   title: 'Home Remodeling Contractor | C Hernandez Construction – Ceres & Modesto CA',
@@ -50,6 +51,7 @@ export default function RemodelingPage() {
         description="Full home remodeling services — kitchens, bathrooms, flooring, and more. Licensed crew, clean work, and quality finishes."
         ctaLabel="Get a Remodeling Quote →"
       />
+      <ReviewsSection />
 
       <section className="section-pad" style={{ background: '#080e1d' }}>
         <div className="container">

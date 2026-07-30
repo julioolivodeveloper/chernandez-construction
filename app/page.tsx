@@ -7,6 +7,7 @@ import QuoteForm from '@/components/sections/QuoteForm';
 import WhyUsSection from '@/components/sections/WhyUsSection';
 import ServiceAreaSection from '@/components/sections/ServiceAreaSection';
 import VideoCarousel from '@/components/VideoCarousel';
+import BuildZoomSection from '@/components/sections/BuildZoomSection';
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
       <VideoCarousel />
       <ReviewsSection />
       <ServiceAreaSection />
+      <BuildZoomSection />
       <QuoteForm />
     </>
   );

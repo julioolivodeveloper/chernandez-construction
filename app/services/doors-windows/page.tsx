@@ -6,6 +6,7 @@ import ServiceInlineForm from '@/components/services/ServiceInlineForm';
 import LicensedComparison from '@/components/services/LicensedComparison';
 import CitiesSection from '@/components/services/CitiesSection';
 import PageHero from '@/components/PageHero';
+import ReviewsSection from '@/components/sections/ReviewsSection';
 
 export const metadata: Metadata = {
   title: 'Doors & Windows Installation | C Hernandez Construction – Ceres & Modesto CA',
@@ -50,6 +51,7 @@ export default function DoorsWindowsPage() {
         description="Professional door and window installation for residential properties. New construction, replacements, and upgrades."
         ctaLabel="Get a Doors & Windows Quote →"
       />
+      <ReviewsSection />
 
       <section className="section-pad" style={{ background: '#080e1d' }}>
         <div className="container">

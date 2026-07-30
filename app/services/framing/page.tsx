@@ -7,6 +7,7 @@ import LicensedComparison from '@/components/services/LicensedComparison';
 import CitiesSection from '@/components/services/CitiesSection';
 import CostEstimator from '@/components/services/CostEstimator';
 import PageHero from '@/components/PageHero';
+import ReviewsSection from '@/components/sections/ReviewsSection';
 
 export const metadata: Metadata = {
   title: 'Structural Framing Contractor | C Hernandez Construction – Ceres & Modesto CA',
@@ -51,6 +52,7 @@ export default function FramingPage() {
         description="Residential framing for new homes, ADUs and room additions — built to California code, permitted, and inspection-ready."
         ctaLabel="Request a Framing Estimate →"
       />
+      <ReviewsSection />
 
       <section className="section-pad" style={{ background: '#080e1d' }}>
         <div className="container">
