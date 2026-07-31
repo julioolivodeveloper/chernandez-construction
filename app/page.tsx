@@ -17,9 +17,9 @@ export default function Home() {
       <HeroSection />
       <StatsCounter />
       <ServicesSection />
+      <PortfolioPreview />
       <HowWeWork />
       <WhyUsSection />
-      <PortfolioPreview />
       <VideoCarousel />
       <ReviewsSection />
       <ServiceAreaSection />
