@@ -3,6 +3,7 @@ import PageHero from '@/components/PageHero';
 import ReviewsSection from '@/components/sections/ReviewsSection';
 import QuoteCalculator from '@/components/QuoteCalculator';
 import ContactFormSection from '@/components/sections/ContactFormSection';
+import PortfolioPreview from '@/components/sections/PortfolioPreview';
 
 export const metadata: Metadata = {
   title: 'Free Estimate | C Hernandez Construction – Ceres & Modesto CA',
@@ -25,6 +26,7 @@ export default function ContactPage() {
       <ReviewsSection />
       <QuoteCalculator />
       <ContactFormSection />
+      <PortfolioPreview />
     </>
   );
 }
