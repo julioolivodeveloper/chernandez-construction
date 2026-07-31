@@ -54,6 +54,7 @@ export default function FramingPage() {
         ctaLabel="Request a Framing Estimate →"
       />
       <ReviewsSection />
+      <PortfolioPreview />
 
       <section className="section-pad" style={{ background: '#080e1d' }}>
         <div className="container">
@@ -166,8 +167,6 @@ export default function FramingPage() {
       </section>
 
       <CitiesSection service="Structural Framing" />
-
-      <PortfolioPreview />
 
       <section style={{ background: '#080e1d', padding: '64px 0', borderTop: '1px solid rgba(255,183,3,0.1)' }}>
         <div className="container" style={{ textAlign: 'center' }}>
