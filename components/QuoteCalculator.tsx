@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { Calculator, ChevronRight, ChevronLeft, CheckCircle2, DollarSign, Phone } from 'lucide-react';
+import { Calculator, ChevronRight, ChevronLeft, CheckCircle2, DollarSign, Phone, Home, PlusSquare, Layers, Wrench, CloudRain, Paintbrush, Building2, Ruler, type LucideIcon } from 'lucide-react';
 import Link from 'next/link';
 
 const fmt = (n: number) => n >= 1000
@@ -8,15 +8,25 @@ const fmt = (n: number) => n >= 1000
   : '$' + Math.round(n).toLocaleString();
 
 // ── Service categories ────────────────────────────────────────────
-const CATEGORIES = [
-  { id: 'adu',         label: 'ADU Construction',     icon: '🏡', desc: 'Detached, attached, or garage conversion' },
-  { id: 'addition',    label: 'Room Addition',         icon: '🔨', desc: 'Add square footage to your home' },
-  { id: 'framing',     label: 'Structural Framing',    icon: '🏗️', desc: 'New home or project framing' },
-  { id: 'remodel',     label: 'Home Remodeling',       icon: '🪟', desc: 'Kitchen, bathroom, or whole home' },
-  { id: 'roofing',     label: 'Roofing',               icon: '🏠', desc: 'Re-roof or new shingle installation' },
-  { id: 'drywall',     label: 'Drywall & Painting',    icon: '🖌️', desc: 'Hang, tape, texture, and paint' },
-  { id: 'newbuild',    label: 'New Construction',       icon: '🏢', desc: 'Full custom home build' },
-  { id: 'carpentry',   label: 'Carpentry & Trim',      icon: '🪵', desc: 'Molding, built-ins, finish work' },
+interface Category {
+  id: string;
+  label: string;
+  desc: string;
+  Icon: LucideIcon;
+  gradient: string;
+  glow: string;
+  ring: string;
+}
+
+const CATEGORIES: Category[] = [
+  { id: 'adu',       label: 'ADU Construction',  desc: 'Detached, attached, or garage conversion', Icon: Home,      gradient: 'linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)', glow: 'rgba(59,130,246,0.4)',  ring: 'rgba(59,130,246,0.15)' },
+  { id: 'addition',  label: 'Room Addition',      desc: 'Add square footage to your home',         Icon: PlusSquare, gradient: 'linear-gradient(135deg, #92400e 0%, #f59e0b 100%)', glow: 'rgba(245,158,11,0.4)',  ring: 'rgba(245,158,11,0.15)' },
+  { id: 'framing',   label: 'Structural Framing', desc: 'New home or project framing',             Icon: Layers,    gradient: 'linear-gradient(135deg, #5b21b6 0%, #8b5cf6 100%)', glow: 'rgba(139,92,246,0.4)', ring: 'rgba(139,92,246,0.15)' },
+  { id: 'remodel',   label: 'Home Remodeling',    desc: 'Kitchen, bathroom, or whole home',        Icon: Wrench,    gradient: 'linear-gradient(135deg, #0e7490 0%, #06b6d4 100%)', glow: 'rgba(6,182,212,0.4)',   ring: 'rgba(6,182,212,0.15)'  },
+  { id: 'roofing',   label: 'Roofing',            desc: 'Re-roof or new shingle installation',     Icon: CloudRain, gradient: 'linear-gradient(135deg, #991b1b 0%, #ef4444 100%)', glow: 'rgba(239,68,68,0.4)',   ring: 'rgba(239,68,68,0.15)'  },
+  { id: 'drywall',   label: 'Drywall & Painting', desc: 'Hang, tape, texture, and paint',          Icon: Paintbrush,gradient: 'linear-gradient(135deg, #14532d 0%, #22c55e 100%)', glow: 'rgba(34,197,94,0.4)',   ring: 'rgba(34,197,94,0.15)'  },
+  { id: 'newbuild',  label: 'New Construction',   desc: 'Full custom home build',                  Icon: Building2, gradient: 'linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%)', glow: 'rgba(37,99,235,0.4)',   ring: 'rgba(37,99,235,0.15)'  },
+  { id: 'carpentry', label: 'Carpentry & Trim',   desc: 'Molding, built-ins, finish work',         Icon: Ruler,     gradient: 'linear-gradient(135deg, #78350f 0%, #d97706 100%)', glow: 'rgba(217,119,6,0.4)',   ring: 'rgba(217,119,6,0.15)'  },
 ];
 
 // ── Price data ────────────────────────────────────────────────────
@@ -232,22 +242,38 @@ export default function QuoteCalculator() {
         {/* ── Step 0: Category ─────────────────────────── */}
         {step === 0 && (
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '12px' }}>
-            {CATEGORIES.map(cat => (
-              <button key={cat.id} onClick={() => selectCategory(cat.id)} style={{ padding: '22px 18px', borderRadius: '18px', background: '#0d1829', border: '1px solid rgba(255,255,255,0.07)', cursor: 'pointer', textAlign: 'left', transition: 'all 0.15s' }}
-                className="calc-cat-btn">
-                <div style={{ fontSize: '28px', marginBottom: '10px' }}>{cat.icon}</div>
-                <div style={{ fontFamily: 'Poppins, sans-serif', fontSize: '14px', fontWeight: '800', color: '#fff', marginBottom: '4px' }}>{cat.label}</div>
-                <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.4)', lineHeight: 1.4 }}>{cat.desc}</div>
-              </button>
-            ))}
+            {CATEGORIES.map(cat => {
+              const { Icon } = cat;
+              return (
+                <button key={cat.id} onClick={() => selectCategory(cat.id)}
+                  className="calc-cat-btn"
+                  style={{ padding: '24px 18px 20px', borderRadius: '20px', background: '#0d1829', border: '1px solid rgba(255,255,255,0.07)', cursor: 'pointer', textAlign: 'center', transition: 'all 0.2s', position: 'relative', overflow: 'hidden' }}>
+                  {/* glow background */}
+                  <div style={{ position: 'absolute', top: '-12px', left: '50%', transform: 'translateX(-50%)', width: '100px', height: '60px', borderRadius: '50%', background: cat.glow, filter: 'blur(30px)', opacity: 0.5, pointerEvents: 'none' }} />
+                  {/* icon */}
+                  <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', marginBottom: '14px' }}>
+                    <div style={{ position: 'absolute', width: '72px', height: '72px', borderRadius: '50%', background: cat.ring, border: `1px solid ${cat.ring}` }} />
+                    <div style={{ position: 'relative', width: '54px', height: '54px', borderRadius: '50%', background: cat.gradient, boxShadow: `0 8px 24px ${cat.glow}`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <Icon size={24} color="#fff" strokeWidth={1.5} />
+                    </div>
+                  </div>
+                  <div style={{ fontFamily: 'Poppins, sans-serif', fontSize: '13px', fontWeight: '800', color: '#fff', marginBottom: '4px', lineHeight: 1.3 }}>{cat.label}</div>
+                  <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.4)', lineHeight: 1.4 }}>{cat.desc}</div>
+                </button>
+              );
+            })}
           </div>
         )}
 
         {/* ── Step 1: Details ──────────────────────────── */}
         {step === 1 && data && (
           <div style={{ background: '#0d1829', borderRadius: '24px', border: '1px solid rgba(255,255,255,0.07)', padding: '36px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '28px' }}>
-              <span style={{ fontSize: '24px' }}>{categoryInfo?.icon}</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '28px' }}>
+              {categoryInfo && (() => { const { Icon } = categoryInfo; return (
+                <div style={{ width: '44px', height: '44px', borderRadius: '50%', background: categoryInfo.gradient, boxShadow: `0 6px 16px ${categoryInfo.glow}`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <Icon size={20} color="#fff" strokeWidth={1.5} />
+                </div>
+              ); })()}
               <h3 style={{ fontFamily: 'Poppins, sans-serif', fontSize: '1.1rem', fontWeight: '800', color: '#fff', margin: 0 }}>{categoryInfo?.label}</h3>
             </div>
 
