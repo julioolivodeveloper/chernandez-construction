@@ -8,6 +8,7 @@ import CitiesSection from '@/components/services/CitiesSection';
 import CostEstimator from '@/components/services/CostEstimator';
 import PageHero from '@/components/PageHero';
 import ReviewsSection from '@/components/sections/ReviewsSection';
+import PortfolioPreview from '@/components/sections/PortfolioPreview';
 
 export const metadata: Metadata = {
   title: 'Room Addition Contractor | C Hernandez Construction – Ceres & Modesto CA',
@@ -165,6 +166,8 @@ export default function AdditionsPage() {
       </section>
 
       <CitiesSection service="Room Additions" />
+
+      <PortfolioPreview />
 
       <section style={{ background: '#080e1d', padding: '64px 0', borderTop: '1px solid rgba(255,183,3,0.1)' }}>
         <div className="container" style={{ textAlign: 'center' }}>

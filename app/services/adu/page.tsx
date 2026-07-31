@@ -9,6 +9,7 @@ import CitiesSection from '@/components/services/CitiesSection';
 import AduCalculator from '@/components/services/AduCalculator';
 import PageHero from '@/components/PageHero';
 import ReviewsSection from '@/components/sections/ReviewsSection';
+import PortfolioPreview from '@/components/sections/PortfolioPreview';
 
 export const metadata: Metadata = {
   title: 'ADU Construction | C Hernandez Construction – Ceres & Modesto CA',
@@ -303,6 +304,8 @@ export default function AduPage() {
       <CitiesSection service="ADU Construction" />
 
       {/* Final CTA */}
+      <PortfolioPreview />
+
       <section style={{ background: '#080e1d', padding: '64px 0', borderTop: '1px solid rgba(255,183,3,0.1)' }}>
         <div className="container" style={{ textAlign: 'center' }}>
           <h2 style={{ fontFamily: 'Poppins, sans-serif', fontSize: 'clamp(1.7rem, 3vw, 2.4rem)', fontWeight: '800', color: '#fff', marginBottom: '14px' }}>
