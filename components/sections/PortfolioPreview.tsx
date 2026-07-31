@@ -187,7 +187,7 @@ export default function PortfolioPreview() {
               {/* Images — alternate side on second card */}
               {pi % 2 === 0 ? (
                 <>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3px', minHeight: '320px' }}>
+                  <div className="proj-images" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3px', minHeight: '320px' }}>
                     {p.images.map((src, i) => (
                       <div key={i} style={{ position: 'relative', overflow: 'hidden' }}>
                         <Image src={src} alt={`${p.title} photo ${i + 1}`} fill sizes="25vw" style={{ objectFit: 'cover', transition: 'transform 0.4s ease' }} className="feat-img" />
@@ -199,7 +199,7 @@ export default function PortfolioPreview() {
               ) : (
                 <>
                   <ProjectDetails p={p} />
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3px', minHeight: '320px' }}>
+                  <div className="proj-images" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3px', minHeight: '320px' }}>
                     {p.images.map((src, i) => (
                       <div key={i} style={{ position: 'relative', overflow: 'hidden' }}>
                         <Image src={src} alt={`${p.title} photo ${i + 1}`} fill sizes="25vw" style={{ objectFit: 'cover', transition: 'transform 0.4s ease' }} className="feat-img" />
@@ -250,6 +250,7 @@ export default function PortfolioPreview() {
         .google-btn:hover { background: rgba(66,133,244,0.18) !important; }
         @media (max-width: 900px) {
           .featured-card { grid-template-columns: 1fr !important; }
+          .featured-card .proj-images { order: -1; }
           .portfolio-grid { grid-template-columns: 1fr 1fr !important; }
         }
         @media (max-width: 540px) {

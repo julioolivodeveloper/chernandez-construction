@@ -18,11 +18,11 @@ const bgImages = [
 ];
 
 const typewriterPhrases = [
-  'Framing · ADUs · Additions',
-  'Licensed in California',
+  'in Ceres & Modesto, CA',
+  'Licensed Contractor #1106454',
   'Remodeling & Roofing',
-  'Ceres · Modesto · Turlock',
-  'Quality Craftsmanship',
+  'Throughout Central Valley',
+  'Free Estimates Available',
 ];
 
 export default function HeroSection() {
@@ -186,7 +186,7 @@ export default function HeroSection() {
               marginBottom: '24px',
               animation: 'fadeUp 0.7s 0.1s ease both', opacity: 0,
             }}>
-              <span style={{ color: '#fff' }}>Licensed General Contractor</span>
+              <span style={{ color: '#fff' }}>Framing, ADUs & Additions</span>
               <br />
               {/* Typewriter line */}
               <span style={{
@@ -214,7 +214,7 @@ export default function HeroSection() {
               marginBottom: '36px',
               animation: 'fadeUp 0.7s 0.2s ease both', opacity: 0,
             }}>
-              Specializing in residential framing, ADUs and room additions in <strong style={{ color: '#fff', fontWeight: '700' }}>Ceres and Modesto</strong>, CA. Quality craftsmanship, honest pricing, and a team that shows up.
+              We build ADUs, room additions and residential framing in <strong style={{ color: '#fff', fontWeight: '700' }}>Ceres, Modesto & the Central Valley</strong>. Licensed crew (Lic. #1106454), permitted work, and honest pricing — every time.
             </p>
 
             <div style={{
