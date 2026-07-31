@@ -51,8 +51,15 @@ export default function PageHero({
 }: Props) {
   const Icon = iconName ? ICONS[iconName.toLowerCase()] : undefined;
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [bgIndex, setBgIndex] = useState(0);
-  const [nextBgIndex, setNextBgIndex] = useState(1);
+  const [bgIndex, setBgIndex] = useState(() => {
+    const hash = title.split('').reduce((acc, c) => acc + c.charCodeAt(0), 0);
+    return (hash % (bgImages.length - 1)) + 1;
+  });
+  const [nextBgIndex, setNextBgIndex] = useState(() => {
+    const hash = title.split('').reduce((acc, c) => acc + c.charCodeAt(0), 0);
+    const start = (hash % (bgImages.length - 1)) + 1;
+    return (start + 1) % bgImages.length;
+  });
   const [fading, setFading] = useState(false);
   const [typed, setTyped] = useState('');
   const [phraseIdx, setPhraseIdx] = useState(0);
