@@ -25,7 +25,9 @@ export default function ContactPage() {
       />
       <ReviewsSection />
       <QuoteCalculator />
-      <ContactFormSection />
+      <div id="form">
+        <ContactFormSection />
+      </div>
       <PortfolioPreview />
     </>
   );

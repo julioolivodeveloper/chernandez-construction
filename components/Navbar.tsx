@@ -210,7 +210,7 @@ export default function Navbar() {
               <Phone size={14} />
               (209) 241-3765
             </a>
-            <Link href="/contact" className="btn-primary" style={{ padding: '9px 20px', fontSize: '13px' }}>
+            <Link href="/contact#form" className="btn-primary" style={{ padding: '9px 20px', fontSize: '13px' }}>
               Free Estimate
             </Link>
           </div>
