@@ -30,6 +30,30 @@ const reviews = [
     text: 'Great experience framing that ADU in Milpitas. ADU construction in the Bay Area is something we really enjoy — every project is unique and we love the challenge. Always a pleasure working with professional contractors like Daniel. Looking forward to the next framing project together.',
     image: BASE + 'daniel%20sanchez/Captura%20de%20pantalla%202026-07-30%20a%20la%28s%29%201.39.07%20p.m..png',
   },
+  {
+    client: 'Baja Electric Inc',
+    title: 'Storage Shed Construction',
+    location: 'Central Valley, CA',
+    badge: 'Construction',
+    text: 'We hired C Hernandez Construction to build for us a storage shed — did great work and very reliable. We highly recommend their services!',
+    image: null,
+  },
+  {
+    client: 'Emma F.',
+    title: 'General Construction',
+    location: 'Central Valley, CA',
+    badge: 'General',
+    text: 'Fácil, rápido y agradable trabajar con ellos. Ofrecen sus servicios en el valle y pueden adaptarse a necesidades específicas.',
+    image: null,
+  },
+  {
+    client: 'Cardenas Concrete',
+    title: 'Construction Project',
+    location: 'Central Valley, CA',
+    badge: 'B2B',
+    text: 'This company makes great work from the beginning to the end. The price is very competitive and the work is pretty good quality. I highly recommend it.',
+    image: null,
+  },
 ];
 
 const GOOGLE_URL = 'https://maps.app.goo.gl/j9AH5qksBDwbx7v29';
@@ -79,7 +103,7 @@ export default function ReviewsSection() {
             </div>
             <div style={{ textAlign: 'left' }}>
               <div style={{ fontSize: '16px', fontWeight: '800', color: '#fff', lineHeight: 1 }}>5.0 on Google</div>
-              <div style={{ fontSize: '12px', color: 'rgba(255,255,255,0.45)', marginTop: '2px' }}>9 verified reviews</div>
+              <div style={{ fontSize: '12px', color: 'rgba(255,255,255,0.45)', marginTop: '2px' }}>6 verified reviews</div>
             </div>
             <ExternalLink size={14} style={{ color: 'rgba(255,255,255,0.3)', marginLeft: '8px' }} />
           </a>
@@ -91,24 +115,26 @@ export default function ReviewsSection() {
             borderRadius: '24px', overflow: 'hidden',
             background: 'rgba(15,26,46,0.7)',
             border: '1px solid rgba(255,183,3,0.2)',
-            display: 'grid', gridTemplateColumns: '1fr 1fr',
+            display: 'grid', gridTemplateColumns: r.image ? '1fr 1fr' : '1fr',
             boxShadow: '0 24px 60px rgba(0,0,0,0.4)',
           }} className="review-card">
 
-            {/* Project image */}
-            <div style={{ position: 'relative', minHeight: '340px', overflow: 'hidden' }}>
-              <Image
-                src={r.image}
-                alt={r.title}
-                fill
-                sizes="(max-width: 768px) 100vw, 450px"
-                style={{ objectFit: 'cover', transition: 'transform 0.5s ease' }}
-              />
-              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, transparent 70%, rgba(15,26,46,0.4) 100%)' }} />
-              <span style={{ position: 'absolute', top: '16px', left: '16px', padding: '5px 14px', borderRadius: '999px', background: 'rgba(0,0,0,0.65)', border: '1px solid rgba(255,183,3,0.4)', fontSize: '11px', fontWeight: '800', color: '#ffb703', letterSpacing: '0.08em' }}>
-                {r.badge}
-              </span>
-            </div>
+            {/* Project image or placeholder */}
+            {r.image ? (
+              <div style={{ position: 'relative', minHeight: '340px', overflow: 'hidden' }}>
+                <Image
+                  src={r.image}
+                  alt={r.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 450px"
+                  style={{ objectFit: 'cover', transition: 'transform 0.5s ease' }}
+                />
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, transparent 70%, rgba(15,26,46,0.4) 100%)' }} />
+                <span style={{ position: 'absolute', top: '16px', left: '16px', padding: '5px 14px', borderRadius: '999px', background: 'rgba(0,0,0,0.65)', border: '1px solid rgba(255,183,3,0.4)', fontSize: '11px', fontWeight: '800', color: '#ffb703', letterSpacing: '0.08em' }}>
+                  {r.badge}
+                </span>
+              </div>
+            ) : null}
 
             {/* Review content */}
             <div style={{ padding: '36px 32px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
