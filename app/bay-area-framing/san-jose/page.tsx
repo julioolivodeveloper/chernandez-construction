@@ -1,0 +1,300 @@
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import Image from 'next/image';
+import { Phone, Shield, CheckCircle2, Star, MapPin, ChevronRight } from 'lucide-react';
+import ServiceInlineForm from '@/components/services/ServiceInlineForm';
+
+export const metadata: Metadata = {
+  title: 'Framing Contractor San Jose CA — Residential & ADU | C Hernandez Construction',
+  description: 'Licensed framing contractor in San Jose, CA (Lic. #1106454). Structural framing for new homes, ADUs and room additions. Serving Willow Glen, Almaden, Evergreen & all of San Jose. Call (209) 241-3765.',
+  keywords: 'framing contractor San Jose CA, residential framing San Jose, ADU framing San Jose, structural framing contractor San Jose, room addition framing San Jose, licensed contractor San Jose California',
+  alternates: {
+    canonical: 'https://www.chernandezconstructionchg.com/bay-area-framing/san-jose',
+  },
+  openGraph: {
+    title: 'Framing Contractor in San Jose, CA | C Hernandez Construction',
+    description: 'Licensed framing contractor serving San Jose. Residential framing, ADUs, room additions. Lic. #1106454 · Free estimates.',
+    url: 'https://www.chernandezconstructionchg.com/bay-area-framing/san-jose',
+  },
+};
+
+const framingServices = [
+  { title: 'New Home Framing', desc: 'Complete structural framing for new residential construction in San Jose — floor systems, walls, and roof framing built to California code.' },
+  { title: 'ADU Framing San Jose', desc: 'San Jose\'s ADU ordinance is homeowner-friendly. We frame detached ADUs, garage conversions, and attached ADUs that meet City of San Jose requirements.' },
+  { title: 'Room Addition Framing', desc: 'Expand your San Jose home properly. We tie new addition framing into your existing structure for a seamless, code-compliant result.' },
+  { title: 'Second Story Additions', desc: 'Adding a second floor in San Jose requires structural engineering and precise framing. We work with your engineer to get it right.' },
+  { title: 'Garage Conversion Framing', desc: 'Convert your garage to living space with new walls, proper ceiling height, and window openings — all framed for San Jose inspections.' },
+  { title: 'Exterior Wall Framing', desc: 'Stand-alone framing for new exterior walls, load-bearing modifications, or shear wall installation in San Jose homes.' },
+];
+
+const sanJoseNeighborhoods = [
+  'Willow Glen', 'Almaden Valley', 'Evergreen', 'Berryessa', 'Silver Creek',
+  'Rose Garden', 'Naglee Park', 'East San Jose', 'South San Jose', 'Downtown San Jose',
+  'Cambrian', 'Blossom Hill', 'Alum Rock', 'West San Jose',
+];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'GeneralContractor',
+  name: 'C Hernandez Construction — San Jose Framing',
+  legalName: 'C Hernandez Construction',
+  telephone: '+12092413765',
+  url: 'https://www.chernandezconstructionchg.com/bay-area-framing/san-jose',
+  description: 'Licensed framing contractor serving San Jose, CA. Residential framing, ADUs and room additions. CA Lic. #1106454.',
+  priceRange: '$$',
+  address: { '@type': 'PostalAddress', addressLocality: 'Ceres', addressRegion: 'CA', postalCode: '95307', addressCountry: 'US' },
+  areaServed: {
+    '@type': 'City',
+    name: 'San Jose',
+    sameAs: 'https://en.wikipedia.org/wiki/San_Jose,_California',
+    containedInPlace: { '@type': 'State', name: 'California' },
+  },
+  openingHoursSpecification: [{
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
+    opens: '07:00',
+    closes: '18:00',
+  }],
+  aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '9', bestRating: '5' },
+  hasCredential: {
+    '@type': 'EducationalOccupationalCredential',
+    credentialCategory: 'license',
+    name: 'California Contractor License',
+    identifier: '1106454',
+    recognizedBy: { '@type': 'Organization', name: 'California Contractors State License Board' },
+  },
+};
+
+const BASE_IMG = 'https://umyhcsrxwdogvbxgipnx.supabase.co/storage/v1/object/public/site-images/';
+
+export default function SanJoseFramingPage() {
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+
+      {/* ── HERO ── */}
+      <section style={{
+        background: 'linear-gradient(145deg, #060d1c 0%, #0c1a30 50%, #080e1d 100%)',
+        position: 'relative', overflow: 'hidden', padding: '100px 0 80px',
+        minHeight: '82vh', display: 'flex', alignItems: 'center',
+      }}>
+        <div style={{ position: 'absolute', top: 0, right: 0, width: '55%', height: '100%', background: 'radial-gradient(ellipse at right top, rgba(255,183,3,0.09) 0%, transparent 65%)', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(rgba(255,183,3,0.06) 1px, transparent 1px)', backgroundSize: '36px 36px', pointerEvents: 'none' }} />
+
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+          {/* Breadcrumb */}
+          <nav style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '28px', fontSize: '12.5px' }}>
+            <Link href="/bay-area-framing" style={{ color: 'rgba(255,255,255,0.4)', textDecoration: 'none' }}>Bay Area Framing</Link>
+            <ChevronRight size={12} style={{ color: 'rgba(255,255,255,0.25)' }} />
+            <span style={{ color: '#ffb703', fontWeight: '700' }}>San Jose</span>
+          </nav>
+
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '56px', alignItems: 'center' }} className="hero-two-col">
+            <div>
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '7px', padding: '5px 14px', borderRadius: '999px', background: 'rgba(255,183,3,0.1)', border: '1px solid rgba(255,183,3,0.28)', fontSize: '11px', fontWeight: '800', color: '#ffb703', letterSpacing: '0.13em', textTransform: 'uppercase', marginBottom: '22px' }}>
+                <MapPin size={10} /> San Jose, CA
+              </div>
+              <h1 style={{ fontFamily: 'Poppins, sans-serif', fontSize: 'clamp(2rem, 4.5vw, 3.5rem)', fontWeight: '900', color: '#fff', lineHeight: 1.1, letterSpacing: '-0.03em', marginBottom: '18px' }}>
+                Framing Contractor <br /><span className="text-gradient">San Jose, CA</span>
+              </h1>
+              <p style={{ fontSize: 'clamp(14px, 1.4vw, 17px)', color: 'rgba(255,255,255,0.65)', lineHeight: 1.75, marginBottom: '28px', maxWidth: '460px' }}>
+                Licensed general contractor (Lic. #1106454) providing residential framing services throughout San Jose — from Willow Glen to Evergreen, Almaden to Berryessa.
+              </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '9px', marginBottom: '32px' }}>
+                {[
+                  'City of San Jose permits & inspections',
+                  'ADU framing specialists',
+                  'Free written estimates — same day',
+                  'Fully licensed & insured · CA Lic. #1106454',
+                ].map(t => (
+                  <div key={t} style={{ display: 'flex', alignItems: 'center', gap: '9px' }}>
+                    <CheckCircle2 size={15} style={{ color: '#ffb703', flexShrink: 0 }} />
+                    <span style={{ fontSize: '13.5px', color: 'rgba(255,255,255,0.7)' }}>{t}</span>
+                  </div>
+                ))}
+              </div>
+              <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+                <a href="#estimate" className="btn-primary">Get Free Estimate →</a>
+                <a href="tel:+12092413765" className="btn-secondary"><Phone size={14} /> (209) 241-3765</a>
+              </div>
+            </div>
+
+            {/* Right card */}
+            <div>
+              <div style={{ padding: '32px', borderRadius: '24px', background: 'rgba(15,26,46,0.75)', border: '1px solid rgba(255,183,3,0.2)', backdropFilter: 'blur(20px)' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '24px', paddingBottom: '20px', borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
+                  <Shield size={18} style={{ color: '#ffb703' }} />
+                  <div>
+                    <div style={{ fontSize: '14px', fontWeight: '800', color: '#fff' }}>Licensed & Ready to Frame</div>
+                    <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.4)' }}>CA Lic. #1106454 — San Jose coverage</div>
+                  </div>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+                  {[
+                    { label: 'Scope', val: 'New construction, ADUs, additions' },
+                    { label: 'Permits', val: 'City of San Jose Building Dept.' },
+                    { label: 'Timeline', val: '1–5 weeks depending on scope' },
+                    { label: 'Estimate', val: 'Free — within 24 hours' },
+                    { label: 'Rating', val: '5.0 ⭐ (9 Google reviews)' },
+                  ].map(({ label, val }) => (
+                    <div key={label} style={{ display: 'flex', justifyContent: 'space-between', gap: '12px' }}>
+                      <span style={{ fontSize: '12px', color: 'rgba(255,255,255,0.4)', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '0.06em' }}>{label}</span>
+                      <span style={{ fontSize: '13px', color: '#fff', fontWeight: '600', textAlign: 'right' }}>{val}</span>
+                    </div>
+                  ))}
+                </div>
+                <div style={{ marginTop: '24px', paddingTop: '20px', borderTop: '1px solid rgba(255,255,255,0.07)', display: 'flex', gap: '10px' }}>
+                  <a href="#estimate" style={{ flex: 1, textAlign: 'center', padding: '12px', borderRadius: '12px', background: '#ffb703', color: '#080e1d', fontWeight: '800', fontSize: '13.5px', textDecoration: 'none' }}>
+                    Free Estimate
+                  </a>
+                  <a href="https://wa.link/roppnh" target="_blank" rel="noopener" style={{ flex: 1, textAlign: 'center', padding: '12px', borderRadius: '12px', background: 'rgba(37,211,102,0.15)', border: '1px solid rgba(37,211,102,0.3)', color: '#25d366', fontWeight: '700', fontSize: '13.5px', textDecoration: 'none' }}>
+                    WhatsApp
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── SERVICES ── */}
+      <section className="section-pad" style={{ background: '#080e1d' }}>
+        <div className="container">
+          <h2 style={{ fontFamily: 'Poppins, sans-serif', fontSize: 'clamp(1.7rem, 3vw, 2.4rem)', fontWeight: '800', color: '#fff', marginBottom: '12px' }}>
+            Framing Services in <span className="text-gradient">San Jose</span>
+          </h2>
+          <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.5)', marginBottom: '40px', maxWidth: '560px' }}>
+            Every San Jose framing project is permitted, inspected, and built to exceed California Building Code requirements.
+          </p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }} className="three-col">
+            {framingServices.map(({ title, desc }) => (
+              <div key={title} style={{ padding: '24px', borderRadius: '18px', background: 'rgba(255,183,3,0.05)', border: '1px solid rgba(255,183,3,0.13)' }}>
+                <h3 style={{ fontSize: '15px', fontWeight: '800', color: '#fff', marginBottom: '9px', fontFamily: 'Poppins, sans-serif' }}>{title}</h3>
+                <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.5)', lineHeight: 1.7 }}>{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── SAN JOSE NEIGHBORHOODS ── */}
+      <section className="section-pad" style={{ background: '#0b1220' }}>
+        <div className="container">
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '56px', alignItems: 'start' }} className="two-col">
+            <div>
+              <div className="section-chip"><MapPin size={11} /> Neighborhoods</div>
+              <h2 style={{ fontFamily: 'Poppins, sans-serif', fontSize: 'clamp(1.6rem, 2.8vw, 2.3rem)', fontWeight: '800', color: '#fff', marginBottom: '14px' }}>
+                We Frame Across All <span className="text-gradient">San Jose Neighborhoods</span>
+              </h2>
+              <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.5)', lineHeight: 1.75, marginBottom: '28px' }}>
+                Whether you're in Willow Glen, Almaden Valley, or East San Jose — we come to you. All San Jose framing projects include permit coordination with the City of San Jose Building Department.
+              </p>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                {sanJoseNeighborhoods.map(n => (
+                  <span key={n} style={{ padding: '6px 14px', borderRadius: '999px', background: 'rgba(255,183,3,0.08)', border: '1px solid rgba(255,183,3,0.2)', fontSize: '12.5px', color: 'rgba(255,255,255,0.7)', fontWeight: '600' }}>
+                    {n}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div style={{ padding: '28px', borderRadius: '22px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}>
+              <h3 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '800', fontSize: '17px', color: '#fff', marginBottom: '18px' }}>
+                San Jose Framing — Quick Stats
+              </h3>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+                {[
+                  { icon: '🏛️', title: 'Permitting Authority', val: 'City of San Jose Building Division' },
+                  { icon: '📋', title: 'ADU Allowance', val: 'Per SB9 + local ordinance' },
+                  { icon: '📐', title: 'Typical ADU Size', val: '400–1,200 sq ft' },
+                  { icon: '⏱️', title: 'Framing Timeline', val: '1–5 weeks by project scope' },
+                  { icon: '💰', title: 'Estimates', val: 'Free · Written · Within 24 hrs' },
+                  { icon: '🛡️', title: 'Our License', val: 'CA Lic. #1106454 — all of CA' },
+                ].map(({ icon, title, val }) => (
+                  <div key={title} style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', paddingBottom: '14px', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                    <span style={{ fontSize: '18px', flexShrink: 0 }}>{icon}</span>
+                    <div>
+                      <div style={{ fontSize: '11.5px', fontWeight: '700', color: '#ffb703', marginBottom: '3px', letterSpacing: '0.05em', textTransform: 'uppercase' }}>{title}</div>
+                      <div style={{ fontSize: '13.5px', color: 'rgba(255,255,255,0.65)' }}>{val}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── REVIEW HIGHLIGHT ── */}
+      <section className="section-pad" style={{ background: '#080e1d' }}>
+        <div className="container" style={{ maxWidth: '800px', textAlign: 'center' }}>
+          <div className="section-chip" style={{ margin: '0 auto 28px' }}>
+            <Star size={11} /> Client Testimonial
+          </div>
+          <div style={{ padding: '36px', borderRadius: '24px', background: 'rgba(255,183,3,0.06)', border: '1px solid rgba(255,183,3,0.2)' }}>
+            <div style={{ display: 'flex', gap: '3px', justifyContent: 'center', marginBottom: '18px' }}>
+              {[...Array(5)].map((_, i) => <Star key={i} size={18} fill="#ffb703" style={{ color: '#ffb703' }} />)}
+            </div>
+            <blockquote style={{ fontSize: '17px', color: 'rgba(255,255,255,0.8)', lineHeight: 1.75, fontStyle: 'italic', marginBottom: '22px' }}>
+              "From start to finish it was a great experience. We looked at the plans and got the work done very efficiently — passed city inspections with no problem on the first try, which allowed the rest of the project to move forward. Great price too."
+            </blockquote>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', justifyContent: 'center' }}>
+              <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(255,183,3,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '16px', fontWeight: '800', color: '#ffb703' }}>J</div>
+              <div style={{ textAlign: 'left' }}>
+                <div style={{ fontSize: '14px', fontWeight: '800', color: '#fff' }}>Jose Carmona</div>
+                <div style={{ fontSize: '12px', color: 'rgba(255,255,255,0.4)' }}>Bay Area Project · Google Review ✓</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── ESTIMATE FORM ── */}
+      <section id="estimate" className="section-pad" style={{ background: '#0b1220' }}>
+        <div className="container">
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '64px', alignItems: 'start' }} className="two-col">
+            <div>
+              <div className="section-chip"><Phone size={11} /> Free Estimate — San Jose</div>
+              <h2 style={{ fontFamily: 'Poppins, sans-serif', fontSize: 'clamp(1.6rem, 2.8vw, 2.3rem)', fontWeight: '800', color: '#fff', marginBottom: '14px' }}>
+                Request Your <span className="text-gradient">San Jose Framing Quote</span>
+              </h2>
+              <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.5)', lineHeight: 1.75, marginBottom: '24px' }}>
+                Tell us about your San Jose project — new home, ADU, or room addition. We respond the same day with a clear, no-obligation estimate.
+              </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                {['Free estimate — no commitment', 'Licensed: CA Lic. #1106454', 'San Jose permits included', 'Mon–Sat 7am–6pm availability'].map(t => (
+                  <div key={t} style={{ display: 'flex', alignItems: 'center', gap: '9px' }}>
+                    <CheckCircle2 size={14} style={{ color: '#ffb703', flexShrink: 0 }} />
+                    <span style={{ fontSize: '13.5px', color: 'rgba(255,255,255,0.65)' }}>{t}</span>
+                  </div>
+                ))}
+              </div>
+              <div style={{ marginTop: '28px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <Link href="/bay-area-framing/milpitas" className="bay-muted-link" style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'rgba(255,255,255,0.45)', fontSize: '13px', textDecoration: 'none' }}>
+                  <ChevronRight size={13} /> Also serving Milpitas →
+                </Link>
+                <Link href="/bay-area-framing/adu" className="bay-muted-link" style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'rgba(255,255,255,0.45)', fontSize: '13px', textDecoration: 'none' }}>
+                  <ChevronRight size={13} /> ADU framing Bay Area →
+                </Link>
+              </div>
+            </div>
+            <div style={{ padding: '32px', borderRadius: '24px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
+              <ServiceInlineForm service="San Jose framing" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <style>{`
+        .bay-muted-link:hover { color: #ffb703 !important; }
+        @media (max-width: 860px) {
+          .hero-two-col, .two-col { grid-template-columns: 1fr !important; }
+          .three-col { grid-template-columns: 1fr 1fr !important; }
+        }
+        @media (max-width: 540px) {
+          .three-col { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
+    </>
+  );
+}

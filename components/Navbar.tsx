@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 const LOGO_URL = 'https://umyhcsrxwdogvbxgipnx.supabase.co/storage/v1/object/public/site-images/logo.png';
 import { Phone, Menu, X, ChevronDown, Home, Hammer, Layers, Grid3X3, Wrench, PaintBucket, Warehouse, DoorOpen, Building2, Shield } from 'lucide-react';
@@ -20,9 +21,12 @@ const services = [
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+
+  if (pathname.startsWith('/bay-area-framing')) return null;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);

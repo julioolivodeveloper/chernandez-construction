@@ -2,10 +2,13 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Phone, MapPin, Clock, ExternalLink, Shield, Star } from 'lucide-react';
+import { usePathname } from 'next/navigation';
 
 const LOGO_URL = 'https://umyhcsrxwdogvbxgipnx.supabase.co/storage/v1/object/public/site-images/logo.png';
 
 export default function Footer() {
+  const pathname = usePathname();
+  if (pathname.startsWith('/bay-area-framing')) return null;
   return (
     <footer style={{ background: '#050b18', borderTop: '1px solid rgba(255,183,3,0.15)', fontFamily: 'Inter, sans-serif' }}>
       {/* Map section */}
