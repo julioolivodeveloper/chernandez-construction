@@ -3,6 +3,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Phone, Shield, CheckCircle2, Star, MapPin, ChevronRight, Layers, Home, Building2, Hammer, Clock } from 'lucide-react';
 import ServiceInlineForm from '@/components/services/ServiceInlineForm';
+import PortfolioPreview from '@/components/sections/PortfolioPreview';
+import BayAreaHero from '@/components/BayAreaHero';
 
 export const metadata: Metadata = {
   title: 'Bay Area Framing Services — San Jose & Milpitas | C Hernandez Construction',
@@ -116,99 +118,20 @@ export default function BayAreaFramingPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      {/* ── HERO ── */}
-      <section style={{
-        background: 'linear-gradient(145deg, #060d1c 0%, #0d1f3c 50%, #080e1d 100%)',
-        position: 'relative', overflow: 'hidden', padding: '100px 0 90px',
-        minHeight: '88vh', display: 'flex', alignItems: 'center',
-      }}>
-        {/* Decorative blobs */}
-        <div style={{ position: 'absolute', top: '-80px', right: '-100px', width: '600px', height: '600px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(255,183,3,0.1) 0%, transparent 70%)', pointerEvents: 'none' }} />
-        <div style={{ position: 'absolute', bottom: '-60px', left: '-80px', width: '500px', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(99,179,237,0.06) 0%, transparent 70%)', pointerEvents: 'none' }} />
-        {/* Grid pattern */}
-        <div style={{ position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(rgba(255,183,3,0.07) 1px, transparent 1px)', backgroundSize: '40px 40px', pointerEvents: 'none' }} />
-
-        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'center' }} className="hero-two-col">
-            {/* Left: text */}
-            <div>
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 16px', borderRadius: '999px', background: 'rgba(255,183,3,0.1)', border: '1px solid rgba(255,183,3,0.3)', fontSize: '11px', fontWeight: '800', color: '#ffb703', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: '24px' }}>
-                <MapPin size={11} /> Bay Area Framing Contractor
-              </div>
-
-              <h1 style={{ fontFamily: 'Poppins, sans-serif', fontSize: 'clamp(2.2rem, 5vw, 3.8rem)', fontWeight: '900', color: '#fff', lineHeight: 1.1, letterSpacing: '-0.03em', marginBottom: '8px' }}>
-                Framing Services in
-              </h1>
-              <h1 style={{ fontFamily: 'Poppins, sans-serif', fontSize: 'clamp(2.2rem, 5vw, 3.8rem)', fontWeight: '900', lineHeight: 1.1, letterSpacing: '-0.03em', marginBottom: '24px' }}>
-                <span className="text-gradient">San Jose</span>{' '}
-                <span style={{ color: 'rgba(255,255,255,0.25)' }}>&</span>{' '}
-                <span className="text-gradient">Milpitas</span>
-              </h1>
-
-              <p style={{ fontSize: 'clamp(15px, 1.5vw, 18px)', color: 'rgba(255,255,255,0.65)', lineHeight: 1.75, marginBottom: '32px', maxWidth: '480px' }}>
-                Licensed general contractor (Lic. #1106454) bringing Central Valley quality and competitive pricing to the Bay Area. Residential framing, ADUs and room additions — built to California code.
-              </p>
-
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '36px' }}>
-                {[
-                  'Free written estimates — same-day response',
-                  'Licensed & insured · CA Lic. #1106454',
-                  'Permit coordination included',
-                  'Framing inspection-ready workmanship',
-                ].map(t => (
-                  <div key={t} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <CheckCircle2 size={16} style={{ color: '#ffb703', flexShrink: 0 }} />
-                    <span style={{ fontSize: '14px', color: 'rgba(255,255,255,0.7)' }}>{t}</span>
-                  </div>
-                ))}
-              </div>
-
-              <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-                <a href="#estimate" className="btn-primary">
-                  Get a Free Estimate →
-                </a>
-                <a href="tel:+12092413765" className="btn-secondary">
-                  <Phone size={15} /> (209) 241-3765
-                </a>
-              </div>
-            </div>
-
-            {/* Right: image + trust card */}
-            <div style={{ position: 'relative' }}>
-              <div style={{ borderRadius: '24px', overflow: 'hidden', border: '1px solid rgba(255,183,3,0.2)', boxShadow: '0 32px 80px rgba(0,0,0,0.5)' }}>
-                <Image
-                  src={`${BASE_IMG}daniel%20sanchez/Captura%20de%20pantalla%202026-07-30%20a%20la%28s%29%201.39.07%20p.m..png`}
-                  alt="ADU framing project in Milpitas Bay Area — C Hernandez Construction"
-                  width={600}
-                  height={450}
-                  style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }}
-                  priority
-                />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(8,14,29,0.6) 0%, transparent 60%)', borderRadius: '24px' }} />
-              </div>
-              {/* Floating badge */}
-              <div style={{ position: 'absolute', bottom: '-20px', left: '24px', padding: '16px 20px', borderRadius: '18px', background: 'rgba(8,14,29,0.95)', border: '1px solid rgba(255,183,3,0.3)', backdropFilter: 'blur(16px)', boxShadow: '0 12px 40px rgba(0,0,0,0.4)' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <div style={{ display: 'flex', gap: '2px' }}>
-                    {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="#ffb703" style={{ color: '#ffb703' }} />)}
-                  </div>
-                  <div>
-                    <div style={{ fontSize: '14px', fontWeight: '800', color: '#fff' }}>5.0 Google Rating</div>
-                    <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.45)' }}>9 verified reviews</div>
-                  </div>
-                </div>
-              </div>
-              {/* License badge */}
-              <div style={{ position: 'absolute', top: '18px', right: '18px', padding: '8px 14px', borderRadius: '12px', background: 'rgba(8,14,29,0.9)', border: '1px solid rgba(255,183,3,0.35)', backdropFilter: 'blur(12px)' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <Shield size={13} style={{ color: '#ffb703' }} />
-                  <span style={{ fontSize: '12px', fontWeight: '800', color: '#ffb703' }}>Lic. #1106454</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <BayAreaHero
+        badge="Bay Area Framing Contractor"
+        badgeIcon={<MapPin size={11} />}
+        title={<>Framing Services in{' '}<br /><span className="text-gradient">San Jose</span>{' & '}<span className="text-gradient">Milpitas</span></>}
+        description="Licensed general contractor (Lic. #1106454) bringing Central Valley quality and competitive pricing to the Bay Area. Residential framing, ADUs and room additions — built to California code."
+        bullets={[
+          'Free written estimates — same-day response',
+          'Licensed & insured · CA Lic. #1106454',
+          'Permit coordination included',
+          'Framing inspection-ready workmanship',
+        ]}
+        image={`${BASE_IMG}daniel%20sanchez/Captura%20de%20pantalla%202026-07-30%20a%20la%28s%29%201.39.07%20p.m..png`}
+        imageAlt="ADU framing project in Milpitas Bay Area — C Hernandez Construction"
+      />
 
       {/* ── TRUST BAR ── */}
       <section style={{ background: '#0a1526', borderBottom: '1px solid rgba(255,183,3,0.1)', padding: '0' }}>
@@ -536,6 +459,9 @@ export default function BayAreaFramingPage() {
       </section>
 
       {/* ── ESTIMATE FORM ── */}
+      {/* ── GALLERY ── */}
+      <PortfolioPreview />
+
       <section id="estimate" className="section-pad" style={{ background: '#0b1220' }}>
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '64px', alignItems: 'start' }} className="two-col">

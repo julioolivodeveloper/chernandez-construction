@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Phone, Shield, CheckCircle2, MapPin, ChevronRight, Building2 } from 'lucide-react';
 import ServiceInlineForm from '@/components/services/ServiceInlineForm';
+import BayAreaHero from '@/components/BayAreaHero';
+import PortfolioPreview from '@/components/sections/PortfolioPreview';
 
 export const metadata: Metadata = {
   title: 'Room Addition Framing Bay Area — San Jose & Milpitas | C Hernandez Construction',
@@ -16,6 +18,8 @@ export const metadata: Metadata = {
     url: 'https://www.chernandezconstructionchg.com/bay-area-framing/room-additions',
   },
 };
+
+const BASE_IMG = 'https://umyhcsrxwdogvbxgipnx.supabase.co/storage/v1/object/public/site-images/';
 
 const additionTypes = [
   { title: 'Family Room Addition', desc: 'Add living space for a growing family. We frame single-story additions that tie into your existing home structure seamlessly.' },
@@ -37,90 +41,23 @@ const faqs = [
 export default function RoomAdditionsBayAreaPage() {
   return (
     <>
-      {/* ── HERO ── */}
-      <section style={{
-        background: 'linear-gradient(145deg, #060d1c 0%, #0c1a2e 50%, #080e1d 100%)',
-        position: 'relative', overflow: 'hidden', padding: '100px 0 80px',
-        minHeight: '78vh', display: 'flex', alignItems: 'center',
-      }}>
-        <div style={{ position: 'absolute', top: '-50px', right: '-100px', width: '560px', height: '560px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(252,129,74,0.08) 0%, transparent 70%)', pointerEvents: 'none' }} />
-        <div style={{ position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(rgba(255,183,3,0.055) 1px, transparent 1px)', backgroundSize: '38px 38px', pointerEvents: 'none' }} />
+      <BayAreaHero
+        badge="Room Addition Specialists"
+        badgeIcon={<Building2 size={11} />}
+        title={<>Room Addition Framing <br /><span className="text-gradient">Bay Area</span></>}
+        description="Expand your San Jose or Milpitas home with a properly framed addition. We tie new framing into your existing structure — permitted, inspected, and built to California code."
+        bullets={[
+          'Tied into existing structure — no shortcuts',
+          'City of San Jose & Milpitas permits included',
+          'Second-story additions with engineer coordination',
+          'Licensed: CA Lic. #1106454 · Fully insured',
+        ]}
+        image={`${BASE_IMG}framing88484.jpg`}
+        imageAlt="Room addition framing Bay Area — C Hernandez Construction"
+        breadcrumb={{ label: 'Room Additions' }}
+      />
 
-        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          {/* Breadcrumb */}
-          <nav style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '28px', fontSize: '12.5px' }}>
-            <Link href="/bay-area-framing" style={{ color: 'rgba(255,255,255,0.4)', textDecoration: 'none' }}>Bay Area Framing</Link>
-            <ChevronRight size={12} style={{ color: 'rgba(255,255,255,0.25)' }} />
-            <span style={{ color: '#ffb703', fontWeight: '700' }}>Room Additions</span>
-          </nav>
-
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '56px', alignItems: 'center' }} className="hero-two-col">
-            <div>
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '7px', padding: '5px 14px', borderRadius: '999px', background: 'rgba(252,129,74,0.12)', border: '1px solid rgba(252,129,74,0.3)', fontSize: '11px', fontWeight: '800', color: '#fc8150', letterSpacing: '0.13em', textTransform: 'uppercase', marginBottom: '22px' }}>
-                <Building2 size={10} /> Room Addition Specialists
-              </div>
-              <h1 style={{ fontFamily: 'Poppins, sans-serif', fontSize: 'clamp(2rem, 4.5vw, 3.5rem)', fontWeight: '900', color: '#fff', lineHeight: 1.1, letterSpacing: '-0.03em', marginBottom: '18px' }}>
-                Room Addition Framing <br /><span className="text-gradient">Bay Area</span>
-              </h1>
-              <p style={{ fontSize: 'clamp(14px, 1.4vw, 17px)', color: 'rgba(255,255,255,0.65)', lineHeight: 1.75, marginBottom: '28px', maxWidth: '480px' }}>
-                Expand your San Jose or Milpitas home with a properly framed addition. We tie new framing into your existing structure — permitted, inspected, and built to California code.
-              </p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '9px', marginBottom: '32px' }}>
-                {[
-                  'Tied into existing structure — no shortcuts',
-                  'City of San Jose & Milpitas permits included',
-                  'Second-story additions with engineer coordination',
-                  'Licensed: CA Lic. #1106454 · Fully insured',
-                ].map(t => (
-                  <div key={t} style={{ display: 'flex', alignItems: 'center', gap: '9px' }}>
-                    <CheckCircle2 size={15} style={{ color: '#ffb703', flexShrink: 0 }} />
-                    <span style={{ fontSize: '13.5px', color: 'rgba(255,255,255,0.7)' }}>{t}</span>
-                  </div>
-                ))}
-              </div>
-              <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-                <a href="#estimate" className="btn-primary">Get Free Estimate →</a>
-                <a href="tel:+12092413765" className="btn-secondary"><Phone size={14} /> (209) 241-3765</a>
-              </div>
-            </div>
-
-            {/* Right: info card */}
-            <div style={{ padding: '32px', borderRadius: '24px', background: 'rgba(15,26,46,0.75)', border: '1px solid rgba(255,183,3,0.2)', backdropFilter: 'blur(20px)' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '24px', paddingBottom: '20px', borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
-                <Shield size={18} style={{ color: '#ffb703' }} />
-                <div>
-                  <div style={{ fontSize: '14px', fontWeight: '800', color: '#fff' }}>Bay Area Room Addition Framing</div>
-                  <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.4)' }}>CA Lic. #1106454 · San Jose & Milpitas</div>
-                </div>
-              </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', marginBottom: '24px' }}>
-                {[
-                  { label: 'Project types', val: 'Family room, suites, 2nd story' },
-                  { label: 'Permitting', val: 'City of San Jose / Milpitas' },
-                  { label: 'Framing timeline', val: '1–4 weeks by scope' },
-                  { label: 'Engineer coordination', val: 'Yes — included in process' },
-                  { label: 'Estimate', val: 'Free written · 24 hrs' },
-                ].map(({ label, val }) => (
-                  <div key={label} style={{ display: 'flex', justifyContent: 'space-between', gap: '12px' }}>
-                    <span style={{ fontSize: '12px', color: 'rgba(255,255,255,0.4)', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '0.06em' }}>{label}</span>
-                    <span style={{ fontSize: '13px', color: '#fff', fontWeight: '600', textAlign: 'right' }}>{val}</span>
-                  </div>
-                ))}
-              </div>
-              <div style={{ display: 'flex', gap: '10px' }}>
-                <a href="#estimate" style={{ flex: 1, textAlign: 'center', padding: '12px', borderRadius: '12px', background: '#ffb703', color: '#080e1d', fontWeight: '800', fontSize: '13.5px', textDecoration: 'none' }}>
-                  Free Estimate
-                </a>
-                <a href="https://wa.link/roppnh" target="_blank" rel="noopener" style={{ flex: 1, textAlign: 'center', padding: '12px', borderRadius: '12px', background: 'rgba(37,211,102,0.15)', border: '1px solid rgba(37,211,102,0.3)', color: '#25d366', fontWeight: '700', fontSize: '13.5px', textDecoration: 'none' }}>
-                  WhatsApp
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── ADDITION TYPES ── */}
+            {/* ── ADDITION TYPES ── */}
       <section className="section-pad" style={{ background: '#080e1d' }}>
         <div className="container">
           <h2 style={{ fontFamily: 'Poppins, sans-serif', fontSize: 'clamp(1.7rem, 3vw, 2.4rem)', fontWeight: '800', color: '#fff', marginBottom: '12px' }}>
@@ -181,6 +118,9 @@ export default function RoomAdditionsBayAreaPage() {
       </section>
 
       {/* ── ESTIMATE FORM ── */}
+      {/* ── GALLERY ── */}
+      <PortfolioPreview />
+
       <section id="estimate" className="section-pad" style={{ background: '#0b1220' }}>
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '64px', alignItems: 'start' }} className="two-col">

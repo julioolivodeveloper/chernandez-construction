@@ -3,6 +3,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Phone, Shield, CheckCircle2, Star, MapPin, ChevronRight, Building2, Home, Ruler, Clock, DollarSign } from 'lucide-react';
 import ServiceInlineForm from '@/components/services/ServiceInlineForm';
+import BayAreaHero from '@/components/BayAreaHero';
+import PortfolioPreview from '@/components/sections/PortfolioPreview';
 
 export const metadata: Metadata = {
   title: 'Framing Contractor Milpitas CA — ADU & Residential Framing | C Hernandez Construction',
@@ -56,85 +58,23 @@ export default function MilpitasFramingPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      {/* ── HERO ── */}
-      <section style={{
-        background: 'linear-gradient(145deg, #060d1c 0%, #0e1c35 50%, #080e1d 100%)',
-        position: 'relative', overflow: 'hidden', padding: '100px 0 80px',
-        minHeight: '80vh', display: 'flex', alignItems: 'center',
-      }}>
-        <div style={{ position: 'absolute', top: 0, right: 0, width: '60%', height: '100%', background: 'radial-gradient(ellipse at right, rgba(99,179,237,0.08) 0%, transparent 65%)', pointerEvents: 'none' }} />
-        <div style={{ position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(rgba(255,183,3,0.055) 1px, transparent 1px)', backgroundSize: '38px 38px', pointerEvents: 'none' }} />
+      <BayAreaHero
+        badge="Milpitas, CA"
+        badgeIcon={<MapPin size={11} />}
+        title={<>Framing Contractor <br /><span className="text-gradient">Milpitas, CA</span></>}
+        description="We have a proven track record in Milpitas — including completed ADU framing projects. CA Lic. #1106454, fully insured, and inspection-ready every time."
+        bullets={[
+          'Completed ADU projects in Milpitas — verified review',
+          'City of Milpitas permits & inspections',
+          'Free written estimate — responds same day',
+          'Licensed: CA Lic. #1106454 · Fully insured',
+        ]}
+        image={`${BASE_IMG}daniel%20sanchez/Captura%20de%20pantalla%202026-07-30%20a%20la%28s%29%201.39.07%20p.m..png`}
+        imageAlt="ADU framing project completed in Milpitas, CA — C Hernandez Construction"
+        breadcrumb={{ label: 'Milpitas' }}
+      />
 
-        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          {/* Breadcrumb */}
-          <nav style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '28px', fontSize: '12.5px' }}>
-            <Link href="/bay-area-framing" style={{ color: 'rgba(255,255,255,0.4)', textDecoration: 'none' }}>Bay Area Framing</Link>
-            <ChevronRight size={12} style={{ color: 'rgba(255,255,255,0.25)' }} />
-            <span style={{ color: '#ffb703', fontWeight: '700' }}>Milpitas</span>
-          </nav>
-
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '56px', alignItems: 'center' }} className="hero-two-col">
-            <div>
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '7px', padding: '5px 14px', borderRadius: '999px', background: 'rgba(255,183,3,0.1)', border: '1px solid rgba(255,183,3,0.28)', fontSize: '11px', fontWeight: '800', color: '#ffb703', letterSpacing: '0.13em', textTransform: 'uppercase', marginBottom: '22px' }}>
-                <MapPin size={10} /> Milpitas, CA
-              </div>
-              <h1 style={{ fontFamily: 'Poppins, sans-serif', fontSize: 'clamp(2rem, 4.5vw, 3.5rem)', fontWeight: '900', color: '#fff', lineHeight: 1.1, letterSpacing: '-0.03em', marginBottom: '18px' }}>
-                Framing Contractor <br /><span className="text-gradient">Milpitas, CA</span>
-              </h1>
-              <p style={{ fontSize: 'clamp(14px, 1.4vw, 17px)', color: 'rgba(255,255,255,0.65)', lineHeight: 1.75, marginBottom: '28px', maxWidth: '460px' }}>
-                We have a proven track record in Milpitas — including completed ADU framing projects. CA Lic. #1106454, fully insured, and inspection-ready every time.
-              </p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '9px', marginBottom: '32px' }}>
-                {[
-                  'Completed ADU projects in Milpitas — verified review',
-                  'City of Milpitas permits & inspections',
-                  'Free written estimate — responds same day',
-                  'Licensed: CA Lic. #1106454 · Fully insured',
-                ].map(t => (
-                  <div key={t} style={{ display: 'flex', alignItems: 'center', gap: '9px' }}>
-                    <CheckCircle2 size={15} style={{ color: '#ffb703', flexShrink: 0 }} />
-                    <span style={{ fontSize: '13.5px', color: 'rgba(255,255,255,0.7)' }}>{t}</span>
-                  </div>
-                ))}
-              </div>
-              <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-                <a href="#estimate" className="btn-primary">Get Free Estimate →</a>
-                <a href="tel:+12092413765" className="btn-secondary"><Phone size={14} /> (209) 241-3765</a>
-              </div>
-            </div>
-
-            {/* Right: project image */}
-            <div style={{ position: 'relative' }}>
-              <div style={{ borderRadius: '24px', overflow: 'hidden', border: '1px solid rgba(255,183,3,0.2)', boxShadow: '0 28px 70px rgba(0,0,0,0.5)' }}>
-                <Image
-                  src={`${BASE_IMG}daniel%20sanchez/Captura%20de%20pantalla%202026-07-30%20a%20la%28s%29%201.39.07%20p.m..png`}
-                  alt="ADU framing project completed in Milpitas, CA — C Hernandez Construction"
-                  width={580}
-                  height={440}
-                  style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }}
-                  priority
-                />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(8,14,29,0.55) 0%, transparent 55%)', borderRadius: '24px' }} />
-              </div>
-              {/* "Real project" label */}
-              <div style={{ position: 'absolute', top: '16px', left: '16px', padding: '8px 14px', borderRadius: '12px', background: 'rgba(8,14,29,0.9)', border: '1px solid rgba(255,183,3,0.4)', backdropFilter: 'blur(10px)' }}>
-                <div style={{ fontSize: '11px', fontWeight: '800', color: '#ffb703' }}>✅ Real Milpitas Project</div>
-                <div style={{ fontSize: '10px', color: 'rgba(255,255,255,0.45)', marginTop: '1px' }}>ADU Framing — Verified Review</div>
-              </div>
-              {/* Stars badge */}
-              <div style={{ position: 'absolute', bottom: '-18px', right: '24px', padding: '14px 18px', borderRadius: '16px', background: 'rgba(8,14,29,0.95)', border: '1px solid rgba(255,183,3,0.3)', backdropFilter: 'blur(16px)', boxShadow: '0 10px 36px rgba(0,0,0,0.4)' }}>
-                <div style={{ display: 'flex', gap: '2px', marginBottom: '4px' }}>
-                  {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="#ffb703" style={{ color: '#ffb703' }} />)}
-                </div>
-                <div style={{ fontSize: '12px', fontWeight: '700', color: '#fff' }}>Daniel Sanchez · Milpitas</div>
-                <div style={{ fontSize: '10.5px', color: 'rgba(255,255,255,0.4)' }}>Google Review ✓</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── FEATURED REVIEW ── */}
+            {/* ── FEATURED REVIEW ── */}
       <section style={{ background: '#0a1526', padding: '60px 0', borderBottom: '1px solid rgba(255,183,3,0.1)' }}>
         <div className="container" style={{ maxWidth: '900px' }}>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px', alignItems: 'stretch' }} className="two-col">
@@ -238,6 +178,9 @@ export default function MilpitasFramingPage() {
       </section>
 
       {/* ── ESTIMATE FORM ── */}
+      {/* ── GALLERY ── */}
+      <PortfolioPreview />
+
       <section id="estimate" className="section-pad" style={{ background: '#0b1220' }}>
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '64px', alignItems: 'start' }} className="two-col">

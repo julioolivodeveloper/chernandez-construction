@@ -3,6 +3,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Phone, Shield, CheckCircle2, Star, MapPin, ChevronRight, Building2, FileText, Ruler, Clock, DollarSign } from 'lucide-react';
 import ServiceInlineForm from '@/components/services/ServiceInlineForm';
+import BayAreaHero from '@/components/BayAreaHero';
+import PortfolioPreview from '@/components/sections/PortfolioPreview';
 
 export const metadata: Metadata = {
   title: 'Framing Contractor San Jose CA — Residential & ADU | C Hernandez Construction',
@@ -72,92 +74,23 @@ export default function SanJoseFramingPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      {/* ── HERO ── */}
-      <section style={{
-        background: 'linear-gradient(145deg, #060d1c 0%, #0c1a30 50%, #080e1d 100%)',
-        position: 'relative', overflow: 'hidden', padding: '100px 0 80px',
-        minHeight: '82vh', display: 'flex', alignItems: 'center',
-      }}>
-        <div style={{ position: 'absolute', top: 0, right: 0, width: '55%', height: '100%', background: 'radial-gradient(ellipse at right top, rgba(255,183,3,0.09) 0%, transparent 65%)', pointerEvents: 'none' }} />
-        <div style={{ position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(rgba(255,183,3,0.06) 1px, transparent 1px)', backgroundSize: '36px 36px', pointerEvents: 'none' }} />
+      <BayAreaHero
+        badge="San Jose, CA"
+        badgeIcon={<MapPin size={11} />}
+        title={<>Framing Contractor <br /><span className="text-gradient">San Jose, CA</span></>}
+        description="Licensed general contractor (Lic. #1106454) providing residential framing services throughout San Jose — from Willow Glen to Evergreen, Almaden to Berryessa."
+        bullets={[
+          'City of San Jose permits & inspections',
+          'ADU framing specialists',
+          'Free written estimates — same day',
+          'Fully licensed & insured · CA Lic. #1106454',
+        ]}
+        image={`${BASE_IMG}framing1.jpg`}
+        imageAlt="Residential framing contractor San Jose CA — C Hernandez Construction"
+        breadcrumb={{ label: 'San Jose' }}
+      />
 
-        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          {/* Breadcrumb */}
-          <nav style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '28px', fontSize: '12.5px' }}>
-            <Link href="/bay-area-framing" style={{ color: 'rgba(255,255,255,0.4)', textDecoration: 'none' }}>Bay Area Framing</Link>
-            <ChevronRight size={12} style={{ color: 'rgba(255,255,255,0.25)' }} />
-            <span style={{ color: '#ffb703', fontWeight: '700' }}>San Jose</span>
-          </nav>
-
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '56px', alignItems: 'center' }} className="hero-two-col">
-            <div>
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '7px', padding: '5px 14px', borderRadius: '999px', background: 'rgba(255,183,3,0.1)', border: '1px solid rgba(255,183,3,0.28)', fontSize: '11px', fontWeight: '800', color: '#ffb703', letterSpacing: '0.13em', textTransform: 'uppercase', marginBottom: '22px' }}>
-                <MapPin size={10} /> San Jose, CA
-              </div>
-              <h1 style={{ fontFamily: 'Poppins, sans-serif', fontSize: 'clamp(2rem, 4.5vw, 3.5rem)', fontWeight: '900', color: '#fff', lineHeight: 1.1, letterSpacing: '-0.03em', marginBottom: '18px' }}>
-                Framing Contractor <br /><span className="text-gradient">San Jose, CA</span>
-              </h1>
-              <p style={{ fontSize: 'clamp(14px, 1.4vw, 17px)', color: 'rgba(255,255,255,0.65)', lineHeight: 1.75, marginBottom: '28px', maxWidth: '460px' }}>
-                Licensed general contractor (Lic. #1106454) providing residential framing services throughout San Jose — from Willow Glen to Evergreen, Almaden to Berryessa.
-              </p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '9px', marginBottom: '32px' }}>
-                {[
-                  'City of San Jose permits & inspections',
-                  'ADU framing specialists',
-                  'Free written estimates — same day',
-                  'Fully licensed & insured · CA Lic. #1106454',
-                ].map(t => (
-                  <div key={t} style={{ display: 'flex', alignItems: 'center', gap: '9px' }}>
-                    <CheckCircle2 size={15} style={{ color: '#ffb703', flexShrink: 0 }} />
-                    <span style={{ fontSize: '13.5px', color: 'rgba(255,255,255,0.7)' }}>{t}</span>
-                  </div>
-                ))}
-              </div>
-              <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-                <a href="#estimate" className="btn-primary">Get Free Estimate →</a>
-                <a href="tel:+12092413765" className="btn-secondary"><Phone size={14} /> (209) 241-3765</a>
-              </div>
-            </div>
-
-            {/* Right card */}
-            <div>
-              <div style={{ padding: '32px', borderRadius: '24px', background: 'rgba(15,26,46,0.75)', border: '1px solid rgba(255,183,3,0.2)', backdropFilter: 'blur(20px)' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '24px', paddingBottom: '20px', borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
-                  <Shield size={18} style={{ color: '#ffb703' }} />
-                  <div>
-                    <div style={{ fontSize: '14px', fontWeight: '800', color: '#fff' }}>Licensed & Ready to Frame</div>
-                    <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.4)' }}>CA Lic. #1106454 — San Jose coverage</div>
-                  </div>
-                </div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-                  {[
-                    { label: 'Scope', val: 'New construction, ADUs, additions' },
-                    { label: 'Permits', val: 'City of San Jose Building Dept.' },
-                    { label: 'Timeline', val: '1–5 weeks depending on scope' },
-                    { label: 'Estimate', val: 'Free — within 24 hours' },
-                    { label: 'Rating', val: '5.0 ⭐ (9 Google reviews)' },
-                  ].map(({ label, val }) => (
-                    <div key={label} style={{ display: 'flex', justifyContent: 'space-between', gap: '12px' }}>
-                      <span style={{ fontSize: '12px', color: 'rgba(255,255,255,0.4)', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '0.06em' }}>{label}</span>
-                      <span style={{ fontSize: '13px', color: '#fff', fontWeight: '600', textAlign: 'right' }}>{val}</span>
-                    </div>
-                  ))}
-                </div>
-                <div style={{ marginTop: '24px', paddingTop: '20px', borderTop: '1px solid rgba(255,255,255,0.07)', display: 'flex', gap: '10px' }}>
-                  <a href="#estimate" style={{ flex: 1, textAlign: 'center', padding: '12px', borderRadius: '12px', background: '#ffb703', color: '#080e1d', fontWeight: '800', fontSize: '13.5px', textDecoration: 'none' }}>
-                    Free Estimate
-                  </a>
-                  <a href="https://wa.link/roppnh" target="_blank" rel="noopener" style={{ flex: 1, textAlign: 'center', padding: '12px', borderRadius: '12px', background: 'rgba(37,211,102,0.15)', border: '1px solid rgba(37,211,102,0.3)', color: '#25d366', fontWeight: '700', fontSize: '13.5px', textDecoration: 'none' }}>
-                    WhatsApp
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── SERVICES ── */}
+            {/* ── SERVICES ── */}
       <section className="section-pad" style={{ background: '#080e1d' }}>
         <div className="container">
           <h2 style={{ fontFamily: 'Poppins, sans-serif', fontSize: 'clamp(1.7rem, 3vw, 2.4rem)', fontWeight: '800', color: '#fff', marginBottom: '12px' }}>
@@ -252,6 +185,9 @@ export default function SanJoseFramingPage() {
       </section>
 
       {/* ── ESTIMATE FORM ── */}
+      {/* ── GALLERY ── */}
+      <PortfolioPreview />
+
       <section id="estimate" className="section-pad" style={{ background: '#0b1220' }}>
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '64px', alignItems: 'start' }} className="two-col">
