@@ -15,7 +15,7 @@ const ICONS: Record<string, React.ElementType> = {
   camera: Camera, phone: Phone,
 };
 
-const LOGO_URL = 'https://umyhcsrxwdogvbxgipnx.supabase.co/storage/v1/object/public/site-images/logo.png';
+const LOGO_URL = '/logo.png';
 const BASE = 'https://umyhcsrxwdogvbxgipnx.supabase.co/storage/v1/object/public/site-images/';
 
 const bgImages = [

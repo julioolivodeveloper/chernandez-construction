@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
-const LOGO_URL = 'https://umyhcsrxwdogvbxgipnx.supabase.co/storage/v1/object/public/site-images/logo.png';
+const LOGO_URL = '/logo.png';
 import { Phone, Menu, X, ChevronDown, Home, Hammer, Layers, Grid3X3, Wrench, PaintBucket, Warehouse, DoorOpen, Building2, Shield } from 'lucide-react';
 
 const services = [

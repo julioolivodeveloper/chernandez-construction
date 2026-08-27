@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { Phone, MapPin, Clock, ExternalLink, Shield, Star } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 
-const LOGO_URL = 'https://umyhcsrxwdogvbxgipnx.supabase.co/storage/v1/object/public/site-images/logo.png';
+const LOGO_URL = '/logo.png';
 
 export default function Footer() {
   const pathname = usePathname();
