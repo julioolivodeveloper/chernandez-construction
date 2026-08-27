@@ -39,7 +39,7 @@ function BayAreaNav() {
             <div style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '800', fontSize: '14px', color: '#fff', lineHeight: 1.2 }}>
               C Hernandez <span style={{ color: '#ffb703' }}>Construction</span>
             </div>
-            <div style={{ fontSize: '10px', color: '#ffb703', fontWeight: '700', letterSpacing: '0.06em' }}>
+            <div style={{ fontSize: '10px', color: '#ffb703', fontWeight: '700', letterSpacing: '0.06em' }} className="bay-nav-sub">
               BAY AREA FRAMING DIVISION
             </div>
           </div>
@@ -51,7 +51,7 @@ function BayAreaNav() {
           padding: '10px 20px', borderRadius: '999px',
           background: 'rgba(255,183,3,0.1)', border: '1px solid rgba(255,183,3,0.35)',
           color: '#ffb703', fontSize: '13.5px', fontWeight: '700', textDecoration: 'none',
-          transition: 'all 0.2s',
+          transition: 'all 0.2s', whiteSpace: 'nowrap', flexShrink: 0,
         }}>
           <Phone size={14} />
           (209) 241-3765
@@ -148,6 +148,7 @@ function BayAreaFooter() {
       <style>{`
         .bay-footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; }
         @media (max-width: 760px) { .bay-footer-grid { grid-template-columns: 1fr !important; gap: 28px !important; } }
+        @media (max-width: 420px) { .bay-nav-sub { display: none !important; } }
       `}</style>
     </footer>
   );
