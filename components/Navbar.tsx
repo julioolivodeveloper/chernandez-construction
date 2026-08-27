@@ -284,9 +284,9 @@ export default function Navbar() {
             </div>
 
             <div style={{ display: 'flex', gap: '10px', marginTop: '16px', flexDirection: 'column' }}>
-              <a href="tel:+12092413765" className="btn-primary" style={{ textAlign: 'center', justifyContent: 'center' }}>
+              <a href="tel:+12092413765" className="btn-primary" style={{ textAlign: 'center', justifyContent: 'center', whiteSpace: 'nowrap' }}>
                 <Phone size={16} />
-                Call (209) 241-3765
+                (209) 241-3765
               </a>
               <a href="https://wa.link/roppnh" target="_blank" rel="noopener" className="btn-whatsapp" style={{ textAlign: 'center', justifyContent: 'center' }}>
                 WhatsApp Chat
