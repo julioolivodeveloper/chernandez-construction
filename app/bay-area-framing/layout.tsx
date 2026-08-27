@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Phone, Menu, X, ChevronRight } from 'lucide-react';
+import { Phone, ChevronRight } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 
 const LOGO_URL = 'https://umyhcsrxwdogvbxgipnx.supabase.co/storage/v1/object/public/site-images/logo.png';
@@ -15,9 +15,7 @@ const navLinks = [
 ];
 
 function BayAreaNav() {
-  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -25,127 +23,41 @@ function BayAreaNav() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  useEffect(() => {
-    document.body.style.overflow = mobileOpen ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; };
-  }, [mobileOpen]);
-
   return (
-    <>
-      <header style={{
-        position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50,
-        transition: 'all 0.3s ease',
-        background: scrolled ? 'rgba(8,14,29,0.97)' : 'rgba(8,14,29,0.92)',
-        backdropFilter: 'blur(20px)',
-        borderBottom: scrolled ? '1px solid rgba(255,183,3,0.2)' : '1px solid transparent',
-      }}>
-        <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '68px' }}>
-          {/* Brand */}
-          <Link href="/bay-area-framing" style={{ display: 'flex', alignItems: 'center', gap: '11px', textDecoration: 'none' }}>
-            <Image src={LOGO_URL} alt="C Hernandez Construction" width={42} height={42} style={{ objectFit: 'contain', flexShrink: 0 }} priority />
-            <div>
-              <div style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '800', fontSize: '14px', color: '#fff', lineHeight: 1.2 }}>
-                C Hernandez <span style={{ color: '#ffb703' }}>Construction</span>
-              </div>
-              <div style={{ fontSize: '10px', color: '#ffb703', fontWeight: '700', letterSpacing: '0.06em' }}>
-                BAY AREA FRAMING DIVISION
-              </div>
+    <header style={{
+      position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50,
+      transition: 'all 0.3s ease',
+      background: scrolled ? 'rgba(8,14,29,0.97)' : 'rgba(8,14,29,0.92)',
+      backdropFilter: 'blur(20px)',
+      borderBottom: scrolled ? '1px solid rgba(255,183,3,0.2)' : '1px solid transparent',
+    }}>
+      <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '68px' }}>
+        {/* Logo */}
+        <Link href="/bay-area-framing" style={{ display: 'flex', alignItems: 'center', gap: '11px', textDecoration: 'none' }}>
+          <Image src={LOGO_URL} alt="C Hernandez Construction" width={42} height={42} style={{ objectFit: 'contain', flexShrink: 0 }} priority />
+          <div>
+            <div style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '800', fontSize: '14px', color: '#fff', lineHeight: 1.2 }}>
+              C Hernandez <span style={{ color: '#ffb703' }}>Construction</span>
             </div>
-          </Link>
-
-          {/* Desktop nav */}
-          <nav style={{ display: 'flex', alignItems: 'center', gap: '2px' }} className="hidden-mobile">
-            {navLinks.map(({ href, label }) => {
-              const active = pathname === href;
-              return (
-                <Link key={href} href={href} style={{
-                  padding: '7px 13px', borderRadius: '8px',
-                  color: active ? '#ffb703' : 'rgba(255,255,255,0.75)',
-                  background: active ? 'rgba(255,183,3,0.1)' : 'transparent',
-                  fontSize: '13.5px', fontWeight: active ? '700' : '600',
-                  textDecoration: 'none', transition: 'all 0.18s',
-                  borderBottom: active ? '2px solid #ffb703' : '2px solid transparent',
-                }}>
-                  {label}
-                </Link>
-              );
-            })}
-          </nav>
-
-          {/* CTAs */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }} className="hidden-mobile">
-            <a href="tel:+12092413765" style={{
-              display: 'flex', alignItems: 'center', gap: '6px',
-              padding: '8px 16px', borderRadius: '999px',
-              background: 'rgba(255,183,3,0.1)', border: '1px solid rgba(255,183,3,0.3)',
-              color: '#ffb703', fontSize: '12.5px', fontWeight: '700', textDecoration: 'none',
-            }}>
-              <Phone size={13} />
-              (209) 241-3765
-            </a>
-            <a href="#estimate" className="btn-primary" style={{ padding: '9px 18px', fontSize: '13px' }}>
-              Free Estimate
-            </a>
+            <div style={{ fontSize: '10px', color: '#ffb703', fontWeight: '700', letterSpacing: '0.06em' }}>
+              BAY AREA FRAMING DIVISION
+            </div>
           </div>
+        </Link>
 
-          {/* Burger */}
-          <button onClick={() => setMobileOpen(!mobileOpen)} style={{
-            display: 'none', alignItems: 'center', justifyContent: 'center',
-            width: '42px', height: '42px', borderRadius: '10px',
-            background: 'rgba(255,183,3,0.1)', border: '1px solid rgba(255,183,3,0.25)',
-            color: '#ffb703', cursor: 'pointer',
-          }} className="show-mobile-flex" aria-label="Toggle menu">
-            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
-        </div>
-      </header>
-
-      {/* Mobile menu */}
-      {mobileOpen && (
-        <div style={{
-          position: 'fixed', inset: 0, zIndex: 49,
-          background: 'rgba(8,14,29,0.98)', backdropFilter: 'blur(20px)',
-          paddingTop: '84px', paddingBottom: '24px', overflowY: 'auto',
+        {/* Call button only */}
+        <a href="tel:+12092413765" style={{
+          display: 'flex', alignItems: 'center', gap: '8px',
+          padding: '10px 20px', borderRadius: '999px',
+          background: 'rgba(255,183,3,0.1)', border: '1px solid rgba(255,183,3,0.35)',
+          color: '#ffb703', fontSize: '13.5px', fontWeight: '700', textDecoration: 'none',
+          transition: 'all 0.2s',
         }}>
-          <div className="container" style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-            {navLinks.map(({ href, label }) => (
-              <Link key={href} href={href} onClick={() => setMobileOpen(false)} style={{
-                padding: '16px 20px', borderRadius: '14px',
-                background: pathname === href ? 'rgba(255,183,3,0.12)' : 'rgba(255,255,255,0.04)',
-                border: pathname === href ? '1px solid rgba(255,183,3,0.3)' : '1px solid rgba(255,255,255,0.07)',
-                color: pathname === href ? '#ffb703' : '#fff',
-                fontSize: '16px', fontWeight: '700', textDecoration: 'none', display: 'block',
-              }}>
-                {label}
-              </Link>
-            ))}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginTop: '12px' }}>
-              <a href="tel:+12092413765" className="btn-primary" style={{ textAlign: 'center', justifyContent: 'center' }}>
-                <Phone size={16} /> Call (209) 241-3765
-              </a>
-              <a href="https://wa.link/roppnh" target="_blank" rel="noopener" className="btn-whatsapp" style={{ textAlign: 'center', justifyContent: 'center' }}>
-                WhatsApp Chat
-              </a>
-            </div>
-            <div style={{ marginTop: '16px', paddingTop: '16px', borderTop: '1px solid rgba(255,255,255,0.08)', textAlign: 'center' }}>
-              <Link href="/" style={{ color: 'rgba(255,255,255,0.4)', fontSize: '13px', textDecoration: 'none' }}>
-                ← View main website
-              </Link>
-            </div>
-          </div>
-        </div>
-      )}
-
-      <style>{`
-        @media (max-width: 860px) {
-          .hidden-mobile { display: none !important; }
-          .show-mobile-flex { display: flex !important; }
-        }
-        @media (min-width: 861px) {
-          .show-mobile-flex { display: none !important; }
-        }
-      `}</style>
-    </>
+          <Phone size={14} />
+          (209) 241-3765
+        </a>
+      </div>
+    </header>
   );
 }
 
