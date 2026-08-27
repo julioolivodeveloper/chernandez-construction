@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Phone, Shield, CheckCircle2, Star, MapPin, ChevronRight } from 'lucide-react';
+import { Phone, Shield, CheckCircle2, Star, MapPin, ChevronRight, Building2, Home, Ruler, Clock, DollarSign } from 'lucide-react';
 import ServiceInlineForm from '@/components/services/ServiceInlineForm';
 
 export const metadata: Metadata = {
@@ -201,15 +201,17 @@ export default function MilpitasFramingPage() {
                 <h3 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '800', fontSize: '16px', color: '#fff', marginBottom: '18px' }}>Milpitas Framing — Key Info</h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '13px' }}>
                   {[
-                    { icon: '🏛️', label: 'Permit Authority', val: 'City of Milpitas Building Dept.' },
-                    { icon: '🏘️', label: 'Common Project', val: 'ADU framing · Room additions' },
-                    { icon: '📐', label: 'ADU Ordinance', val: 'Per Santa Clara County rules' },
-                    { icon: '⏱️', label: 'Avg. ADU Framing', val: '2–4 weeks start to inspection' },
-                    { icon: '💰', label: 'Our Estimates', val: 'Free · Written · No obligation' },
-                    { icon: '🛡️', label: 'License', val: 'CA Lic. #1106454 · Fully insured' },
-                  ].map(({ icon, label, val }) => (
+                    { IconEl: <Building2 size={16} style={{ color: '#ffb703' }} />, bg: 'rgba(255,183,3,0.12)', border: 'rgba(255,183,3,0.25)', label: 'Permit Authority', val: 'City of Milpitas Building Dept.' },
+                    { IconEl: <Home size={16} style={{ color: '#63b3ed' }} />, bg: 'rgba(99,179,237,0.12)', border: 'rgba(99,179,237,0.25)', label: 'Common Project', val: 'ADU framing · Room additions' },
+                    { IconEl: <Ruler size={16} style={{ color: '#9ae6b4' }} />, bg: 'rgba(154,230,180,0.12)', border: 'rgba(154,230,180,0.25)', label: 'ADU Ordinance', val: 'Per Santa Clara County rules' },
+                    { IconEl: <Clock size={16} style={{ color: '#f6ad55' }} />, bg: 'rgba(246,173,85,0.12)', border: 'rgba(246,173,85,0.25)', label: 'Avg. ADU Framing', val: '2–4 weeks start to inspection' },
+                    { IconEl: <DollarSign size={16} style={{ color: '#68d391' }} />, bg: 'rgba(104,211,145,0.12)', border: 'rgba(104,211,145,0.25)', label: 'Our Estimates', val: 'Free · Written · No obligation' },
+                    { IconEl: <Shield size={16} style={{ color: '#ffb703' }} />, bg: 'rgba(255,183,3,0.12)', border: 'rgba(255,183,3,0.25)', label: 'License', val: 'CA Lic. #1106454 · Fully insured' },
+                  ].map(({ IconEl, bg, border, label, val }) => (
                     <div key={label} style={{ display: 'flex', alignItems: 'center', gap: '12px', paddingBottom: '13px', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-                      <span style={{ fontSize: '18px', flexShrink: 0 }}>{icon}</span>
+                      <div style={{ width: '36px', height: '36px', borderRadius: '10px', background: bg, border: `1px solid ${border}`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                        {IconEl}
+                      </div>
                       <div style={{ flex: 1 }}>
                         <div style={{ fontSize: '11px', fontWeight: '700', color: '#ffb703', letterSpacing: '0.05em', textTransform: 'uppercase' }}>{label}</div>
                         <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.65)', marginTop: '2px' }}>{val}</div>

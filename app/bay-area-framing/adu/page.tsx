@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
+import type React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Phone, Shield, CheckCircle2, Star, MapPin, ChevronRight, Home } from 'lucide-react';
+import { Phone, Shield, CheckCircle2, Star, MapPin, ChevronRight, Home, Warehouse, Building2, Zap } from 'lucide-react';
 import ServiceInlineForm from '@/components/services/ServiceInlineForm';
 
 export const metadata: Metadata = {
@@ -18,26 +19,48 @@ export const metadata: Metadata = {
   },
 };
 
+const aduIconBase: React.CSSProperties = {
+  width: '56px', height: '56px', borderRadius: '16px',
+  display: 'flex', alignItems: 'center', justifyContent: 'center',
+  flexShrink: 0, marginTop: '2px',
+};
+
 const aduTypes = [
   {
     title: 'Detached ADU Framing',
     desc: 'Stand-alone ADU structures from slab to roof. We frame detached ADUs from 400–1,200 sq ft, including all interior walls, floor systems, and roof framing.',
-    icon: '🏠',
+    icon: (
+      <div style={{ ...aduIconBase, background: 'linear-gradient(135deg, rgba(255,183,3,0.22), rgba(255,183,3,0.06))', border: '1px solid rgba(255,183,3,0.3)', boxShadow: '0 4px 16px rgba(255,183,3,0.15)' }}>
+        <Home size={26} style={{ color: '#ffb703' }} />
+      </div>
+    ),
   },
   {
     title: 'Garage Conversion Framing',
     desc: 'Converting your Bay Area garage to an ADU is one of the fastest paths to rental income. We frame new walls, insulation-ready cavities, and proper window/door openings.',
-    icon: '🏢',
+    icon: (
+      <div style={{ ...aduIconBase, background: 'linear-gradient(135deg, rgba(99,179,237,0.18), rgba(99,179,237,0.05))', border: '1px solid rgba(99,179,237,0.28)', boxShadow: '0 4px 16px rgba(99,179,237,0.12)' }}>
+        <Warehouse size={26} style={{ color: '#63b3ed' }} />
+      </div>
+    ),
   },
   {
     title: 'Attached ADU Framing',
     desc: 'An attached ADU shares a wall with the main home. We tie the new structure into your existing framing properly — load paths, shear walls, and all.',
-    icon: '🔗',
+    icon: (
+      <div style={{ ...aduIconBase, background: 'linear-gradient(135deg, rgba(154,230,180,0.18), rgba(154,230,180,0.05))', border: '1px solid rgba(154,230,180,0.28)', boxShadow: '0 4px 16px rgba(154,230,180,0.12)' }}>
+        <Building2 size={26} style={{ color: '#9ae6b4' }} />
+      </div>
+    ),
   },
   {
     title: 'Junior ADU (JADU) Framing',
     desc: 'Smaller conversions within the existing home footprint. Bedroom conversions, studio configurations — permitted and inspected.',
-    icon: '🪄',
+    icon: (
+      <div style={{ ...aduIconBase, background: 'linear-gradient(135deg, rgba(246,173,85,0.18), rgba(246,173,85,0.05))', border: '1px solid rgba(246,173,85,0.28)', boxShadow: '0 4px 16px rgba(246,173,85,0.12)' }}>
+        <Zap size={26} style={{ color: '#f6ad55' }} />
+      </div>
+    ),
   },
 ];
 
@@ -175,7 +198,7 @@ export default function AduBayAreaPage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '18px' }} className="two-col-grid">
             {aduTypes.map(({ title, desc, icon }) => (
               <div key={title} style={{ padding: '28px', borderRadius: '20px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,183,3,0.12)', display: 'flex', gap: '16px' }}>
-                <div style={{ fontSize: '28px', flexShrink: 0, marginTop: '2px' }}>{icon}</div>
+                {icon}
                 <div>
                   <h3 style={{ fontSize: '16px', fontWeight: '800', color: '#fff', marginBottom: '9px', fontFamily: 'Poppins, sans-serif' }}>{title}</h3>
                   <p style={{ fontSize: '13.5px', color: 'rgba(255,255,255,0.52)', lineHeight: 1.7 }}>{desc}</p>

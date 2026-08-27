@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Phone, Shield, CheckCircle2, Star, MapPin, ChevronRight } from 'lucide-react';
+import { Phone, Shield, CheckCircle2, Star, MapPin, ChevronRight, Building2, FileText, Ruler, Clock, DollarSign } from 'lucide-react';
 import ServiceInlineForm from '@/components/services/ServiceInlineForm';
 
 export const metadata: Metadata = {
@@ -204,17 +204,19 @@ export default function SanJoseFramingPage() {
               </h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
                 {[
-                  { icon: '🏛️', title: 'Permitting Authority', val: 'City of San Jose Building Division' },
-                  { icon: '📋', title: 'ADU Allowance', val: 'Per SB9 + local ordinance' },
-                  { icon: '📐', title: 'Typical ADU Size', val: '400–1,200 sq ft' },
-                  { icon: '⏱️', title: 'Framing Timeline', val: '1–5 weeks by project scope' },
-                  { icon: '💰', title: 'Estimates', val: 'Free · Written · Within 24 hrs' },
-                  { icon: '🛡️', title: 'Our License', val: 'CA Lic. #1106454 — all of CA' },
-                ].map(({ icon, title, val }) => (
-                  <div key={title} style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', paddingBottom: '14px', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-                    <span style={{ fontSize: '18px', flexShrink: 0 }}>{icon}</span>
+                  { IconEl: <Building2 size={16} style={{ color: '#ffb703' }} />, bg: 'rgba(255,183,3,0.12)', border: 'rgba(255,183,3,0.25)', title: 'Permitting Authority', val: 'City of San Jose Building Division' },
+                  { IconEl: <FileText size={16} style={{ color: '#63b3ed' }} />, bg: 'rgba(99,179,237,0.12)', border: 'rgba(99,179,237,0.25)', title: 'ADU Allowance', val: 'Per SB9 + local ordinance' },
+                  { IconEl: <Ruler size={16} style={{ color: '#9ae6b4' }} />, bg: 'rgba(154,230,180,0.12)', border: 'rgba(154,230,180,0.25)', title: 'Typical ADU Size', val: '400–1,200 sq ft' },
+                  { IconEl: <Clock size={16} style={{ color: '#f6ad55' }} />, bg: 'rgba(246,173,85,0.12)', border: 'rgba(246,173,85,0.25)', title: 'Framing Timeline', val: '1–5 weeks by project scope' },
+                  { IconEl: <DollarSign size={16} style={{ color: '#68d391' }} />, bg: 'rgba(104,211,145,0.12)', border: 'rgba(104,211,145,0.25)', title: 'Estimates', val: 'Free · Written · Within 24 hrs' },
+                  { IconEl: <Shield size={16} style={{ color: '#ffb703' }} />, bg: 'rgba(255,183,3,0.12)', border: 'rgba(255,183,3,0.25)', title: 'Our License', val: 'CA Lic. #1106454 — all of CA' },
+                ].map(({ IconEl, bg, border, title, val }) => (
+                  <div key={title} style={{ display: 'flex', alignItems: 'center', gap: '12px', paddingBottom: '14px', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                    <div style={{ width: '36px', height: '36px', borderRadius: '10px', background: bg, border: `1px solid ${border}`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                      {IconEl}
+                    </div>
                     <div>
-                      <div style={{ fontSize: '11.5px', fontWeight: '700', color: '#ffb703', marginBottom: '3px', letterSpacing: '0.05em', textTransform: 'uppercase' }}>{title}</div>
+                      <div style={{ fontSize: '11px', fontWeight: '700', color: '#ffb703', marginBottom: '2px', letterSpacing: '0.06em', textTransform: 'uppercase' }}>{title}</div>
                       <div style={{ fontSize: '13.5px', color: 'rgba(255,255,255,0.65)' }}>{val}</div>
                     </div>
                   </div>

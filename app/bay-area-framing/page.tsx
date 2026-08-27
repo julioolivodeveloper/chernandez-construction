@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Phone, Shield, CheckCircle2, Star, MapPin, ChevronRight, Layers, Home, Building2, Hammer } from 'lucide-react';
+import { Phone, Shield, CheckCircle2, Star, MapPin, ChevronRight, Layers, Home, Building2, Hammer, Clock } from 'lucide-react';
 import ServiceInlineForm from '@/components/services/ServiceInlineForm';
 
 export const metadata: Metadata = {
@@ -215,17 +215,54 @@ export default function BayAreaFramingPage() {
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '0' }} className="trust-grid">
             {[
-              { icon: '🏆', label: 'CA Lic. #1106454', sub: 'Fully Licensed & Insured' },
-              { icon: '⭐', label: '5.0 Google Rating', sub: '9 Verified Reviews' },
-              { icon: '📍', label: 'Bay Area Serving', sub: 'San Jose · Milpitas · More' },
-              { icon: '🕐', label: 'Mon – Sat 7am–6pm', sub: 'Free estimates · Same-day reply' },
-            ].map(({ icon, label, sub }, i) => (
+              {
+                IconEl: <Shield size={24} style={{ color: '#ffb703' }} />,
+                bg: 'linear-gradient(135deg, rgba(255,183,3,0.22), rgba(255,183,3,0.06))',
+                glow: 'rgba(255,183,3,0.25)',
+                border: 'rgba(255,183,3,0.35)',
+                label: 'CA Lic. #1106454',
+                sub: 'Fully Licensed & Insured',
+              },
+              {
+                IconEl: <Star size={24} fill="#ffd60a" style={{ color: '#ffd60a' }} />,
+                bg: 'linear-gradient(135deg, rgba(255,214,10,0.2), rgba(255,183,3,0.05))',
+                glow: 'rgba(255,214,10,0.2)',
+                border: 'rgba(255,214,10,0.35)',
+                label: '5.0 Google Rating',
+                sub: '9 Verified Reviews',
+              },
+              {
+                IconEl: <MapPin size={24} style={{ color: '#63b3ed' }} />,
+                bg: 'linear-gradient(135deg, rgba(99,179,237,0.18), rgba(99,179,237,0.04))',
+                glow: 'rgba(99,179,237,0.18)',
+                border: 'rgba(99,179,237,0.3)',
+                label: 'Bay Area Serving',
+                sub: 'San Jose · Milpitas · More',
+              },
+              {
+                IconEl: <Clock size={24} style={{ color: '#9ae6b4' }} />,
+                bg: 'linear-gradient(135deg, rgba(154,230,180,0.18), rgba(154,230,180,0.04))',
+                glow: 'rgba(154,230,180,0.18)',
+                border: 'rgba(154,230,180,0.3)',
+                label: 'Mon – Sat 7am–6pm',
+                sub: 'Free estimates · Same-day reply',
+              },
+            ].map(({ IconEl, bg, glow, border, label, sub }, i) => (
               <div key={label} style={{
-                padding: '22px 24px',
+                padding: '28px 20px',
                 borderLeft: i > 0 ? '1px solid rgba(255,255,255,0.06)' : 'none',
                 textAlign: 'center',
               }}>
-                <div style={{ fontSize: '24px', marginBottom: '6px' }}>{icon}</div>
+                <div style={{
+                  width: '58px', height: '58px', borderRadius: '16px',
+                  background: bg,
+                  border: `1px solid ${border}`,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  margin: '0 auto 14px',
+                  boxShadow: `0 6px 20px ${glow}`,
+                }}>
+                  {IconEl}
+                </div>
                 <div style={{ fontSize: '14px', fontWeight: '800', color: '#fff', fontFamily: 'Poppins, sans-serif' }}>{label}</div>
                 <div style={{ fontSize: '11.5px', color: 'rgba(255,255,255,0.4)', marginTop: '3px' }}>{sub}</div>
               </div>
@@ -360,22 +397,46 @@ export default function BayAreaFramingPage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '12px' }} className="cities-grid">
             {bayAreaCities.map(({ name, slug, primary }) => (
               <div key={name} style={{
-                padding: '18px 20px',
-                borderRadius: '14px',
-                background: primary ? 'rgba(255,183,3,0.1)' : 'rgba(255,255,255,0.03)',
-                border: primary ? '1px solid rgba(255,183,3,0.35)' : '1px solid rgba(255,255,255,0.07)',
+                padding: primary ? '20px 16px' : '16px 14px',
+                borderRadius: '16px',
+                background: primary
+                  ? 'linear-gradient(135deg, rgba(255,183,3,0.14), rgba(255,183,3,0.04))'
+                  : 'rgba(255,255,255,0.03)',
+                border: primary ? '1px solid rgba(255,183,3,0.4)' : '1px solid rgba(255,255,255,0.07)',
                 textAlign: 'center',
+                boxShadow: primary ? '0 8px 24px rgba(255,183,3,0.1)' : 'none',
+                transition: 'all 0.2s',
               }}>
-                <div style={{ fontSize: '18px', marginBottom: '6px' }}>{primary ? '⭐' : '📍'}</div>
+                {primary ? (
+                  <div style={{
+                    width: '52px', height: '52px', borderRadius: '14px',
+                    background: 'linear-gradient(135deg, #ffb703 0%, #ff9500 100%)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    margin: '0 auto 12px',
+                    boxShadow: '0 6px 22px rgba(255,183,3,0.5), inset 0 1px 0 rgba(255,255,255,0.25)',
+                  }}>
+                    <Star size={24} fill="#080e1d" style={{ color: '#080e1d' }} />
+                  </div>
+                ) : (
+                  <div style={{
+                    width: '40px', height: '40px', borderRadius: '11px',
+                    background: 'rgba(255,255,255,0.07)',
+                    border: '1px solid rgba(255,255,255,0.1)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    margin: '0 auto 10px',
+                  }}>
+                    <MapPin size={18} style={{ color: 'rgba(255,255,255,0.55)' }} />
+                  </div>
+                )}
                 {slug ? (
                   <Link href={`/bay-area-framing/${slug}`} style={{ textDecoration: 'none' }}>
                     <div style={{ fontSize: '14px', fontWeight: '800', color: primary ? '#ffb703' : '#fff', fontFamily: 'Poppins, sans-serif' }}>{name}</div>
-                    {primary && <div style={{ fontSize: '11px', color: 'rgba(255,183,3,0.7)', marginTop: '3px', fontWeight: '600' }}>Primary market · View page →</div>}
+                    {primary && <div style={{ fontSize: '11px', color: 'rgba(255,183,3,0.7)', marginTop: '4px', fontWeight: '700', letterSpacing: '0.02em' }}>Primary Market · View page →</div>}
                   </Link>
                 ) : (
                   <>
-                    <div style={{ fontSize: '14px', fontWeight: '700', color: '#fff', fontFamily: 'Poppins, sans-serif' }}>{name}</div>
-                    <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.35)', marginTop: '3px' }}>Service area</div>
+                    <div style={{ fontSize: '13.5px', fontWeight: '700', color: 'rgba(255,255,255,0.8)', fontFamily: 'Poppins, sans-serif' }}>{name}</div>
+                    <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.3)', marginTop: '3px' }}>Service area</div>
                   </>
                 )}
               </div>
